@@ -98,3 +98,4 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "This unsets the 'last search pattern' register by hitting return
 nnoremap <CR> :noh<CR><CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
