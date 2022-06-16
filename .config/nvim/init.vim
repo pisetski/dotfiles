@@ -26,10 +26,6 @@ set nowb
 set noswapfile
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeShowHidden=1
 
 call plug#begin('~/.vim/plugged')
 
@@ -49,14 +45,29 @@ call plug#end()
 
 colorscheme nord
 
-let g:airline_theme='bubblegum'
-let g:airline#extensions#tabline#enabled = 1
 
 " Vim jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
 endif
+
+
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeShowHidden=1
+
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+
+let g:airline_theme='bubblegum'
+let g:airline#extensions#tabline#enabled = 1
 
 function! Lightlinegit()
     let l:branch = FugitiveHead()
@@ -85,6 +96,7 @@ let g:lightline = {
       \   'gitbranch': 'Lightlinegit',
       \ },
       \ }
+
 
 " Move line or visually selected block - alt+j/k
 inoremap <A-j> <Esc>:m .+1<CR>==gi
