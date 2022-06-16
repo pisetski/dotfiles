@@ -40,11 +40,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
 Plug 'bryanmylee/vim-colorscheme-icons'
 Plug 'tpope/vim-fugitive'
+Plug 'MattesGroeger/vim-bookmarks'
 
 call plug#end()
 
 colorscheme nord
 
+lua require('telescope').load_extension('vim_bookmarks')
 
 " Vim jump to the last position when reopening a file
 if has("autocmd")
