@@ -23,9 +23,13 @@ set smarttab
 set si
 set nobackup
 set nowb
+set magic
 set noswapfile
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-
+set lazyredraw
+set scrolloff=5
+set wildignore+=node_modules/*
+set wildignore+=*.map
 
 call plug#begin('~/.vim/plugged')
 
@@ -111,3 +115,5 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "This unsets the 'last search pattern' register by hitting return
 nnoremap <CR> :noh<CR><CR>
 nnoremap <leader>e :NERDTreeFocus<CR>
+nnoremap <space> /
+nnoremap <C-space> ?
