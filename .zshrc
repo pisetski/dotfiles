@@ -4,7 +4,7 @@ export TERM=xterm-256color
 ZSH_THEME="robbyrussell"
 
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-z)
 
 source $ZSH/oh-my-zsh.sh
 
