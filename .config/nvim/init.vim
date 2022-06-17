@@ -45,6 +45,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'bryanmylee/vim-colorscheme-icons'
 Plug 'tpope/vim-fugitive'
 Plug 'MattesGroeger/vim-bookmarks'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -117,3 +118,7 @@ nnoremap <CR> :noh<CR><CR>
 nnoremap <leader>e :NERDTreeFocus<CR>
 nnoremap <space> /
 nnoremap <C-space> ?
+map <Leader>t :term<CR>
+tmap <Leader>t <c-w>:term<CR>
+map <Leader>T :tab term<CR>
+tmap <Leader>T <c-w>:tab term<CR>
