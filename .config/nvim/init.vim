@@ -58,6 +58,7 @@ if has("autocmd")
     \| exe "normal! g'\"" | endif
 endif
 
+let g:gitgutter_highlight_linenrs = 1
 
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
