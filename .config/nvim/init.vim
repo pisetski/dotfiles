@@ -30,6 +30,7 @@ set lazyredraw
 set scrolloff=5
 set wildignore+=node_modules/*
 set wildignore+=*.map
+set signcolumn=yes
 
 call plug#begin('~/.vim/plugged')
 
