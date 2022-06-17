@@ -46,8 +46,6 @@ call plug#end()
 
 colorscheme nord
 
-lua require('telescope').load_extension('vim_bookmarks')
-
 " Vim jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
