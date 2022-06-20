@@ -1,0 +1,5 @@
+require('pisetski.plugins')
+require('pisetski.mappings')
+require('pisetski.general')
+require('pisetski.plugin-nvim-tree')
+require('pisetski.plugin-lualine')
