@@ -1,12 +1,12 @@
 font:
   normal:
-    family: FiraMono Nerd Font Mono
+    family: Fira Code Retina
   bold:
-    family: FiraMono Nerd Font Mono
+    family: Fira Code Retina
   italic:
-    family: FiraMono Nerd Font Mono
+    family: Fira Code Retina
   bold_italic:
-    family: FiraMono Nerd Font Mono
+    family: Fira Code Retina
 
   use_thin_strokes: true
 
