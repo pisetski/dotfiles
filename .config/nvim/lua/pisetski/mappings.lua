@@ -29,4 +29,12 @@ function mappings:mapNvimTree()
   map('n', '<leader>E', '<cmd>NvimTreeFindFile<cr>', silentnoremap) -- Find the current file in file browser
 end
 
+function mappings:mapTelescope()
+  map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', silentnoremap) 
+  map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', silentnoremap) 
+  map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', silentnoremap) 
+  map('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>', silentnoremap) 
+  map('n', '<leader>fv', '<cmd>Telescope git_branches<cr>', silentnoremap) -- List VCS branches 
+end
+
 return mappings
