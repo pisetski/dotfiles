@@ -1,3 +1,4 @@
+local m = require("pisetski.mappings")
 local lsp_installer = require("nvim-lsp-installer")
 
 -- Include the servers you want to have installed by default below
@@ -6,6 +7,7 @@ local servers = {
     "eslint",
     "sumneko_lua",
     "tsserver",
+    "marksman",
 }
 
 for _, name in pairs(servers) do
@@ -15,10 +17,9 @@ for _, name in pairs(servers) do
   end
 end
 
-
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- (sumneko/lua-language-servr) 
+-- (sumneko/lua-language-servr)
 -- Configure lua language server for neovim development
 local lua_settings = {
   settings = {
@@ -44,11 +45,12 @@ local lua_settings = {
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
 lsp_installer.on_server_ready(function(server)
+    m.mapLSP()
     vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     local opts = {
       settings = {
-        capabilities = capabilities
-      }
+        capabilities = capabilities,
+      },
     }
 
     if server.name == "sumneko_lua" then
@@ -58,3 +60,5 @@ lsp_installer.on_server_ready(function(server)
     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     server:setup(opts)
 end)
+
+m.mapLSPDiagnostics()
