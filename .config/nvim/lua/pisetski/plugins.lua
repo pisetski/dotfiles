@@ -39,4 +39,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
+  use 'pangloss/vim-javascript'
+  use 'leafgarland/typescript-vim' -- Typescript syntax highlighting
+  use 'maxmellon/vim-jsx-pretty' --  Make JSX look good (technically this supports TSX too, but has perf issues)
 end)
