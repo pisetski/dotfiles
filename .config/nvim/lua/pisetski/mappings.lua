@@ -30,11 +30,20 @@ function mappings:mapNvimTree()
 end
 
 function mappings:mapTelescope()
-  map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', silentnoremap) 
-  map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', silentnoremap) 
-  map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', silentnoremap) 
-  map('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>', silentnoremap) 
-  map('n', '<leader>fv', '<cmd>Telescope git_branches<cr>', silentnoremap) -- List VCS branches 
+  map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', silentnoremap)
+  map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', silentnoremap)
+  map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', silentnoremap)
+  map('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>', silentnoremap)
+  map('n', '<leader>fv', '<cmd>Telescope git_branches<cr>', silentnoremap) -- List VCS branches
+end
+
+function mappings:mapCompletion()
+  map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+  map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+  map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+  map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+  map("i", "<C-E>", "<Plug>luasnip-next-choice", {})
+  map("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 end
 
 return mappings
