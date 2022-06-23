@@ -2,6 +2,7 @@ local m = require("pisetski.mappings")
 
 require("nvim-tree").setup {
   sort_by = "case_sensitive",
+  open_on_setup = true,
   view = {
     adaptive_size = true,
     mappings = {
@@ -15,6 +16,11 @@ require("nvim-tree").setup {
   },
   filters = {
     dotfiles = false,
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
   },
 }
 
