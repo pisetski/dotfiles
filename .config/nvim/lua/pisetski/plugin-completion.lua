@@ -1,4 +1,4 @@
-local m = require('mappings')
+local m = require('pisetski.mappings')
 local cmp = require('cmp')
 
 cmp.setup({
