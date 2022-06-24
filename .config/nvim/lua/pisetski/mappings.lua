@@ -19,22 +19,14 @@ map('n', ';', ':', { noremap = true })
 -- Reset highlighting after search
 map('n', '<CR>', ':noh<CR><CR>', { noremap = true })
 
-
 function mappings:mapLSP()
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, silentnoremap)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, silentnoremap)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, silentnoremap)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, silentnoremap)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, silentnoremap)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, silentnoremap)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, silentnoremap)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, silentnoremap)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, silentnoremap)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, silentnoremap)
   map('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', silentnoremap)
-  map('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>', silentnoremap)
 
   map('n', '?R', '<cmd>Telescope lsp_references<cr>', silentnoremap) -- Pop open a window for finding references to the word under the cursor
   map('n', '?T', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', silentnoremap) -- Find any type in the workspace dynamically
@@ -42,7 +34,7 @@ function mappings:mapLSP()
 end
 
 function mappings:mapLSPDiagnostics()
-  vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, silentnoremap)
+  vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, silentnoremap)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, silentnoremap)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, silentnoremap)
   vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, silentnoremap)
