@@ -17,7 +17,25 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif vim.fn["vsnip#available"](1) == 1 then
+        feedkey("<Plug>(vsnip-expand-or-jump)", "")
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function()
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+        feedkey("<Plug>(vsnip-jump-prev)", "")
+      end
+    end, { "i", "s" }),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -56,32 +74,32 @@ cmp.setup.cmdline(':', {
 
 local luasnip = require('luasnip')
 local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
+  local col = vim.fn.col('.') - 1
+  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
 end
 
 _G.tab_complete = function()
-    if luasnip and luasnip.expand_or_jumpable() then
-        return t("<Plug>luasnip-expand-or-jump")
-    elseif check_back_space() then
-        return t "<Tab>"
-    else
-        cmp.complete()
-    end
-    return ""
+  if luasnip and luasnip.expand_or_jumpable() then
+    return t("<Plug>luasnip-expand-or-jump")
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    cmp.complete()
+  end
+  return ""
 end
 
 _G.s_tab_complete = function()
-    if luasnip and luasnip.jumpable(-1) then
-        return t("<Plug>luasnip-jump-prev")
-    else
-        return t "<S-Tab>"
-    end
-    return ""
+  if luasnip and luasnip.jumpable(-1) then
+    return t("<Plug>luasnip-jump-prev")
+  else
+    return t "<S-Tab>"
+  end
+  return ""
 end
 
 m.mapCompletion()
