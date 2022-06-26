@@ -8,12 +8,12 @@ vim.g.nowb = true
 
 local o = vim.o
 
-o.showmatch = true -- show matching 
-o.ignorecase = true -- case insensitive 
-o.mouse = 'v' -- middle-click paste with 
-o.hlsearch = true -- highlight search 
+o.showmatch = true -- show matching
+o.ignorecase = true -- case insensitive
+o.mouse = 'v' -- middle-click paste with
+o.hlsearch = true -- highlight search
 o.incsearch = true -- incremental search
-o.tabstop = 2 -- number of columns occupied by a tab 
+o.tabstop = 2 -- number of columns occupied by a tab
 o.softtabstop = 2 -- see multiple spaces as tabstops so <BS> does the right thing
 o.expandtab = true -- converts tabs to white space
 o.shiftwidth = 2 -- width for autoindents
