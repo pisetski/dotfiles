@@ -44,4 +44,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'styled-components/vim-styled-components'
   use 'jose-elias-alvarez/null-ls.nvim'
+  use 'terrortylor/nvim-comment'
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 end)
