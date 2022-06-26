@@ -8,6 +8,7 @@ local servers = {
     "sumneko_lua",
     "tsserver",
     "marksman",
+    "cssls",
 }
 
 for _, name in pairs(servers) do
@@ -42,6 +43,16 @@ local lua_settings = {
   }
 }
 
+--Enable (broadcasting) snippet capability for completion
+local css_capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local cssls_settings = {
+  settings = {
+    capabilities = css_capabilities,
+  }
+}
+
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
 lsp_installer.on_server_ready(function(server)
@@ -55,6 +66,10 @@ lsp_installer.on_server_ready(function(server)
 
     if server.name == "sumneko_lua" then
       opts = lua_settings
+    end
+
+    if server.name == "cssls" then
+      opts = cssls_settings
     end
 
     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
