@@ -1,10 +1,5 @@
 vim.cmd('colorscheme nord')
 
-vim.g.swapfile = false
-vim.g.lazyredraw = true
-vim.g.nocompatible = true -- disable compatibility to old-time vi
-vim.g.nobackup = true
-vim.g.nowb = true
 
 local o = vim.o
 
@@ -18,6 +13,9 @@ o.softtabstop = 2 -- see multiple spaces as tabstops so <BS> does the right thin
 o.expandtab = true -- converts tabs to white space
 o.shiftwidth = 2 -- width for autoindents
 o.autoindent = true -- indent a new line the same amount as the line just typed
+o.scrolloff=8      -- Number of lines from vertical edge to start scroll
+o.sidescrolloff=15 -- Number of lines from horizontal edge to start scroll
+o.sidescroll=6     -- Number of columns to scroll at a time
 o.number = true -- add line numbers
 o.wildmode = 'longest,list' -- get bash-like tab completions
 o.mouse = 'a' -- enable mouseclick
@@ -34,11 +32,19 @@ o.autoread = true -- Automatically read file when edited outside of vim
 o.timeoutlen=400 -- Time to wait in milliseconds between hitting the first key of a multi-key mapping
 o.ttimeoutlen=0  -- Ensure that there's no delay between esc-ing and the next command executing
 o.termguicolors = true
+o.backup = false
+o.writebackup = false
+o.swapfile = false
+o.lazyredraw = true --Don't attempt to render macros for example
+o.backspace = 'indent,eol,start' -- Make deleting natural
+o.autowrite = true -- Make No write since last change stfu
 
 -- How to represent non-printable characters. In general, don't want tabs, so
 -- have them show up as special characters.
 o.listchars='tab:>-,trail:·,extends:>,precedes:<'
 o.list = true -- turn the above on
+
+o.completeopt='menu,menuone,noselect' -- Required by nvim-cmp
 
 vim.cmd('filetype plugin on')
 vim.cmd('filetype plugin indent on')
