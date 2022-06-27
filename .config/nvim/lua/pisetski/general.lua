@@ -40,9 +40,7 @@ o.termguicolors = true
 o.listchars='tab:>-,trail:·,extends:>,precedes:<'
 o.list = true -- turn the above on
 
--- Define the window border characters for splits etc.
--- o.fillchars = vim.o.fillchars .. 'vert:│,fold: ,diff: '
-
 vim.cmd('filetype plugin on')
 vim.cmd('filetype plugin indent on')
 vim.cmd('set noshowmode')
+vim.api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')

@@ -47,4 +47,6 @@ return require('packer').startup(function(use)
   use 'terrortylor/nvim-comment'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'tpope/vim-surround'
+  use 'sickill/vim-pasta' -- Context aware pasting + indentation
+  use 'cohama/lexima.vim'
 end)
