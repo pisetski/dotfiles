@@ -46,4 +46,5 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'terrortylor/nvim-comment'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use 'tpope/vim-surround'
 end)
