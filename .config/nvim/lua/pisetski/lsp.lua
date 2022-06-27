@@ -3,12 +3,12 @@ local lsp_installer = require("nvim-lsp-installer")
 
 -- Include the servers you want to have installed by default below
 local servers = {
-    "bashls",
-    "eslint",
-    "sumneko_lua",
-    "tsserver",
-    "marksman",
-    "cssls",
+  "bashls",
+  "eslint",
+  "sumneko_lua",
+  "tsserver",
+  "marksman",
+  "cssls",
 }
 
 for _, name in pairs(servers) do
@@ -31,7 +31,7 @@ local lua_settings = {
         path = vim.split(package.path, ';'),
       },
       diagnostics = {
-        globals = {'vim'}, -- Get the language server to recognize the `vim` global
+        globals = { 'vim' }, -- Get the language server to recognize the `vim` global
       },
       workspace = { -- Make the server aware of Neovim runtime files
         library = {
@@ -53,27 +53,44 @@ local cssls_settings = {
   }
 }
 
+local tssserver_settings = {
+  settings = {
+    capabilities = capabilities,
+  },
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = false
+
+    -- These lines are need to be used instead for nvim 0.8+
+    -- client.server_capabilities.documentFormattingProvider = false
+    -- client.server_capabilities.documentRangeFormattingProvider = false
+  end,
+}
+
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
 lsp_installer.on_server_ready(function(server)
-    m.mapLSP()
-    vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    local opts = {
-      settings = {
-        capabilities = capabilities,
-      },
-    }
+  m.mapLSP()
+  vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  local opts = {
+    settings = {
+      capabilities = capabilities,
+    },
+  }
 
-    if server.name == "sumneko_lua" then
-      opts = lua_settings
-    end
+  if server.name == "sumneko_lua" then
+    opts = lua_settings
+  end
 
-    if server.name == "cssls" then
-      opts = cssls_settings
-    end
+  if server.name == "cssls" then
+    opts = cssls_settings
+  end
 
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    server:setup(opts)
+  if server.name == "tsserver" then
+    opts = tssserver_settings
+  end
+
+  -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+  server:setup(opts)
 end)
 
 m.mapLSPDiagnostics()
