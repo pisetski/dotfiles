@@ -1,7 +1,9 @@
 local m = require('pisetski.mappings')
 local actions = require('telescope.actions')
+local telescope = require('telescope')
+local neoclip = require('neoclip')
 
-require('telescope').setup {
+telescope.setup {
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
@@ -35,7 +37,7 @@ require('telescope').setup {
       layout_strategy = 'center',
       previewer = false
     },
-  },  
+  },
   extensions = {
     -- Your extension configuration goes here:
     -- extension_name = {
@@ -44,6 +46,21 @@ require('telescope').setup {
     -- please take a look at the readme of the extension you want to configure
   }
 }
+telescope.load_extension('fzf')
 
-require('telescope').load_extension('fzf')
+neoclip.setup({
+  history = 50,
+  keys = {
+    telescope = {
+      i = {
+        paste = '<cr>',
+      },
+      n = {
+        paste = '<cr>',
+      },
+    },
+  },
+})
+telescope.load_extension('neoclip')
+
 m.mapTelescope()

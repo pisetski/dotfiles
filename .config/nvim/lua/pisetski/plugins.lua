@@ -21,6 +21,12 @@ return require('packer').startup(function(use)
       'nvim-treesitter/nvim-treesitter' -- Optional dependency.
     }
   }
+  use {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      { 'nvim-telescope/telescope.nvim' },
+    },
+  }
   use 'MattesGroeger/vim-bookmarks'
   use 'airblade/vim-gitgutter'
   use 'bryanmylee/vim-colorscheme-icons'
