@@ -32,6 +32,9 @@ telescope.setup {
     oldfiles = {
       theme = 'ivy'
     },
+    marks = {
+      theme = 'ivy'
+    },
     git_branches = {
       theme = 'dropdown',
       layout_strategy = 'center',
