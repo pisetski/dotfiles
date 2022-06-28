@@ -27,7 +27,6 @@ return require('packer').startup(function(use)
       { 'nvim-telescope/telescope.nvim' },
     },
   }
-  use 'MattesGroeger/vim-bookmarks'
   use 'airblade/vim-gitgutter'
   use 'bryanmylee/vim-colorscheme-icons'
   use {
