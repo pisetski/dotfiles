@@ -52,6 +52,7 @@ function mappings:mapTelescope()
   map('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>', silentnoremap)
   map('n', '<leader>fv', '<cmd>Telescope git_branches<cr>', silentnoremap) -- List VCS branches
   map('n', '<leader>fc', '<cmd>Telescope git_commits<cr>', silentnoremap)
+  map('n', '<leader>fy', '<cmd>Telescope neoclip<cr>', silentnoremap)
 end
 
 function mappings:mapCompletion()
