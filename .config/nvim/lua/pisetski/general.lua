@@ -44,8 +44,6 @@ o.autowrite = true -- Make No write since last change stfu
 o.listchars='tab:>-,trail:·,extends:>,precedes:<'
 o.list = true -- turn the above on
 
-o.completeopt='menu,menuone,noselect' -- Required by nvim-cmp
-
 vim.cmd('filetype plugin on')
 vim.cmd('filetype plugin indent on')
 vim.cmd('set noshowmode')

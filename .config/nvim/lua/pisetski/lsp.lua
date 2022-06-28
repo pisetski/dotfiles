@@ -1,6 +1,5 @@
 local m = require("pisetski.mappings")
 local lsp_installer = require("nvim-lsp-installer")
-local lsp_signature = require("lsp_signature")
 
 -- Include the servers you want to have installed by default below
 local servers = {
@@ -94,5 +93,4 @@ lsp_installer.on_server_ready(function(server)
   server:setup(opts)
 end)
 
-lsp_signature.setup()
 m.mapLSPDiagnostics()
