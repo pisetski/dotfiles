@@ -21,8 +21,8 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+    ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
     ['<Tab>'] = cmp.mapping(function(fallback)
       -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
       if cmp.visible() then
@@ -35,7 +35,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, { "i", "s" }),
+    end, { "i", "s", "c" }),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -45,15 +45,6 @@ cmp.setup({
     { name = 'buffer' },
   }),
   completion = { completeopt = "menu,menuone,noinsert" },
-})
-
--- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
-  })
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
