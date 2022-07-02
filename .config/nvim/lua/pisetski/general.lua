@@ -44,6 +44,8 @@ o.autowrite = true -- Make No write since last change stfu
 o.listchars='tab:>-,trail:·,extends:>,precedes:<'
 o.list = true -- turn the above on
 
+o.formatoptions= o.formatoptions .. 'j' -- Behave more reasonable when merging lines with J
+
 vim.cmd('filetype plugin on')
 vim.cmd('filetype plugin indent on')
 vim.cmd('set noshowmode')
