@@ -59,10 +59,6 @@ local tssserver_settings = {
   },
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
-
-    -- These lines are need to be used instead for nvim 0.8+
-    -- client.server_capabilities.documentFormattingProvider = false
-    -- client.server_capabilities.documentRangeFormattingProvider = false
   end,
 }
 
