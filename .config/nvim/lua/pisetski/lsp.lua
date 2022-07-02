@@ -81,8 +81,7 @@ lsp_installer.on_server_ready(function(server)
     opts = cssls_settings
   end
 
-  if server.name == "tsserver" then
-    opts = tssserver_settings
+  if server.name == "tsserver" then opts = tssserver_settings
   end
 
   -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
