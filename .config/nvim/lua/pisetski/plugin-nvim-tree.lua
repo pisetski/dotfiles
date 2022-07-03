@@ -1,15 +1,15 @@
-local m = require("pisetski.mappings")
+local m = require('pisetski.mappings')
 
-require("nvim-tree").setup {
-  sort_by = "case_sensitive",
+require('nvim-tree').setup {
+  sort_by = 'case_sensitive',
   open_on_setup = true,
   view = {
     adaptive_size = true,
     mappings = {
       list = {
-        { key = "u", action = "dir_up" },
-        { key = "s", action = "" },
-        { key = "S", action = "" },
+        { key = 'u', action = 'dir_up' },
+        { key = 's', action = '' },
+        { key = 'S', action = '' },
       },
     },
   },
@@ -19,7 +19,7 @@ require("nvim-tree").setup {
   filters = {
     dotfiles = false,
     custom = {
-      "^\\.git"
+      '^\\.git'
     }
   },
   actions = {

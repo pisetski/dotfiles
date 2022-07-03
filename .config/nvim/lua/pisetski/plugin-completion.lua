@@ -1,6 +1,6 @@
 local m = require('pisetski.mappings')
 local cmp = require('cmp')
-local luasnip = require("luasnip")
+local luasnip = require('luasnip')
 
 cmp.setup({
   snippet = {
@@ -35,7 +35,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, { "i", "s", "c" }),
+    end, { 'i', 's', 'c' }),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -44,7 +44,7 @@ cmp.setup({
   }, {
     { name = 'buffer' },
   }),
-  completion = { completeopt = "menu,menuone,noinsert" },
+  completion = { completeopt = 'menu,menuone,noinsert' },
   performance = {
     debounce = 150
   }
@@ -79,22 +79,22 @@ end
 
 _G.tab_complete = function()
   if luasnip and luasnip.expand_or_jumpable() then
-    return t("<Plug>luasnip-expand-or-jump")
+    return t('<Plug>luasnip-expand-or-jump')
   elseif check_back_space() then
-    return t "<Tab>"
+    return t '<Tab>'
   else
     cmp.complete()
   end
-  return ""
+  return ''
 end
 
 _G.s_tab_complete = function()
   if luasnip and luasnip.jumpable(-1) then
-    return t("<Plug>luasnip-jump-prev")
+    return t('<Plug>luasnip-jump-prev')
   else
-    return t "<S-Tab>"
+    return t '<S-Tab>'
   end
-  return ""
+  return ''
 end
 
 m.mapCompletion()

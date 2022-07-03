@@ -1,12 +1,12 @@
 require 'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all"
-  ensure_installed = { "css", "lua", "dockerfile", "dot", "html", "javascript", "json", "make", "markdown", "regex",
-    "tsx", "typescript", "yaml" },
+  -- A list of parser names, or 'all'
+  ensure_installed = { 'css', 'lua', 'dockerfile', 'dot', 'html', 'javascript', 'json', 'make', 'markdown', 'regex',
+    'tsx', 'typescript', 'yaml' },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
-  -- List of parsers to ignore installing (for "all")
+  -- List of parsers to ignore installing (for 'all')
   ignore_install = {},
 
   highlight = {
