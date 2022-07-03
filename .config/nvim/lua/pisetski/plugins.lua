@@ -21,7 +21,7 @@ return require('packer').startup(function(use)
       'nvim-treesitter/nvim-treesitter' -- Optional dependency
     }
   }
-  use "AckslD/nvim-neoclip.lua" -- Telescope yanks search
+  use 'AckslD/nvim-neoclip.lua' -- Telescope yanks search
   use 'nvim-telescope/telescope-ui-select.nvim' -- Neovim core stuff with Telescope picker
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'airblade/vim-gitgutter'

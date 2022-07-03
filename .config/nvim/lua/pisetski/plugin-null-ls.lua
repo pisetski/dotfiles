@@ -1,11 +1,11 @@
-local lspconfig = require("lspconfig")
-local null_ls = require("null-ls")
+local lspconfig = require('lspconfig')
+local null_ls = require('null-ls')
 
 -- Register any number of sources simultaneously
 local sources = {
   null_ls.builtins.diagnostics.write_good,
   null_ls.builtins.formatting.eslint_d.with({
-   prefer_local = "node_modules/.bin",
+   prefer_local = 'node_modules/.bin',
   }),
 }
 
