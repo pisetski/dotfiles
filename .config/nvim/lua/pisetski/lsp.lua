@@ -1,14 +1,15 @@
-local m = require("pisetski.mappings")
-local lsp_installer = require("nvim-lsp-installer")
+local m = require('pisetski.mappings')
+local lsp_installer = require('nvim-lsp-installer')
 
 -- Include the servers you want to have installed by default below
 local servers = {
-  "bashls",
-  "eslint",
-  "sumneko_lua",
-  "tsserver",
-  "marksman",
-  "cssls",
+  'bashls',
+  'eslint',
+  'sumneko_lua',
+  'tsserver',
+  'marksman',
+  'cssls',
+  'gopls',
 }
 
 for _, name in pairs(servers) do
@@ -62,6 +63,15 @@ local tssserver_settings = {
   end,
 }
 
+local go_settings = {
+  settings = {
+    capabilities = capabilities,
+  },
+  on_attach = function(_, _)
+    require('lsp_signature').on_attach()
+  end
+}
+
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
 lsp_installer.on_server_ready(function(server)
@@ -73,17 +83,20 @@ lsp_installer.on_server_ready(function(server)
     },
   }
 
-  if server.name == "sumneko_lua" then
+  if server.name == 'sumneko_lua' then
     opts = lua_settings
   end
 
-  if server.name == "cssls" then
+  if server.name == 'cssls' then
     opts = cssls_settings
   end
 
-  if server.name == "tsserver" then opts = tssserver_settings
+  if server.name == 'tsserver' then opts = tssserver_settings
   end
 
+  if server.name == 'gopls' then
+    opts = go_settings
+  end
   -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
   server:setup(opts)
 end)
