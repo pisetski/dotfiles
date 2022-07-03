@@ -45,6 +45,9 @@ cmp.setup({
     { name = 'buffer' },
   }),
   completion = { completeopt = "menu,menuone,noinsert" },
+  performance = {
+    debounce = 150
+  }
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
