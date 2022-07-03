@@ -62,16 +62,16 @@ function mappings:mapTelescope()
 end
 
 function mappings:mapCompletion()
-  map("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
-  map("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
-  map("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-  map("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-  map("i", "<C-E>", "<Plug>luasnip-next-choice", {})
-  map("s", "<C-E>", "<Plug>luasnip-next-choice", {})
+  map('i', '<Tab>', 'v:lua.tab_complete()', { expr = true })
+  map('s', '<Tab>', 'v:lua.tab_complete()', { expr = true })
+  map('i', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+  map('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+  map('i', '<C-E>', '<Plug>luasnip-next-choice', {})
+  map('s', '<C-E>', '<Plug>luasnip-next-choice', {})
 end
 
 function mappings:mapNeogit()
-  map('n', "<leader>g", "<cmd>Neogit<cr>", silentnoremap)
+  map('n', '<leader>g', '<cmd>Neogit<cr>', silentnoremap)
 end
 
 return mappings
