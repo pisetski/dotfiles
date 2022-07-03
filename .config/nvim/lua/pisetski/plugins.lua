@@ -55,6 +55,6 @@ return require('packer').startup(function(use)
   use 'cohama/lexima.vim'
   use {
     'ggandor/lightspeed.nvim',
-    requires = { 'tpope/vim-repeat' }
-  }
+    requires = { 'tpope/vim-repeat' }  }
+  use 'folke/which-key.nvim' -- Reminders of which key-bindings are available if getting stuck half-way through a binding
 end)
