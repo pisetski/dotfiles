@@ -8,6 +8,8 @@ require("nvim-tree").setup {
     mappings = {
       list = {
         { key = "u", action = "dir_up" },
+        { key = "s", action = "" },
+        { key = "S", action = "" },
       },
     },
   },
