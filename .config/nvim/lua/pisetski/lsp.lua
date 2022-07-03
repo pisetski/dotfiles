@@ -67,9 +67,6 @@ local go_settings = {
   settings = {
     capabilities = capabilities,
   },
-  on_attach = function(_, _)
-    require('lsp_signature').on_attach()
-  end
 }
 
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
