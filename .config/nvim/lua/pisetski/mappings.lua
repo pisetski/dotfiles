@@ -19,6 +19,11 @@ map('n', ';', ':', { noremap = true })
 -- Reset highlighting after search
 map('n', '<CR>', ':noh<CR><CR>', { noremap = true })
 
+map('n', '<C-J>', '<C-W><C-J>', silentnoremap) -- More easily switch window downwards
+map('n', '<C-K>', '<C-W><C-K>', silentnoremap) -- More easily switch window upwards
+map('n', '<C-L>', '<C-W><C-L>', silentnoremap) -- More easily switch window right
+map('n', '<C-H>', '<C-W><C-H>', silentnoremap) -- More easily switch window left
+
 function mappings:mapLSP()
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions

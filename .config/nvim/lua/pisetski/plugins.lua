@@ -17,16 +17,13 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
-      'nvim-lua/plenary.nvim', -- Utility functions for Lua. Direct dependency.
-      'nvim-treesitter/nvim-treesitter' -- Optional dependency.
+      'nvim-lua/plenary.nvim', -- Utility functions for Lua. Direct dependency
+      'nvim-treesitter/nvim-treesitter' -- Optional dependency
     }
   }
-  use {
-    "AckslD/nvim-neoclip.lua",
-    requires = {
-      { 'nvim-telescope/telescope.nvim' },
-    },
-  }
+  use "AckslD/nvim-neoclip.lua" -- Telescope yanks search
+  use 'nvim-telescope/telescope-ui-select.nvim' -- Neovim core stuff with Telescope picker
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'airblade/vim-gitgutter'
   use 'bryanmylee/vim-colorscheme-icons'
   use {
@@ -39,7 +36,6 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use 'L3MON4D3/LuaSnip'
