@@ -70,4 +70,8 @@ function mappings:mapCompletion()
   map("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 end
 
+function mappings:mapNeogit()
+  map('n', "<leader>g", "<cmd>Neogit<cr>", silentnoremap)
+end
+
 return mappings
