@@ -57,4 +57,5 @@ return require('packer').startup(function(use)
     'ggandor/lightspeed.nvim',
     requires = { 'tpope/vim-repeat' }  }
   use 'folke/which-key.nvim' -- Reminders of which key-bindings are available if getting stuck half-way through a binding
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 end)
