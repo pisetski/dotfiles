@@ -23,6 +23,7 @@ map('n', '<C-J>', '<C-W><C-J>', silentnoremap) -- More easily switch window down
 map('n', '<C-K>', '<C-W><C-K>', silentnoremap) -- More easily switch window upwards
 map('n', '<C-L>', '<C-W><C-L>', silentnoremap) -- More easily switch window right
 map('n', '<C-H>', '<C-W><C-H>', silentnoremap) -- More easily switch window left
+map('i', 'jk', '<esc>', silentnoremap) -- Easy access to normal mode from insert mode
 
 function mappings:mapLSP()
   -- Mappings.
