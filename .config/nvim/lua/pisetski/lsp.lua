@@ -24,23 +24,21 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 -- (sumneko/lua-language-servr)
 -- Configure lua language server for neovim development
 local lua_settings = {
-  settings = {
-    capabilities = capabilities,
-    Lua = {
-      runtime = {
-        version = 'LuaJIT', -- LuaJIT in the case of Neovim
-        path = vim.split(package.path, ';'),
+  capabilities = capabilities,
+  Lua = {
+    runtime = {
+      version = 'LuaJIT', -- LuaJIT in the case of Neovim
+      path = vim.split(package.path, ';'),
+    },
+    diagnostics = {
+      globals = { 'vim' }, -- Get the language server to recognize the `vim` global
+    },
+    workspace = { -- Make the server aware of Neovim runtime files
+      library = {
+        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
       },
-      diagnostics = {
-        globals = { 'vim' }, -- Get the language server to recognize the `vim` global
-      },
-      workspace = { -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        },
-      },
-    }
+    },
   }
 }
 
@@ -49,53 +47,49 @@ local css_capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local cssls_settings = {
-  settings = {
-    capabilities = css_capabilities,
-  }
+  capabilities = css_capabilities,
 }
 
-local tssserver_settings = {
-  settings = {
-    capabilities = capabilities,
-  },
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
-  end,
-}
-
-local go_settings = {
-  settings = {
-    capabilities = capabilities,
-  },
-}
 
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
 lsp_installer.on_server_ready(function(server)
   m.mapLSP()
   vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  local opts = {
-    settings = {
-      capabilities = capabilities,
-    },
+  local settings = {
+    capabilities = capabilities,
   }
 
   if server.name == 'sumneko_lua' then
-    opts = lua_settings
+    settings = lua_settings
   end
 
   if server.name == 'cssls' then
-    opts = cssls_settings
+    settings = cssls_settings
   end
 
-  if server.name == 'tsserver' then opts = tssserver_settings
-  end
-
-  if server.name == 'gopls' then
-    opts = go_settings
-  end
   -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-  server:setup(opts)
+  server:setup({
+    settings = settings,
+    on_attach = function(client)
+      if (server.name == 'tsserver') then
+        client.resolved_capabilities.document_formatting = false
+      end
+
+      vim.api.nvim_create_autocmd("CursorHold", {
+        callback = function()
+          vim.diagnostic.open_float(nil, {
+            focusable = false,
+            close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+            border = 'rounded',
+            source = 'always',
+            prefix = ' ',
+            scope = 'cursor',
+          })
+        end
+      })
+    end
+  })
 end)
 
 m.mapLSPDiagnostics()
