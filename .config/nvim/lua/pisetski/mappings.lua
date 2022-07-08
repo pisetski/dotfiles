@@ -25,6 +25,8 @@ map('n', '<C-L>', '<C-W><C-L>', silentnoremap) -- More easily switch window righ
 map('n', '<C-H>', '<C-W><C-H>', silentnoremap) -- More easily switch window left
 map('i', 'jk', '<esc>', silentnoremap) -- Easy access to normal mode from insert mode
 
+map('i', '<S-Tab>', '<C-d>', silentnoremap) -- Make Shift-Tab unindent
+
 function mappings:mapLSP()
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -63,10 +65,6 @@ function mappings:mapTelescope()
 end
 
 function mappings:mapCompletion()
-  map('i', '<Tab>', 'v:lua.tab_complete()', { expr = true })
-  map('s', '<Tab>', 'v:lua.tab_complete()', { expr = true })
-  map('i', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
-  map('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
   map('i', '<C-E>', '<Plug>luasnip-next-choice', {})
   map('s', '<C-E>', '<Plug>luasnip-next-choice', {})
 end
