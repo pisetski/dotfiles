@@ -81,7 +81,6 @@ lsp_installer.on_server_ready(function(server)
           vim.diagnostic.open_float(nil, {
             focusable = false,
             close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-            border = 'rounded',
             source = 'always',
             prefix = ' ',
             scope = 'cursor',
