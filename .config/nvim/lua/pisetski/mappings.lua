@@ -17,13 +17,33 @@ map('n', ';', ':', { noremap = true })
 -- Reset highlighting after search
 map('n', '<CR>', ':noh<CR><CR>', { noremap = true })
 
-map('n', '<C-J>', '<C-W><C-J>', silentnoremap) -- More easily switch window downwards
-map('n', '<C-K>', '<C-W><C-K>', silentnoremap) -- More easily switch window upwards
-map('n', '<C-L>', '<C-W><C-L>', silentnoremap) -- More easily switch window right
-map('n', '<C-H>', '<C-W><C-H>', silentnoremap) -- More easily switch window left
-map('i', 'jk', '<esc>', silentnoremap) -- Easy access to normal mode from insert mode
+-- Better window navigation
+map('n', '<C-J>', '<C-W><C-J>', silentnoremap)
+map('n', '<C-K>', '<C-W><C-K>', silentnoremap)
+map('n', '<C-L>', '<C-W><C-L>', silentnoremap)
+map('n', '<C-H>', '<C-W><C-H>', silentnoremap)
 
-map('i', '<S-Tab>', '<C-d>', silentnoremap) -- Make Shift-Tab unindent
+-- Easy access to normal mode from insert mode
+map('i', 'jk', '<esc>', silentnoremap)
+
+-- Make Shift-Tab unindent
+map('i', '<S-Tab>', '<C-d>', silentnoremap)
+
+-- Navigate buffers
+map("n", "<S-l>", ":bnext<CR>", silentnoremap)
+map("n", "<S-h>", ":bprevious<CR>", silentnoremap)
+
+-- Move text up and down
+map("n", "<A-j>", "<Esc>:m .+1<CR>==gi", silentnoremap)
+map("n", "<A-k>", "<Esc>:m .-2<CR>==gi", silentnoremap)
+map("v", "<A-j>", ":m .+1<CR>==", silentnoremap)
+map("v", "<A-k>", ":m .-2<CR>==", silentnoremap)
+map("x", "<A-j>", ":move '>+1<CR>gv-gv", silentnoremap)
+map("x", "<A-k>", ":move '<-2<CR>gv-gv", silentnoremap)
+
+-- Stay in indent mode
+map("v", "<", "<gv", silentnoremap)
+map("v", ">", ">gv", silentnoremap)
 
 function mappings:mapLSP()
   -- Mappings.
@@ -72,7 +92,9 @@ function mappings:mapNeogit()
 end
 
 function mappings:mapGitlinker()
-  map('n', '<leader>V', '<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
+  map('n', '<leader>V',
+    '<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+    { silent = true })
 end
 
 return mappings
