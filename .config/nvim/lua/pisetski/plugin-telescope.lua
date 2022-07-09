@@ -1,6 +1,6 @@
 local m = require('pisetski.mappings')
-local actions = require('telescope.actions')
 local telescope = require('telescope')
+local actions = require('telescope.actions')
 local neoclip = require('neoclip')
 
 telescope.setup {
@@ -9,9 +9,11 @@ telescope.setup {
     -- config_key = value,
     mappings = {
       i = {
-        ['<esc>'] = actions.close
+        ["<esc>"] = actions.close,
       },
     },
+     -- The below pattern is lua regex and not wildcard
+    file_ignore_patterns = {"node_modules","%.out"},
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
@@ -46,12 +48,14 @@ telescope.setup {
       require('telescope.themes').get_dropdown {
         -- even more opts
       },
+    },
+    fzf = {
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
     }
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
   }
 }
 telescope.load_extension('fzf')
