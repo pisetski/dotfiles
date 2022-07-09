@@ -71,4 +71,5 @@ return require('packer').startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
   }
   use 'rafamadriz/friendly-snippets'
+  use 'windwp/nvim-ts-autotag'
 end)
