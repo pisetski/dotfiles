@@ -17,6 +17,12 @@ map('n', ';', ':', { noremap = true })
 -- Reset highlighting after search
 map('n', '<CR>', ':noh<CR><CR>', { noremap = true })
 
+-- Resize with arrows
+map("n", "<A-Up>", ":resize -2<CR>", silentnoremap)
+map("n", "<A-Down>", ":resize +2<CR>", silentnoremap)
+map("n", "<A-Left>", ":vertical resize -2<CR>", silentnoremap)
+map("n", "<A-Right>", ":vertical resize +2<CR>", silentnoremap)
+
 -- Better window navigation
 map('n', '<C-J>', '<C-W><C-J>', silentnoremap)
 map('n', '<C-K>', '<C-W><C-K>', silentnoremap)
