@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'tpope/vim-surround'
   use 'sickill/vim-pasta' -- Context aware pasting + indentation
-  use 'cohama/lexima.vim'
+  use 'windwp/nvim-autopairs'
   use {
     'ggandor/lightspeed.nvim',
     requires = { 'tpope/vim-repeat' } }
