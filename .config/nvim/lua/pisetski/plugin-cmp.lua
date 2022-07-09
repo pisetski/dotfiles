@@ -2,6 +2,8 @@ local m = require('pisetski.mappings')
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
+require("luasnip/loaders/from_vscode").lazy_load()
+
 local kind_icons = {
   Text = "",
   Method = "m",
@@ -70,10 +72,9 @@ cmp.setup({
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
-        nvim_lsp = "[LSP]",
-        luasnip = "[Snippet]",
-        buffer = "[Buffer]",
-        path = "[Path]",
+        nvim_lsp = 'λ',
+        luasnip = '⋗',
+        buffer = 'Ω',
       })[entry.source.name]
 
       return vim_item
@@ -106,36 +107,5 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
-
--- === L3MON4D3/LuaSnip stuff ===
-
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local check_back_space = function()
-  local col = vim.fn.col('.') - 1
-  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
-end
-
-_G.tab_complete = function()
-  if luasnip and luasnip.expand_or_jumpable() then
-    return t('<Plug>luasnip-expand-or-jump')
-  elseif check_back_space() then
-    return t '<Tab>'
-  else
-    cmp.complete()
-  end
-  return ''
-end
-
-_G.s_tab_complete = function()
-  if luasnip and luasnip.jumpable(-1) then
-    return t('<Plug>luasnip-jump-prev')
-  else
-    return t '<S-Tab>'
-  end
-  return ''
-end
 
 m.mapCompletion()
