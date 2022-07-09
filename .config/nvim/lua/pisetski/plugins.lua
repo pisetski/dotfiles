@@ -64,4 +64,5 @@ return require('packer').startup(function(use)
       'sindrets/diffview.nvim'
     }
   }
+  use 'lewis6991/impatient.nvim'
 end)

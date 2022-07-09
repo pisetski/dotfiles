@@ -1,5 +1,33 @@
 vim.cmd('colorscheme nord')
 
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
+
+-- Disable unused builtins
+local builtins = {
+    "gzip",
+    "zip",
+    "zipPlugin",
+    "tar",
+    "tarPlugin",
+    "getscript",
+    "getscriptPlugin",
+    "vimball",
+    "vimballPlugin",
+    "2html_plugin",
+    "matchit",
+    "matchparen",
+    "logiPat",
+    "rrhelper",
+    "netrw",
+    "netrwPlugin",
+    "netrwSettings",
+    "netrwFileHandlers",
+}
+
+for _, plugin in ipairs(builtins) do
+    vim.g["loaded_" .. plugin] = 1
+end
 
 local o = vim.o
 
@@ -47,6 +75,5 @@ o.list = true -- turn the above on
 o.formatoptions= o.formatoptions .. 'j' -- Behave more reasonable when merging lines with J
 
 vim.cmd('filetype plugin on')
-vim.cmd('filetype plugin indent on')
 vim.cmd('set noshowmode')
 vim.api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
