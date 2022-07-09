@@ -73,4 +73,8 @@ function mappings:mapNeogit()
   map('n', '<leader>g', '<cmd>Neogit<cr>', silentnoremap)
 end
 
+function mappings:mapGitlinker()
+  map('n', '<leader>V', '<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
+end
+
 return mappings
