@@ -5,6 +5,7 @@ require('nvim-tree').setup {
   open_on_setup = true,
   view = {
     adaptive_size = true,
+    centralize_selection = true,
     mappings = {
       list = {
         { key = 'u', action = 'dir_up' },
@@ -26,6 +27,12 @@ require('nvim-tree').setup {
     open_file = {
       quit_on_open = true,
     },
+  },
+  filesystem_watchers = {
+    enable = true
+  },
+  diagnostics = {
+    enable = false
   },
 }
 
