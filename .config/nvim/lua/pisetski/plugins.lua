@@ -72,4 +72,5 @@ return require('packer').startup(function(use)
   }
   use 'rafamadriz/friendly-snippets'
   use 'windwp/nvim-ts-autotag'
+  use 'antoinemadec/FixCursorHold.nvim' -- This is needed to fix lsp doc highlight
 end)
