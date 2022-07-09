@@ -10,10 +10,12 @@ telescope.setup {
     mappings = {
       i = {
         ["<esc>"] = actions.close,
+        ["<Down>"] = actions.cycle_history_next,
+        ["<Up>"] = actions.cycle_history_prev,
       },
     },
-     -- The below pattern is lua regex and not wildcard
-    file_ignore_patterns = {"node_modules","%.out"},
+    -- The below pattern is lua regex and not wildcard
+    file_ignore_patterns = { "node_modules", "%.out" },
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
