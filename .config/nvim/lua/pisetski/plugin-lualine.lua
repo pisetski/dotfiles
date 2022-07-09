@@ -17,7 +17,7 @@ require('lualine').setup {
       },
     },
     lualine_x = { 'filetype' },
-    lualine_y = { 'progress' },
+    lualine_y = { 'buffers', 'progress' },
     lualine_z = { 'location' }
   },
   tabline = {},
