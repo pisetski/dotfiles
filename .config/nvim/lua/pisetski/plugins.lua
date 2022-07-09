@@ -66,4 +66,8 @@ return require('packer').startup(function(use)
   use 'lewis6991/impatient.nvim'
   use 'dstein64/vim-startuptime'
   use 'lewis6991/gitsigns.nvim'
+  use {
+    'ruifm/gitlinker.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+  }
 end)
