@@ -8,7 +8,7 @@ end
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
-  use 'arcticicestudio/nord-vim'
+  use 'shaunsingh/nord.nvim'
   use 'tpope/vim-fugitive'
   use { -- Unified highlight for all filetypes
     'nvim-treesitter/nvim-treesitter',
