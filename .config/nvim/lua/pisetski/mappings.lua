@@ -49,8 +49,8 @@ function mappings:mapLSPDiagnostics()
 end
 
 function mappings:mapNvimTree()
-  map('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', silentnoremap) -- Open/close file browser
-  map('n', '<leader>E', '<cmd>NvimTreeFindFile<cr>', silentnoremap) -- Find the current file in file browser
+  map('n', '<leader>E', '<cmd>NvimTreeToggle<cr>', silentnoremap) -- Open/close file browser
+  map('n', '<leader>e', '<cmd>NvimTreeFindFile<cr>', silentnoremap) -- Find the current file in file browser
 end
 
 function mappings:mapTelescope()

@@ -24,7 +24,6 @@ return require('packer').startup(function(use)
   use 'AckslD/nvim-neoclip.lua' -- Telescope yanks search
   use 'nvim-telescope/telescope-ui-select.nvim' -- Neovim core stuff with Telescope picker
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'airblade/vim-gitgutter'
   use 'bryanmylee/vim-colorscheme-icons'
   use {
     'kyazdani42/nvim-tree.lua',
@@ -65,4 +64,6 @@ return require('packer').startup(function(use)
     }
   }
   use 'lewis6991/impatient.nvim'
+  use 'dstein64/vim-startuptime'
+  use 'lewis6991/gitsigns.nvim'
 end)
