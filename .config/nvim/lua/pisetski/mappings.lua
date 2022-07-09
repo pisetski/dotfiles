@@ -1,8 +1,6 @@
 local mappings = {}
 
-local function map(kind, lhs, rhs, silentnoremap)
-  vim.api.nvim_set_keymap(kind, lhs, rhs, silentnoremap)
-end
+local map = vim.api.nvim_set_keymap
 
 local silentnoremap = { noremap = true, silent = true }
 
