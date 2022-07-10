@@ -2,7 +2,7 @@ local m = require('pisetski.mappings')
 
 require('nvim-tree').setup {
   sort_by = 'case_sensitive',
-  open_on_setup = true,
+  open_on_setup = false,
   view = {
     adaptive_size = true,
     centralize_selection = true,
