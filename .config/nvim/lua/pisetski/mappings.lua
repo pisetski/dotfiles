@@ -66,15 +66,13 @@ function mappings:mapLSP()
 end
 
 function mappings:mapLSPDiagnostics()
-  vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, silentnoremap)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, silentnoremap)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, silentnoremap)
-  vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, silentnoremap)
 end
 
 function mappings:mapNvimTree()
   map('n', '<leader>E', '<cmd>NvimTreeToggle<cr>', silentnoremap) -- Open/close file browser
-  map('n', '<leader>e', '<cmd>NvimTreeFindFile<cr>', silentnoremap) -- Find the current file in file browser
+  map('n', '<leader>e', '<cmd>NvimTreeFindFileToggle<cr>', silentnoremap) -- Find the current file in file browser
 end
 
 function mappings:mapTelescope()
