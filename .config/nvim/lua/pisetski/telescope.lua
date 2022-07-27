@@ -10,7 +10,6 @@ telescope.setup {
     path_display = { "smart" },
     mappings = {
       i = {
-        ["<esc>"] = actions.close,
         ["<Down>"] = actions.cycle_history_next,
         ["<Up>"] = actions.cycle_history_prev,
       },
