@@ -105,7 +105,7 @@ function mappings:mapTrouble()
   map("n", "<leader>xx", "<cmd>Trouble<cr>", silentnoremap)
   map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", silentnoremap)
   map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", silentnoremap)
-  map("n", "gR", "<cmd>Trouble lsp_references<cr>", silentnoremap)
+  map("n", "gr", "<cmd>Trouble lsp_references<cr>", silentnoremap)
 end
 
 return mappings
