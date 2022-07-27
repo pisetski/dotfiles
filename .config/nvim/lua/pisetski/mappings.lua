@@ -51,6 +51,9 @@ map("x", "<A-k>", ":move '<-2<CR>gv-gv", silentnoremap)
 map("v", "<", "<gv", silentnoremap)
 map("v", ">", ">gv", silentnoremap)
 
+-- Quick-save the current buffer
+map('n', '<leader>w', '<cmd>w<cr>', { noremap = true })
+
 function mappings:mapLSP()
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
