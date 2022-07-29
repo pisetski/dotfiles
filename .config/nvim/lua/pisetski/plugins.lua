@@ -31,6 +31,9 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
+  use { 'ibhagwan/fzf-lua',
+    requires = { 'kyazdani42/nvim-web-devicons' }
+  }
 
   -- Git
   use 'tpope/vim-fugitive'
@@ -53,18 +56,6 @@ return require('packer').startup(function(use)
     run = ':TSUpdate',
   }
   use 'JoosepAlviste/nvim-ts-context-commentstring'
-
-  -- Telescope
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim', -- Utility functions for Lua. Direct dependency
-      'nvim-treesitter/nvim-treesitter' -- Optional dependency
-    }
-  }
-  use 'AckslD/nvim-neoclip.lua' -- Telescope yanks search
-  use 'nvim-telescope/telescope-ui-select.nvim' -- Neovim core stuff with Telescope picker
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Completion
   use 'hrsh7th/cmp-buffer'

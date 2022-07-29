@@ -54,6 +54,16 @@ map("v", ">", ">gv", silentnoremap)
 -- Quick-save the current buffer
 map('n', '<leader>w', '<cmd>w<cr>', { noremap = true })
 
+
+-- Fzf
+map('n', '<c-P>', "<cmd>lua require('fzf-lua').files()<CR>", silentnoremap)
+map('n', '<c-G>', "<cmd>lua require('fzf-lua').live_grep_native()<CR>", silentnoremap)
+map('n', '<leader>fb', "<cmd>lua require('fzf-lua').buffers()<CR>", silentnoremap)
+map('n', '<leader>fr', "<cmd>lua require('fzf-lua').oldfiles()<CR>", silentnoremap)
+map('n', '<leader>fv', "<cmd>lua require('fzf-lua').git_branches()<CR>", silentnoremap)
+map('n', '<leader>fm', "<cmd>lua require('fzf-lua').marks()<CR>", silentnoremap)
+map('n', '<leader>fy', "<cmd>lua require('fzf-lua').registers()<CR>", silentnoremap)
+
 function mappings:mapLSP()
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -76,17 +86,6 @@ end
 function mappings:mapNvimTree()
   map('n', '<leader>E', '<cmd>NvimTreeFindFile<cr>', silentnoremap) -- Open/close file browser
   map('n', '<leader>e', '<cmd>NvimTreeFindFileToggle<cr>', silentnoremap) -- Find the current file in file browser
-end
-
-function mappings:mapTelescope()
-  map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', silentnoremap)
-  map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', silentnoremap)
-  map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', silentnoremap)
-  map('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>', silentnoremap)
-  map('n', '<leader>fv', '<cmd>Telescope git_branches<cr>', silentnoremap) -- List VCS branches
-  map('n', '<leader>fc', '<cmd>Telescope git_commits<cr>', silentnoremap)
-  map('n', '<leader>fy', '<cmd>Telescope neoclip<cr>', silentnoremap)
-  map('n', '<leader>fm', '<cmd>Telescope marks<cr>', silentnoremap)
 end
 
 function mappings:mapCompletion()
