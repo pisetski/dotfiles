@@ -54,7 +54,6 @@ map('v', '>', '>gv', silentnoremap)
 -- Quick-save the current buffer
 map('n', '<leader>w', '<cmd>w<cr>', { noremap = true })
 
-
 -- Fzf
 map('n', '<c-P>', "<cmd>lua require('fzf-lua').files()<CR>", silentnoremap)
 map('n', '<c-G>', "<cmd>lua require('fzf-lua').live_grep_native()<CR>", silentnoremap)
@@ -65,7 +64,6 @@ map('n', '<leader>fm', "<cmd>lua require('fzf-lua').marks()<CR>", silentnoremap)
 map('n', '<leader>fy', "<cmd>lua require('fzf-lua').registers()<CR>", silentnoremap)
 
 function mappings:mapLSP()
-  -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, silentnoremap)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, silentnoremap)
@@ -80,7 +78,7 @@ function mappings:mapLSPDiagnostics()
 end
 
 function mappings:mapNvimTree()
-  map('n', '<leader>E', '<cmd>NvimTreeFindFile<cr>', silentnoremap) -- Open/close file browser
+  map('n', '<leader>E', '<cmd>NvimTreeFindFile<cr>', silentnoremap)
   map('n', '<leader>e', '<cmd>NvimTreeFindFileToggle<cr>', silentnoremap) -- Find the current file in file browser
 end
 
