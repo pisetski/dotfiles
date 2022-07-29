@@ -84,11 +84,6 @@ function mappings:mapNvimTree()
   map('n', '<leader>e', '<cmd>NvimTreeFindFileToggle<cr>', silentnoremap) -- Find the current file in file browser
 end
 
-function mappings:mapCompletion()
-  map('i', '<C-E>', '<Plug>luasnip-next-choice', {})
-  map('s', '<C-E>', '<Plug>luasnip-next-choice', {})
-end
-
 function mappings:mapNeogit()
   map('n', '<leader>g', '<cmd>Neogit<cr>', silentnoremap)
 end
