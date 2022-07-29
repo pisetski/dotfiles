@@ -18,10 +18,10 @@ map('n', ';', ':', { noremap = true })
 map('n', '<CR>', ':noh<CR><CR>', { noremap = true })
 
 -- Resize with arrows
-map("n", "<A-Up>", ":resize -2<CR>", silentnoremap)
-map("n", "<A-Down>", ":resize +2<CR>", silentnoremap)
-map("n", "<A-Left>", ":vertical resize -2<CR>", silentnoremap)
-map("n", "<A-Right>", ":vertical resize +2<CR>", silentnoremap)
+map('n', '<A-Up>', ':resize -2<CR>', silentnoremap)
+map('n', '<A-Down>', ':resize +2<CR>', silentnoremap)
+map('n', '<A-Left>', ':vertical resize -2<CR>', silentnoremap)
+map('n', '<A-Right>', ':vertical resize +2<CR>', silentnoremap)
 
 -- Better window navigation
 map('n', '<C-J>', '<C-W><C-J>', silentnoremap)
@@ -36,20 +36,20 @@ map('i', 'jk', '<esc>', silentnoremap)
 map('i', '<S-Tab>', '<C-d>', silentnoremap)
 
 -- Navigate buffers
-map("n", "<S-l>", ":bnext<CR>", silentnoremap)
-map("n", "<S-h>", ":bprevious<CR>", silentnoremap)
+map('n', '<S-l>', ':bnext<CR>', silentnoremap)
+map('n', '<S-h>', ':bprevious<CR>', silentnoremap)
 
 -- Move text up and down
-map("n", "<A-j>", "<Esc>:m .+1<CR>==gi", silentnoremap)
-map("n", "<A-k>", "<Esc>:m .-2<CR>==gi", silentnoremap)
-map("v", "<A-j>", ":m .+1<CR>==", silentnoremap)
-map("v", "<A-k>", ":m .-2<CR>==", silentnoremap)
-map("x", "<A-j>", ":move '>+1<CR>gv-gv", silentnoremap)
-map("x", "<A-k>", ":move '<-2<CR>gv-gv", silentnoremap)
+map('n', '<A-j>', '<Esc>:m .+1<CR>==gi', silentnoremap)
+map('n', '<A-k>', '<Esc>:m .-2<CR>==gi', silentnoremap)
+map('v', '<A-j>', ':m .+1<CR>==', silentnoremap)
+map('v', '<A-k>', ':m .-2<CR>==', silentnoremap)
+map('x', '<A-j>', ":move '>+1<CR>gv-gv", silentnoremap)
+map('x', '<A-k>', ":move '<-2<CR>gv-gv", silentnoremap)
 
 -- Stay in indent mode
-map("v", "<", "<gv", silentnoremap)
-map("v", ">", ">gv", silentnoremap)
+map('v', '<', '<gv', silentnoremap)
+map('v', '>', '>gv', silentnoremap)
 
 -- Quick-save the current buffer
 map('n', '<leader>w', '<cmd>w<cr>', { noremap = true })
@@ -95,10 +95,10 @@ function mappings:mapGitlinker()
 end
 
 function mappings:mapTrouble()
-  map("n", "<leader>xx", "<cmd>Trouble<cr>", silentnoremap)
-  map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", silentnoremap)
-  map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", silentnoremap)
-  map("n", "gr", "<cmd>Trouble lsp_references<cr>", silentnoremap)
+  map('n', '<leader>xx', '<cmd>Trouble<cr>', silentnoremap)
+  map('n', '<leader>xw', '<cmd>Trouble workspace_diagnostics<cr>', silentnoremap)
+  map('n', '<leader>xd', '<cmd>Trouble document_diagnostics<cr>', silentnoremap)
+  map('n', 'gr', '<cmd>Trouble lsp_references<cr>', silentnoremap)
 end
 
 return mappings

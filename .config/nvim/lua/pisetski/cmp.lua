@@ -1,34 +1,34 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
-require("luasnip/loaders/from_vscode").lazy_load()
+require('luasnip/loaders/from_vscode').lazy_load()
 
 local kind_icons = {
-  Text = "",
-  Method = "",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "ﴯ",
-  Interface = "",
-  Module = "",
-  Property = "ﰠ",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = ""
+  Text = '',
+  Method = '',
+  Function = '',
+  Constructor = '',
+  Field = '',
+  Variable = '',
+  Class = 'ﴯ',
+  Interface = '',
+  Module = '',
+  Property = 'ﰠ',
+  Unit = '',
+  Value = '',
+  Enum = '',
+  Keyword = '',
+  Snippet = '',
+  Color = '',
+  File = '',
+  Reference = '',
+  Folder = '',
+  EnumMember = '',
+  Constant = '',
+  Struct = '',
+  Event = '',
+  Operator = '',
+  TypeParameter = ''
 }
 
 cmp.setup({
@@ -68,7 +68,7 @@ cmp.setup({
     end, { 'i', 's', 'c' }),
   },
   formatting = {
-    fields = { "kind", "abbr", "menu" },
+    fields = { 'kind', 'abbr', 'menu' },
     format = function(_, vim_item)
       vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
       return vim_item
