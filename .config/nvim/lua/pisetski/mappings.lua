@@ -72,10 +72,6 @@ function mappings:mapLSP()
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, silentnoremap)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, silentnoremap)
   map('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', silentnoremap)
-
-  map('n', '?R', '<cmd>Telescope lsp_references<cr>', silentnoremap) -- Pop open a window for finding references to the word under the cursor
-  map('n', '?T', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', silentnoremap) -- Find any type in the workspace dynamically
-  map('n', '?i', '<cmd>Telescope lsp_implementations<cr>', silentnoremap) -- Find implementations of an interface
 end
 
 function mappings:mapLSPDiagnostics()
