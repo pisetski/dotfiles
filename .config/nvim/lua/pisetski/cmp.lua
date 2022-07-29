@@ -1,4 +1,3 @@
-local m = require('pisetski.mappings')
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
@@ -109,5 +108,3 @@ cmp.event:on(
   'confirm_done',
   cmp_autopairs.on_confirm_done()
 )
-
-m.mapCompletion()
