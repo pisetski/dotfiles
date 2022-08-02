@@ -1,4 +1,9 @@
+local m = require('pisetski.mappings')
+
 require('fzf-lua').setup {
+  winopts = {
+    preview = { default = 'bat_native' }
+  },
   files = {
     winopts = {
       width = 0.44,
@@ -38,5 +43,7 @@ require('fzf-lua').setup {
         layout = 'vertical'
       }
     }
-  }
+  },
 }
+
+m.mapFzf()
