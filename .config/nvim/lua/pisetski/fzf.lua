@@ -25,8 +25,9 @@ require('fzf-lua').setup {
     }
   },
   oldfiles = {
-    cwd_only = true,
-    winopts = {
+    cwd_only  = true,
+    stat_file = true, -- verify files exist on disk
+    winopts   = {
       width = 0.44,
       height = 0.44,
       preview = {
@@ -44,6 +45,9 @@ require('fzf-lua').setup {
       }
     }
   },
+  grep = {
+    filter = "rg -v '\\.(yaml|lock|csv)'",
+  }
 }
 
 m.mapFzf()
