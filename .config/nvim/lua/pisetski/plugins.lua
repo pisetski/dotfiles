@@ -49,6 +49,7 @@ return require('packer').startup(function(use)
       'sindrets/diffview.nvim'
     }
   }
+  use "kdheepak/lazygit.nvim"
 
   -- Treesitter
   use {
