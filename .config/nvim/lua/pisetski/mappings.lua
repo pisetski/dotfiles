@@ -35,10 +35,6 @@ map('i', 'jk', '<esc>', silentnoremap)
 -- Make Shift-Tab unindent
 map('i', '<S-Tab>', '<C-d>', silentnoremap)
 
--- Navigate buffers
-map('n', '<S-l>', ':bnext<CR>', silentnoremap)
-map('n', '<S-h>', ':bprevious<CR>', silentnoremap)
-
 -- Move text up and down
 map('n', '<A-j>', '<Esc>:m .+1<CR>==gi', silentnoremap)
 map('n', '<A-k>', '<Esc>:m .-2<CR>==gi', silentnoremap)
