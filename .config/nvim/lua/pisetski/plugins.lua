@@ -42,13 +42,6 @@ return require('packer').startup(function(use)
     'ruifm/gitlinker.nvim',
     requires = 'nvim-lua/plenary.nvim',
   }
-  use {
-    'TimUntersberger/neogit',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'sindrets/diffview.nvim'
-    }
-  }
   use "kdheepak/lazygit.nvim"
 
   -- Treesitter
