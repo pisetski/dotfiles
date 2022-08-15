@@ -50,6 +50,9 @@ map('v', '>', '>gv', silentnoremap)
 -- Quick-save the current buffer
 map('n', '<leader>w', '<cmd>w<cr>', { noremap = true })
 
+-- LazyGit
+map('n', '<leader>g', '<cmd>LazyGit<cr>', silentnoremap)
+
 function mappings:mapLSP()
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, silentnoremap)
@@ -69,12 +72,8 @@ function mappings:mapNvimTree()
   map('n', '<leader>e', '<cmd>NvimTreeFindFileToggle<cr>', silentnoremap) -- Find the current file in file browser
 end
 
-function mappings:mapNeogit()
-  map('n', '<leader>g', '<cmd>Neogit<cr>', silentnoremap)
-end
-
 function mappings:mapGitlinker()
-  map('n', '<leader>V',
+  map('n', '<leader>L',
     '<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>',
     { silent = true })
 end
