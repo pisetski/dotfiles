@@ -45,13 +45,6 @@ dashboard.section.buttons.val = {
   dashboard.button("q", "  Quit NVIM", ":qa<CR>"),
 }
 
-local handle = io.popen('fortune')
-if (handle) then
-  local fortune = handle:read("*a")
-  handle:close()
-  dashboard.section.footer.val = fortune
-end
-
 dashboard.config.opts.noautocmd = true
 
 vim.cmd [[autocmd User AlphaReady echo 'ready']]
