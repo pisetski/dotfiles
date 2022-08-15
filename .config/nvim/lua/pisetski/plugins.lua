@@ -34,6 +34,10 @@ return require('packer').startup(function(use)
   use { 'ibhagwan/fzf-lua',
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
 
   -- Git
   use 'tpope/vim-fugitive'
