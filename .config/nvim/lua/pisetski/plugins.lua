@@ -13,7 +13,8 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'
   use {
     'ggandor/lightspeed.nvim',
-    requires = { 'tpope/vim-repeat' } }
+    requires = { 'tpope/vim-repeat' }
+  }
   use 'folke/which-key.nvim'
   use 'lewis6991/impatient.nvim'
   use 'dstein64/vim-startuptime'
@@ -72,12 +73,12 @@ return require('packer').startup(function(use)
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
-
-  -- Snippets
-  use 'L3MON4D3/LuaSnip'
-  use 'rafamadriz/friendly-snippets'
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
   }
+
+  -- Snippets
+  use 'L3MON4D3/LuaSnip'
+  use 'rafamadriz/friendly-snippets'
 end)
