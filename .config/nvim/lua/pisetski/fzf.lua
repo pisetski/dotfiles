@@ -25,7 +25,7 @@ require('fzf-lua').setup {
     }
   },
   oldfiles = {
-    cwd_only  = false,
+    cwd_only  = true,
     stat_file = true, -- verify files exist on disk
     winopts   = {
       width = 0.44,
