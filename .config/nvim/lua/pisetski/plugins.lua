@@ -65,10 +65,13 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'antoinemadec/FixCursorHold.nvim'
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
 
   -- Snippets
   use 'L3MON4D3/LuaSnip'
