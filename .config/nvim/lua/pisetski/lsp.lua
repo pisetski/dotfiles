@@ -28,10 +28,6 @@ end
 
 local lua_settings = {
   Lua = {
-    runtime = {
-      version = 'LuaJIT', -- LuaJIT in the case of Neovim
-      path = vim.split(package.path, ';'),
-    },
     diagnostics = {
       globals = { 'vim' }, -- Get the language server to recognize the `vim` global
     },
