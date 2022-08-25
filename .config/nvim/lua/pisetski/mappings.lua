@@ -93,6 +93,7 @@ function mappings:mapFzf()
   map('n', '<leader>fv', "<cmd>lua require('fzf-lua').git_branches()<CR>", silentnoremap)
   map('n', '<leader>fm', "<cmd>lua require('fzf-lua').marks()<CR>", silentnoremap)
   map('n', '<leader>fy', "<cmd>lua require('fzf-lua').registers()<CR>", silentnoremap)
+  map('n', '<leader>fw', "<cmd>lua require('fzf-lua').grep_cword()<CR>", silentnoremap)
 end
 
 return mappings
