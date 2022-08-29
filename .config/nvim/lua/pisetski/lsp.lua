@@ -62,5 +62,9 @@ for _, lsp in ipairs(servers) do
     config.settings = lua_settings
   end
 
+  if lsp == "tsserver" then
+    config.root_dir = require('lspconfig.util').find_git_ancestor
+  end
+
   lspconfig[lsp].setup(config)
 end
