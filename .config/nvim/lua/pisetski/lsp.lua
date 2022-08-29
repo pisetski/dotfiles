@@ -51,7 +51,11 @@ for _, lsp in ipairs(servers) do
       on_attach()
     end,
     capabilities = capabilities,
-    settings = {}
+    settings = {},
+    flags = {
+      allow_incremental_sync = true,
+      debounce_text_changes = 300
+    }
   }
 
   if lsp == "sumneko_lua" then
