@@ -8,6 +8,8 @@ local sources = {
   }),
   null_ls.builtins.diagnostics.eslint_d,
   null_ls.builtins.code_actions.eslint_d,
+  null_ls.builtins.completion.spell,
+  null_ls.builtins.completion.tags,
 }
 
-null_ls.setup({ sources = sources, root_dir = lspconfig.util.root_pattern('package.json', 'yarn.lock', '.git'), })
+null_ls.setup({ sources = sources, root_dir = lspconfig.util.root_pattern('.git'), })
