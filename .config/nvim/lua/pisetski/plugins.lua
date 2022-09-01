@@ -55,6 +55,9 @@ return require('packer').startup(function(use)
     run = ':TSUpdate',
   }
   use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use 'nvim-treesitter/nvim-treesitter-refactor'
+  use 'nvim-treesitter/nvim-treesitter-context'
+
 
   -- Completion
   use 'hrsh7th/cmp-buffer'
