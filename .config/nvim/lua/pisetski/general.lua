@@ -44,6 +44,13 @@ local g = vim.g
 g.do_filetype_lua = 1
 g.did_load_filetypes = 0
 
+vim.cmd([[
+  augroup set_jenkins_groovy
+  au!
+  au BufNewFile,BufRead *.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
+  augroup END
+]])
+
 -- Disable unused builtins
 local builtins = {
   'gzip',
