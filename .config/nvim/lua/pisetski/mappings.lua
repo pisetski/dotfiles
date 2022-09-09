@@ -98,6 +98,7 @@ function mappings:mapFzf()
   map('n', '<leader>fm', "<cmd>lua require('fzf-lua').marks()<CR>", silentnoremap)
   map('n', '<leader>fy', "<cmd>lua require('fzf-lua').registers()<CR>", silentnoremap)
   map('n', '<leader>fw', "<cmd>lua require('fzf-lua').grep_cword()<CR>", silentnoremap)
+  map('n', '<leader>fW', "<cmd>lua require('fzf-lua').grep_cWORD()<CR>", silentnoremap)
 
   -- Pass custom cwd to grep
   map('n', '<leader>fd', ":FzfLua live_grep_native cwd=./", { noremap = true })
