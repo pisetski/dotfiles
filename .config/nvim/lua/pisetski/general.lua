@@ -44,12 +44,10 @@ local g = vim.g
 g.do_filetype_lua = 1
 g.did_load_filetypes = 0
 
-vim.cmd([[
-  augroup set_jenkins_groovy
-  au!
-  au BufNewFile,BufRead *.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
-  augroup END
-]])
+vim.api.nvim_create_autocmd(
+  { 'BufRead', 'BufNewFile' },
+  { pattern = { '*.jenkinsfile', '*.Jenkinsfile', 'Jenkinsfile', 'jenkinsfile' }, command = 'setf groovy' }
+)
 
 -- Disable unused builtins
 local builtins = {
