@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
   use 'sickill/vim-pasta'
   use 'windwp/nvim-autopairs'
   use {
-    'ggandor/lightspeed.nvim',
+    'ggandor/leap.nvim',
     requires = { 'tpope/vim-repeat' }
   }
   use 'folke/which-key.nvim'
