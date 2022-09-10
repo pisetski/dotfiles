@@ -40,10 +40,11 @@ dashboard.section.header.val = {
 
 dashboard.section.buttons.val = {
   dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
-  dashboard.button("e", "  Explore files", ":ene<CR>:NvimTreeFocus<CR>"),
+  dashboard.button("p", "  Find file", "<CR>:FzfLua files<CR>"),
+  dashboard.button("e", "  Explore", ":ene<CR>:NvimTreeFocus<CR>"),
   dashboard.button("r", "  Recent files", ":FzfLua oldfiles<CR>"),
   dashboard.button("u", "  Update plugins", ":PackerSync<CR>"),
-  dashboard.button("q", "  Quit NVIM", ":qa<CR>"),
+  dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
 dashboard.config.opts.noautocmd = true
