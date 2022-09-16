@@ -70,3 +70,5 @@ key_bindings:
   - { key: H,  mods: Alt,     chars: "\x1bh"                           }
   - { key: L,  mods: Alt,     chars: "\x1bl"                           }
   - { key: E,  mods: Alt,     chars: "\x1be"                           }
+  - { key: C,  mods: Alt,     chars: "\x1bc"                           }
+  - { key: A,  mods: Alt,     chars: "\x1ba"                           }
