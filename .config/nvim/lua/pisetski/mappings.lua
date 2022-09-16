@@ -38,6 +38,25 @@ map('i', '<S-Tab>', '<C-d>', silentnoremap)
 -- Close windows quicker
 map('n', 'q', '<C-w>q', silentnoremap)
 
+-- Quick-save the current buffer
+map('n', '<C-S>', '<C-c>:update<cr>', silentnoremap)
+map('i', '<C-S>', '<C-c>:update<cr>', silentnoremap)
+map('v', '<C-S>', '<C-c>:update<cr>', silentnoremap)
+
+-- Search and Replace
+-- 'c.' for word, '<leader>c.' for WORD
+map('n', 'c.',         [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { noremap = true })
+map('n', '<leader>c.', [[:%s/\<<C-r><C-a>\>//g<Left><Left>]], { noremap = true })
+
+-- Map <leader>o & <leader>O to newline without insert mode
+map('n', '<leader>o',
+    ':<C-u>call append(line("."), repeat([""], v:count1))<CR>',
+    silentnoremap)
+map('n', '<leader>O',
+    ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>',
+    silentnoremap)
+
+
 -- Move text up and down
 map('n', '<A-j>', '<Esc>:m .+1<CR>==gi', silentnoremap)
 map('n', '<A-k>', '<Esc>:m .-2<CR>==gi', silentnoremap)
@@ -49,9 +68,6 @@ map('x', '<A-k>', ":move '<-2<CR>gv-gv", silentnoremap)
 -- Stay in indent mode
 map('v', '<', '<gv', silentnoremap)
 map('v', '>', '>gv', silentnoremap)
-
--- Quick-save the current buffer
-map('n', '<leader>w', '<cmd>w<cr>', { noremap = true })
 
 -- LazyGit
 map('n', '<leader>g', '<cmd>LazyGit<cr>', silentnoremap)
