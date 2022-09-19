@@ -43,6 +43,9 @@ map('n', '<C-S>', '<C-c>:update<cr>', silentnoremap)
 map('i', '<C-S>', '<C-c>:update<cr>', silentnoremap)
 map('v', '<C-S>', '<C-c>:update<cr>', silentnoremap)
 
+-- Copy into blackhole register, e.g., "_ciw
+map('n', '<leader>b', '"_', silentnoremap)
+
 -- Search and Replace
 -- 'c.' for word, '<leader>c.' for WORD
 map('n', 'c.',         [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { noremap = true })
