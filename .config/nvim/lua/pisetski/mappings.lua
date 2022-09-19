@@ -11,9 +11,6 @@ map('n', '0', '^', silentnoremap)
 map('n', 'n', 'nzz', silentnoremap)
 map('n', 'N', 'Nzz', silentnoremap)
 
--- Conveniently enter command mode
-map('n', ';', ':', { noremap = true })
-
 -- Reset highlighting after search
 map('n', '<CR>', ':noh<CR><CR>', { noremap = true })
 
