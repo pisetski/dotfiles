@@ -2,12 +2,11 @@ export ZSH="$HOME/.oh-my-zsh"
 export TERM=xterm-256color
 export EDITOR=nvim
 export VISUAL="$EDITOR"
+export BAT_THEME="Nord"
 
 ZSH_THEME="robbyrussell"
 
-
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-z)
-
 source $ZSH/oh-my-zsh.sh
 
 alias v="nvim"
