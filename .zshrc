@@ -12,6 +12,7 @@ source $ZSH/oh-my-zsh.sh
 alias v="nvim"
 alias y="yarn"
 alias ya="y add"
+alias yad="ya -D"
 alias yr="y remove"
 alias ys="y start"
 alias yd="y dev"
