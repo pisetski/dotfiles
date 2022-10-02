@@ -77,6 +77,6 @@ end
 
 vim.cmd('filetype plugin on')
 vim.cmd('set noshowmode')
-vim.cmd('colorscheme nord')
+vim.cmd('colorscheme tokyonight')
 
 vim.api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
