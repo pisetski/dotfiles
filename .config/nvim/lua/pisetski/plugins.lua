@@ -17,9 +17,7 @@ return require('packer').startup(function(use)
   }
   use 'folke/which-key.nvim'
   use 'lewis6991/impatient.nvim'
-  use 'dstein64/vim-startuptime'
   use 'windwp/nvim-ts-autotag'
-  use 'shaunsingh/nord.nvim'
   use 'bryanmylee/vim-colorscheme-icons'
   use 'styled-components/vim-styled-components'
   use {
@@ -39,6 +37,7 @@ return require('packer').startup(function(use)
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
+  use "folke/tokyonight.nvim"
 
   -- Git
   use 'tpope/vim-fugitive'

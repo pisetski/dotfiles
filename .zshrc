@@ -2,7 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export TERM=xterm-256color
 export EDITOR=nvim
 export VISUAL="$EDITOR"
-export BAT_THEME="Nord"
+export BAT_THEME="Enki-Tokyo-Night"
 
 ZSH_THEME="robbyrussell"
 
