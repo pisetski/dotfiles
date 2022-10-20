@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
   use "folke/tokyonight.nvim"
+  use { "akinsho/toggleterm.nvim", tag = '*' }
 
   -- Git
   use 'tpope/vim-fugitive'
