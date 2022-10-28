@@ -45,7 +45,7 @@ for _, lsp in ipairs(servers) do
   local config = {
     on_attach = function(client)
       if lsp == "tsserver" then
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.document_formatting = false
       end
 
       on_attach()
