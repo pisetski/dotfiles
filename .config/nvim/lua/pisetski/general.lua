@@ -1,4 +1,5 @@
 local o = vim.o
+local g = vim.g
 
 o.showmatch = true -- show matching
 o.ignorecase = true -- case insensitive
@@ -38,11 +39,6 @@ o.autowrite = true -- Make No write since last change stfu
 o.listchars = 'tab:>-,trail:·,extends:>,precedes:<' -- How to represent non-printable characters.
 o.list = true -- turn the above on
 o.formatoptions = o.formatoptions .. 'j' -- Behave more reasonable when merging lines with J
-
-local g = vim.g
-
-g.do_filetype_lua = 1
-g.did_load_filetypes = 0
 
 vim.api.nvim_create_autocmd(
   { 'BufRead', 'BufNewFile' },
