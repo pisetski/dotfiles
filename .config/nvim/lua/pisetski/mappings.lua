@@ -45,16 +45,16 @@ map('n', '<leader>b', '"_', silentnoremap)
 
 -- Search and Replace
 -- 'c.' for word, '<leader>c.' for WORD
-map('n', 'c.',         [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { noremap = true })
+map('n', 'c.', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { noremap = true })
 map('n', '<leader>c.', [[:%s/\<<C-r><C-a>\>//g<Left><Left>]], { noremap = true })
 
 -- Map <leader>o & <leader>O to newline without insert mode
 map('n', '<leader>o',
-    ':<C-u>call append(line("."), repeat([""], v:count1))<CR>',
-    silentnoremap)
+  ':<C-u>call append(line("."), repeat([""], v:count1))<CR>',
+  silentnoremap)
 map('n', '<leader>O',
-    ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>',
-    silentnoremap)
+  ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>',
+  silentnoremap)
 
 -- Move text up and down
 map('n', '<A-j>', '<Esc>:m .+1<CR>==gi', silentnoremap)
@@ -73,7 +73,7 @@ map('n', '<leader>g', '<cmd>LazyGit<cr>', silentnoremap)
 
 -- ToggleTerm
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
+  local opts = { buffer = 0 }
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
@@ -81,14 +81,27 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
   vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
 end
+
 vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 
-function mappings:mapLSP()
+function mappings:mapLSP(_, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, silentnoremap)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, silentnoremap)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, silentnoremap)
-  map('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', silentnoremap)
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  -- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set(
+    'n',
+    '<space>f',
+    function() vim.lsp.buf.format {
+        async = true,
+        filter = function(client) return client.name ~= "tsserver" end
+      }
+    end,
+    bufopts
+  )
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 end
 
 function mappings:mapLSPDiagnostics()
@@ -113,6 +126,8 @@ function mappings:mapTrouble()
   map('n', '<leader>xd', '<cmd>Trouble document_diagnostics<cr>', silentnoremap)
   map('n', 'gr', '<cmd>Trouble lsp_references<cr>', silentnoremap)
   map('n', 'gd', '<cmd>Trouble lsp_definitions<cr>', silentnoremap)
+  map('n', 'gi', '<cmd>Trouble lsp_implementations<cr>', silentnoremap)
+  map('n', '<space>D', '<cmd>Trouble lsp_type_definitions<cr>', silentnoremap)
 end
 
 function mappings:mapFzf()
