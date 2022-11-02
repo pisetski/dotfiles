@@ -9,8 +9,8 @@ require("mason-lspconfig").setup({
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require('lspconfig')
-local on_attach = function()
-  m.mapLSP()
+local on_attach = function(client, bufnr)
+  m.mapLSP(client, bufnr)
 
   vim.api.nvim_create_autocmd("CursorHold", {
     callback = function()
@@ -42,12 +42,12 @@ local lua_settings = {
 
 for _, lsp in ipairs(servers) do
   local config = {
-    on_attach = function(client)
+    on_attach = function(client, bufnr)
       if lsp == "tsserver" then
         client.server_capabilities.document_formatting = false
       end
 
-      on_attach()
+      on_attach(client, bufnr)
     end,
     capabilities = capabilities,
     settings = {},
