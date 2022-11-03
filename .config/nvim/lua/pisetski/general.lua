@@ -41,8 +41,12 @@ o.list = true -- turn the above on
 o.formatoptions = o.formatoptions .. 'j' -- Behave more reasonable when merging lines with J
 
 vim.api.nvim_create_autocmd(
-  { 'BufRead', 'BufNewFile' },
-  { pattern = { '*.jenkinsfile', '*.Jenkinsfile', 'Jenkinsfile', 'jenkinsfile' }, command = 'setf groovy' }
+  { 'bufread', 'bufnewfile' },
+  { pattern = { '*.jenkinsfile', '*.jenkinsfile', 'jenkinsfile', 'jenkinsfile' }, command = 'setf groovy' }
+)
+vim.api.nvim_create_autocmd(
+  { 'bufread', 'bufnewfile' },
+  { pattern = { '*.gohtml' }, command = 'setf htmldjango' }
 )
 
 -- Disable unused builtins
