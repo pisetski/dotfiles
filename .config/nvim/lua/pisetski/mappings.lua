@@ -100,7 +100,6 @@ function mappings:mapLSP(_, bufnr)
     end,
     bufopts
   )
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 end
 
