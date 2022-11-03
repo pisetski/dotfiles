@@ -146,4 +146,18 @@ function mappings:mapFzf()
   map('n', '<leader>fd', ":FzfLua live_grep_native cwd=./", { noremap = true })
 end
 
+function mappings:mapHlslens()
+  map('n', 'n',
+    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    silentnoremap)
+  map('n', 'N',
+    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    silentnoremap)
+  map('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+  map('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+  map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+  map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+
+end
+
 return mappings
