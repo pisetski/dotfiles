@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
   }
   use "folke/tokyonight.nvim"
   use { "akinsho/toggleterm.nvim", tag = '*' }
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Git
   use 'tpope/vim-fugitive'
