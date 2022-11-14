@@ -147,16 +147,16 @@ function mappings:mapFzf()
 end
 
 function mappings:mapHlslens()
-  map('n', 'nzz',
+  map('n', 'n',
     [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
     silentnoremap)
-  map('n', 'Nzz',
+  map('n', 'N',
     [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
     silentnoremap)
-  map('n', '*zz', [[*<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
-  map('n', '#zz', [[#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
-  map('n', 'g*zz', [[g*<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
-  map('n', 'g#zz', [[g#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+  map('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+  map('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+  map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+  map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
 
 end
 
