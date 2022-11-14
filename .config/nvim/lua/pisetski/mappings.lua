@@ -100,7 +100,7 @@ function mappings:mapLSP(_, bufnr)
     end,
     bufopts
   )
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, bufopts)
 end
 
 function mappings:mapLSPDiagnostics()
@@ -147,16 +147,16 @@ function mappings:mapFzf()
 end
 
 function mappings:mapHlslens()
-  map('n', 'n',
+  map('n', 'nzz',
     [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
     silentnoremap)
-  map('n', 'N',
+  map('n', 'Nzz',
     [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
     silentnoremap)
-  map('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
-  map('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
-  map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
-  map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+  map('n', '*zz', [[*<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+  map('n', '#zz', [[#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+  map('n', 'g*zz', [[g*<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
+  map('n', 'g#zz', [[g#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
 
 end
 
