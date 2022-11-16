@@ -99,3 +99,8 @@ key_bindings:
   - { key: E,  mods: Alt,     chars: "\x1be"                           }
   - { key: C,  mods: Alt,     chars: "\x1bc"                           }
   - { key: A,  mods: Alt,     chars: "\x1ba"                           }
+
+bell:
+  command:
+    program: osascript
+    args: ["-e", "beep"]
