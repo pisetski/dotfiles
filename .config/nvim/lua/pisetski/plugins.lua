@@ -43,7 +43,7 @@ return require('packer').startup(function(use)
 
   -- Git
   use 'tpope/vim-fugitive'
-  use { "lewis6991/gitsigns.nvim", tag = "v0.5" }
+  use { "lewis6991/gitsigns.nvim" }
   use {
     'ruifm/gitlinker.nvim',
     requires = 'nvim-lua/plenary.nvim',
@@ -55,9 +55,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'nvim-treesitter/nvim-treesitter-refactor'
-  use 'nvim-treesitter/nvim-treesitter-context'
   use 'p00f/nvim-ts-rainbow'
 
   -- Completion
