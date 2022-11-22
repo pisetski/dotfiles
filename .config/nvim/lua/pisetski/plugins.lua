@@ -57,6 +57,7 @@ return require('packer').startup(function(use)
   }
   use 'nvim-treesitter/nvim-treesitter-refactor'
   use 'p00f/nvim-ts-rainbow'
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- Completion
   use 'hrsh7th/cmp-buffer'
