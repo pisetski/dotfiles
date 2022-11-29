@@ -42,7 +42,6 @@ return require('packer').startup(function(use)
   use "kevinhwang91/nvim-hlslens"
 
   -- Git
-  use 'tpope/vim-fugitive'
   use { "lewis6991/gitsigns.nvim" }
   use {
     'ruifm/gitlinker.nvim',
