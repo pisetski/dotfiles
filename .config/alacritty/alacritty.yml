@@ -104,3 +104,9 @@ bell:
   command:
     program: osascript
     args: ["-e", "beep"]
+
+cursor:
+  style:
+    shape: Block
+    blinking: Always
+  blink_interval: 500
