@@ -53,7 +53,7 @@ for _, lsp in ipairs(servers) do
     settings = {},
     flags = {
       allow_incremental_sync = true,
-      debounce_text_changes = 300
+      debounce_text_changes = 150
     }
   }
 
