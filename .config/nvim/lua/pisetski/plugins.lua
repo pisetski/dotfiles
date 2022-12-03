@@ -78,6 +78,7 @@ return require('packer').startup(function(use)
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
   }
+  use "j-hui/fidget.nvim"
 
   -- Snippets
   use 'L3MON4D3/LuaSnip'
