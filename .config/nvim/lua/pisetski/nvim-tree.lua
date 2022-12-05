@@ -8,7 +8,7 @@ require('nvim-tree').setup {
     centralize_selection = true,
     mappings = {
       list = {
-        { key = 'u', action = 'dir_up' },
+        -- { key = 'u', action = 'dir_up' },
       },
     },
   },
