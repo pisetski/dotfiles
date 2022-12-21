@@ -66,6 +66,10 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'hrsh7th/cmp-cmdline'
   use 'saadparwaiz1/cmp_luasnip'
+  -- COQ
+  use { 'ms-jpq/coq_nvim', run = 'python3 -m coq deps' }
+  use 'ms-jpq/coq.artifacts'
+  use 'ms-jpq/coq.thirdparty'
 
   -- LSP
   use 'jose-elias-alvarez/null-ls.nvim'
