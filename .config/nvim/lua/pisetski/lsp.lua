@@ -58,6 +58,7 @@ vim.g.coq_settings = {
   keymap = {
     pre_select = true,
     recommended = false,
+    jump_to_mark = "",
   }
 }
 m.mapCOQ()
