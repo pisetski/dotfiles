@@ -6,63 +6,6 @@ require("mason-lspconfig").setup({
   ensure_installed = servers
 })
 
-local kind_icons = {
-  Text = '',
-  Method = '',
-  Function = '',
-  Constructor = '',
-  Field = '',
-  Variable = '',
-  Class = 'ﴯ',
-  Interface = '',
-  Module = '',
-  Property = 'ﰠ',
-  Unit = '',
-  Value = '',
-  Enum = '',
-  Keyword = '',
-  Snippet = '',
-  Color = '',
-  File = '',
-  Reference = '',
-  Folder = '',
-  EnumMember = '',
-  Constant = '',
-  Struct = '',
-  Event = '',
-  Operator = '',
-  TypeParameter = ''
-}
-
-vim.g.coq_settings = {
-  clients = {
-    tmux = {
-      enabled = false,
-    },
-  },
-  auto_start = 'shut-up',
-  display = {
-    pum = {
-      fast_close = false,
-      source_context = { "", "" },
-      kind_context = { "  ", "" },
-    },
-    icons = {
-      mappings = kind_icons,
-      mode = "short"
-    },
-    ghost_text = {
-      enabled = false,
-    },
-  },
-  keymap = {
-    pre_select = true,
-    recommended = false,
-    jump_to_mark = "",
-  }
-}
-m.mapCOQ()
-
 local lspconfig = require('lspconfig')
 local on_attach = function(client, bufnr)
   m.mapLSP(client, bufnr)
