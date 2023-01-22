@@ -9,7 +9,6 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'terrortylor/nvim-comment'
   use 'tpope/vim-surround'
-  use 'sickill/vim-pasta'
   use 'windwp/nvim-autopairs'
   use {
     'ggandor/leap.nvim',
