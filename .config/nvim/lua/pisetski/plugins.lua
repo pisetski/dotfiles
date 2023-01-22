@@ -72,8 +72,4 @@ return require("packer").startup(function(use)
     requires = "kyazdani42/nvim-web-devicons",
   }
   use "j-hui/fidget.nvim"
-
-  -- Snippets
-  use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets"
 end)
