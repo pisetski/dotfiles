@@ -17,7 +17,6 @@ return require('packer').startup(function(use)
   use 'folke/which-key.nvim'
   use 'lewis6991/impatient.nvim'
   use 'bryanmylee/vim-colorscheme-icons'
-  use 'styled-components/vim-styled-components'
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
