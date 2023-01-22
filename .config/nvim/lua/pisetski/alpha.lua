@@ -43,7 +43,7 @@ dashboard.section.buttons.val = {
   dashboard.button("p", "  Find file", "<CR>:FzfLua files<CR>"),
   dashboard.button("e", "  Explore", ":ene<CR>:NvimTreeFocus<CR>"),
   dashboard.button("r", "  Recent files", ":FzfLua oldfiles<CR>"),
-  dashboard.button("u", "  Update plugins", ":PackerSync<CR>"),
+  dashboard.button("u", "  Update plugins and parsers", ":PackerSync<CR> :TSUpdate<CR>"),
   dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
