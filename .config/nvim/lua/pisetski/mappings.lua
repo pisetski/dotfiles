@@ -69,7 +69,10 @@ map('v', '<', '<gv', silentnoremap)
 map('v', '>', '>gv', silentnoremap)
 
 -- LazyGit
-map('n', '<leader>g', '<cmd>LazyGit<cr>', silentnoremap)
+map('n', '<leader>g', '<cmd>LazyGit<CR>', silentnoremap)
+
+-- Copy current file filename and relative path
+map('n', '<leader>yf', ':let @+=@%<CR> :echo "Path copied:" expand("%")<CR>', silentnoremap)
 
 -- ToggleTerm
 function _G.set_terminal_keymaps()
