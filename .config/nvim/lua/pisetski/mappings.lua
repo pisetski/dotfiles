@@ -34,6 +34,7 @@ map('i', '<S-Tab>', '<C-d>', silentnoremap)
 
 -- Close windows quicker
 map('n', 'q', '<C-w>q', silentnoremap)
+map('n', 'Q', ':tabclose<CR>', silentnoremap)
 
 -- Quick-save the current buffer
 map('n', '<C-S>', '<C-c>:update<cr>', silentnoremap)
