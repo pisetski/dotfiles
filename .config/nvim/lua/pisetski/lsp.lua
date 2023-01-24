@@ -9,6 +9,7 @@ require("mason-lspconfig").setup({
 local lspconfig = require('lspconfig')
 local on_attach = function(client, bufnr)
   m.mapLSP(client, bufnr)
+  m.mapLSPDiagnostics()
 
   vim.api.nvim_create_autocmd("CursorHold", {
     callback = function()
