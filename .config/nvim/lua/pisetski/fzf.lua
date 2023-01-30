@@ -1,11 +1,12 @@
 local m = require('pisetski.mappings')
+local fzf = require('fzf-lua')
 
 _G.my_action = function(selected, opts)
   if #selected > 1 then
     -- code from `actions.file_sel_to_qf`
     local qf_list = {}
     for i = 1, #selected do
-      local file = require 'fzf-lua'.path.entry_to_file(selected[i])
+      local file = fzf.path.entry_to_file(selected[i], opts)
       local text = selected[i]:match(":%d+:%d?%d?%d?%d?:?(.*)$")
       table.insert(qf_list, {
         filename = file.path,
@@ -19,11 +20,11 @@ _G.my_action = function(selected, opts)
     -- call the command to open the 'trouble.nvim' interface
     vim.cmd("Trouble quickfix")
   else
-    require 'fzf-lua'.actions.file_edit(selected, opts)
+    fzf.actions.file_edit(selected, opts)
   end
 end
 
-require('fzf-lua').setup {
+fzf.setup {
   winopts = {
     preview = { default = 'bat_native' }
   },
