@@ -37,7 +37,7 @@ vim.g.coq_settings = {
   auto_start = 'shut-up',
   display = {
     pum = {
-      fast_close = false,
+      fast_close = true,
       source_context = { "", "" },
       kind_context = { "  ", "" },
     },
