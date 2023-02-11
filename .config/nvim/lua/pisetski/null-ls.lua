@@ -1,5 +1,5 @@
 local null_ls = require('null-ls')
-local cwds = { "icc", "overlay", "online-checkin", "superadmin", "videocall" }
+local cwds = { "icc", "overlay", "online-checkin", "superadmin", "videocall", "ui-components" }
 
 local function findCWD(params)
   for _, cwd in ipairs(cwds) do
