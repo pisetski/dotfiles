@@ -4,7 +4,7 @@ export EDITOR=nvim
 export VISUAL="$EDITOR"
 export BAT_THEME="Enki-Tokyo-Night"
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="refined"
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-z)
 source $ZSH/oh-my-zsh.sh
