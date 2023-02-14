@@ -1,5 +1,5 @@
 local m = require('pisetski.mappings')
-local servers = { "sumneko_lua", "tsserver", "bashls", "cssls", "gopls", "groovyls", "yamlls" }
+local servers = { "lua_ls", "tsserver", "bashls", "cssls", "gopls", "groovyls", "yamlls" }
 
 require("mason").setup()
 require("mason-lspconfig").setup({
