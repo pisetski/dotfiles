@@ -168,9 +168,10 @@ function mappings:mapCOQ()
   map('i', '<Esc>', 'pumvisible() ? "\\<C-e><Esc>" : "\\<Esc>"', { expr = true })
   map('i', '<C-c>', 'pumvisible() ? "\\<C-e><C-c>" : "\\<C-c>"', { expr = true })
 
-  map('i', '<BS>', 'pumvisible() ? "\\<C-e><BS>" : "\\<BS>"', { expr = true })
   map('i', '<Tab>', 'pumvisible() ? (complete_info().selected == -1 ? "\\<C-e><Tab>" : "\\<C-y>") : "\\<Tab>"',
     { expr = true })
+  map('i', '<CR>', 'pumvisible() ? "\\<C-e><CR>" : "\\<CR>"',
+    { expr = true, noremap = true })
 end
 
 return mappings
