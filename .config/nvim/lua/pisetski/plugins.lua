@@ -67,6 +67,9 @@ return require("packer").startup(function(use)
   use "MunifTanjim/eslint.nvim"
   use {
     "williamboman/mason.nvim",
+    run = ":MasonUpdate"
+  }
+  use {
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
