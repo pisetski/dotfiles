@@ -11,7 +11,7 @@ npairs.setup({
 
 _G.MUtils = {}
 
-MUtils.CR = function()
+MUtils.Tab = function()
   if vim.fn.pumvisible() ~= 0 then
     if vim.fn.complete_info({ 'selected' }).selected ~= -1 then
       return npairs.esc('<c-y>')
@@ -22,7 +22,7 @@ MUtils.CR = function()
     return npairs.autopairs_cr()
   end
 end
-remap('i', '<cr>', 'v:lua.MUtils.CR()', { expr = true, noremap = true })
+remap('i', '<Tab>', 'v:lua.MUtils.Tab()', { expr = true, noremap = true })
 
 MUtils.BS = function()
   if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ 'mode' }).mode == 'eval' then
