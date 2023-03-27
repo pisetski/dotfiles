@@ -1,81 +1,86 @@
--- Bootstrap the package manager
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-  vim.api.nvim_command({"packadd packer.nvim"})
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-return require("packer").startup(function(use)
-  use "wbthomason/packer.nvim"
-  use "terrortylor/nvim-comment"
-  use "tpope/vim-surround"
-  use "windwp/nvim-autopairs"
-  use {
+require("lazy").setup({
+  { "terrortylor/nvim-comment" },
+  { "tpope/vim-surround" },
+  { "windwp/nvim-autopairs" },
+  {
     "ggandor/leap.nvim",
-    requires = { "tpope/vim-repeat" }
-  }
-  use "folke/which-key.nvim"
-  use "lewis6991/impatient.nvim"
-  use {
+    dependencies = { "tpope/vim-repeat" }
+  },
+  { "folke/which-key.nvim" },
+  {
     "kyazdani42/nvim-tree.lua",
-    requires = {
+    dependencies = {
       "kyazdani42/nvim-web-devicons",
     },
-  }
-  use {
+  },
+  {
     "nvim-lualine/lualine.nvim",
-    requires = { "kyazdani42/nvim-web-devicons" }
-  }
-  use { "ibhagwan/fzf-lua",
-    requires = { "kyazdani42/nvim-web-devicons" }
-  }
-  use {
+    dependencies = { "kyazdani42/nvim-web-devicons" }
+  },
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = { "kyazdani42/nvim-web-devicons" }
+  },
+  {
     "goolord/alpha-nvim",
-    requires = { "kyazdani42/nvim-web-devicons" },
-  }
-  use "folke/tokyonight.nvim"
-  use { "akinsho/toggleterm.nvim", tag = "*" }
-  use "lukas-reineke/indent-blankline.nvim"
-  use "kevinhwang91/nvim-hlslens"
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+  },
+  { "folke/tokyonight.nvim" },
+  { "akinsho/toggleterm.nvim", version = "*" },
+  { "lukas-reineke/indent-blankline.nvim" },
+  { "kevinhwang91/nvim-hlslens" },
 
   -- Git
-  use { "lewis6991/gitsigns.nvim" }
-  use {
+  { "lewis6991/gitsigns.nvim" },
+  {
     "ruifm/gitlinker.nvim",
-    requires = "nvim-lua/plenary.nvim",
-  }
-  use "kdheepak/lazygit.nvim"
+    dependencies = "nvim-lua/plenary.nvim",
+  },
+  { "kdheepak/lazygit.nvim" },
   -- Packer
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
 
   -- Treesitter
-  use {
+  {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
-  use "nvim-treesitter/nvim-treesitter-refactor"
-  use "p00f/nvim-ts-rainbow"
-  use "JoosepAlviste/nvim-ts-context-commentstring"
+    build = ":TSUpdate",
+  },
+  { "nvim-treesitter/nvim-treesitter-refactor" },
+  { "p00f/nvim-ts-rainbow" },
+  { "JoosepAlviste/nvim-ts-context-commentstring" },
 
   -- Completion
-  use { "ms-jpq/coq_nvim", run = "python3 -m coq deps" }
-  use "ms-jpq/coq.artifacts"
-  use "ms-jpq/coq.thirdparty"
+  { "ms-jpq/coq_nvim", build = "python3 -m coq deps" },
+  { "ms-jpq/coq.artifacts" },
+  { "ms-jpq/coq.thirdparty" },
 
   -- LSP
-  use "jose-elias-alvarez/null-ls.nvim"
-  use "MunifTanjim/eslint.nvim"
-  use {
+  { "jose-elias-alvarez/null-ls.nvim" },
+  { "MunifTanjim/eslint.nvim" },
+  {
     "williamboman/mason.nvim",
-    run = ":MasonUpdate"
-  }
-  use {
+    build = ":MasonUpdate"
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-  }
-  use {
+  },
+  {
     "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-  }
-  use "j-hui/fidget.nvim"
-end)
+    dependencies = "kyazdani42/nvim-web-devicons",
+  },
+  { "j-hui/fidget.nvim" }
+})
