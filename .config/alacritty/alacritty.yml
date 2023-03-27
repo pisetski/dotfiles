@@ -110,3 +110,6 @@ cursor:
     shape: Block
     blinking: Always
   blink_interval: 500
+
+window:
+  dynamic_padding: false
