@@ -1,5 +1,5 @@
 local m = require('pisetski.mappings')
-local servers = { "lua_ls", "tsserver", "bashls", "cssls", "gopls", "groovyls", "yamlls" }
+local servers = { "lua_ls", "tsserver", "bashls", "cssls", "gopls", "groovyls", "yamlls", "phpactor" }
 
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -61,6 +61,18 @@ for _, lsp in ipairs(servers) do
 
   if lsp == "tsserver" then
     config.root_dir = require('lspconfig.util').find_git_ancestor
+  end
+
+  if lsp == "phpactor" then
+    config.root_dir = function(startPath)
+      local rp = (require 'lspconfig.util').root_pattern
+      for _, pattern in pairs({ "index.php", "composer.json" })
+      do
+        local found = rp({ pattern })(startPath)
+        if (found and found ~= '') then return found end
+      end
+      return nil
+    end
   end
 
   lspconfig[lsp].setup(require('coq').lsp_ensure_capabilities(config))
