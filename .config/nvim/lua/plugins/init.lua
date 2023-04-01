@@ -21,15 +21,10 @@ return {
     "ibhagwan/fzf-lua",
     dependencies = { "kyazdani42/nvim-web-devicons" }
   },
-  {
-    "goolord/alpha-nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons" },
-  },
   { "folke/tokyonight.nvim" },
   { "akinsho/toggleterm.nvim", version = "*" },
   { "lukas-reineke/indent-blankline.nvim" },
   { "kevinhwang91/nvim-hlslens" },
-  "f-person/auto-dark-mode.nvim",
 
   -- Git
   { "lewis6991/gitsigns.nvim" },
