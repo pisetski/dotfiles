@@ -75,11 +75,6 @@ map('n', '<leader>g', '<cmd>LazyGit<CR>', silentnoremap)
 -- Copy current file filename and relative path
 map('n', '<leader>yf', ':let @+=@%<CR> :echo "Path copied:" expand("%")<CR>', silentnoremap)
 
-function mappings:mapNvimTree()
-  map('n', '<leader>E', '<cmd>NvimTreeFindFile<cr>', silentnoremap)
-  map('n', '<leader>e', '<cmd>NvimTreeFindFileToggle<cr>', silentnoremap) -- Find the current file in file browser
-end
-
 function mappings:mapGitlinker()
   map('n', '<leader>L',
     '<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>',
