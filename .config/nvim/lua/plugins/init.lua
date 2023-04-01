@@ -59,10 +59,6 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   },
-  {
-    "folke/trouble.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
-  },
   { "j-hui/fidget.nvim" }
 }
 
