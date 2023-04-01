@@ -1,12 +1,10 @@
 return {
   { "terrortylor/nvim-comment" },
   { "tpope/vim-surround" },
-  { "windwp/nvim-autopairs" },
   {
     "ggandor/leap.nvim",
     dependencies = { "tpope/vim-repeat" }
   },
-  { "folke/which-key.nvim" },
   {
     "kyazdani42/nvim-tree.lua",
     dependencies = {
