@@ -42,6 +42,7 @@ require("lazy").setup({
   { "akinsho/toggleterm.nvim", version = "*" },
   { "lukas-reineke/indent-blankline.nvim" },
   { "kevinhwang91/nvim-hlslens" },
+  "f-person/auto-dark-mode.nvim",
 
   -- Git
   { "lewis6991/gitsigns.nvim" },
