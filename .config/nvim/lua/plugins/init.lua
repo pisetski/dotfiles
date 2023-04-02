@@ -37,6 +37,5 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   },
-  { "j-hui/fidget.nvim" }
 }
 
