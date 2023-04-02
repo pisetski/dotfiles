@@ -1,5 +1,4 @@
 return {
-  { "terrortylor/nvim-comment" },
   { "tpope/vim-surround" },
   { "folke/tokyonight.nvim" },
 
