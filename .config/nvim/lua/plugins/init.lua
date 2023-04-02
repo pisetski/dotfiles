@@ -14,7 +14,6 @@ return {
   { "kevinhwang91/nvim-hlslens" },
 
   -- Git
-  { "lewis6991/gitsigns.nvim" },
   {
     "ruifm/gitlinker.nvim",
     dependencies = "nvim-lua/plenary.nvim",
