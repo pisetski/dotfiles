@@ -6,10 +6,6 @@ return {
     dependencies = { "tpope/vim-repeat" }
   },
   {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons" }
-  },
-  {
     "ibhagwan/fzf-lua",
     dependencies = { "kyazdani42/nvim-web-devicons" }
   },
