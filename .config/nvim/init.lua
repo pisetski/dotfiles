@@ -1,7 +1,6 @@
 require('pisetski.plugins')
 require('pisetski.mappings')
 require('pisetski.general')
-require('pisetski.lualine')
 require('pisetski.coq')
 require('pisetski.lsp')
 require('pisetski.comments')
