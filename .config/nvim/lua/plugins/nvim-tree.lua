@@ -3,11 +3,13 @@ return {
   dependencies = {
     "kyazdani42/nvim-web-devicons",
   },
+  cmd = {
+    "NvimTreeFocus"
+  },
   keys = {
     { '<leader>E', '<cmd>NvimTreeFindFile<cr>', desc = "NvimTreeFindFile" },
     { '<leader>e', '<cmd>NvimTreeFindFileToggle<cr>', desc = "NvimTreeFindFileToggle" },
   },
-  lazy = false,
   config = {
     sort_by = 'case_sensitive',
     open_on_setup = false,
