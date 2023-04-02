@@ -1,10 +1,6 @@
 return {
   { "terrortylor/nvim-comment" },
   { "tpope/vim-surround" },
-  {
-    "ibhagwan/fzf-lua",
-    dependencies = { "kyazdani42/nvim-web-devicons" }
-  },
   { "folke/tokyonight.nvim" },
 
   -- Git
