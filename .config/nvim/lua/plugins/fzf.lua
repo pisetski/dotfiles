@@ -2,10 +2,23 @@ return {
   "ibhagwan/fzf-lua",
   dependencies = { "kyazdani42/nvim-web-devicons" },
   config = function()
-    local m = require('pisetski.mappings')
+    local map = require('pisetski.mappings')
     local fzf = require('fzf-lua')
 
-    m.mapFzf()
+    map('n', '<c-P>', "<cmd>lua require('fzf-lua').files()<CR>")
+    map('n', '<c-G>', "<cmd>lua require('fzf-lua').live_grep_native()<CR>")
+    map('n', '<leader>fj', "<cmd>lua require('fzf-lua').jumps()<CR>")
+    map('n', '<leader>fb', "<cmd>lua require('fzf-lua').buffers()<CR>")
+    map('n', '<leader>fr', "<cmd>lua require('fzf-lua').oldfiles()<CR>")
+    map('n', '<leader>fv', "<cmd>lua require('fzf-lua').git_branches()<CR>")
+    map('n', '<leader>fm', "<cmd>lua require('fzf-lua').marks()<CR>")
+    map('n', '<leader>fy', "<cmd>lua require('fzf-lua').registers()<CR>")
+    map('n', '<leader>fw', "<cmd>lua require('fzf-lua').grep_cword()<CR>")
+    map('n', '<leader>fW', "<cmd>lua require('fzf-lua').grep_cWORD()<CR>")
+    map('n', '<leader>fs', "<cmd>lua require('fzf-lua').git_status()<CR>")
+
+    -- Pass custom cwd to grep
+    map('n', '<leader>fd', ":FzfLua live_grep_native cwd=./", { noremap = true })
 
     _G.my_action = function(selected, opts)
       if #selected > 1 then
