@@ -69,9 +69,6 @@ map('x', '<A-k>', ":move '<-2<CR>gv-gv", silentnoremap)
 map('v', '<', '<gv', silentnoremap)
 map('v', '>', '>gv', silentnoremap)
 
--- LazyGit
-map('n', '<leader>g', '<cmd>LazyGit<CR>', silentnoremap)
-
 -- Copy current file filename and relative path
 map('n', '<leader>yf', ':let @+=@%<CR> :echo "Path copied:" expand("%")<CR>', silentnoremap)
 
