@@ -14,7 +14,6 @@ return {
     dependencies = { "kyazdani42/nvim-web-devicons" }
   },
   { "folke/tokyonight.nvim" },
-  { "akinsho/toggleterm.nvim", version = "*" },
   { "lukas-reineke/indent-blankline.nvim" },
   { "kevinhwang91/nvim-hlslens" },
 
