@@ -13,10 +13,6 @@ return {
   { "kevinhwang91/nvim-hlslens" },
 
   -- Git
-  {
-    "ruifm/gitlinker.nvim",
-    dependencies = "nvim-lua/plenary.nvim",
-  },
   { "kdheepak/lazygit.nvim" },
   -- Packer
   { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
