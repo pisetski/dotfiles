@@ -28,11 +28,6 @@ return {
   { "p00f/nvim-ts-rainbow" },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
 
-  -- Completion
-  { "ms-jpq/coq_nvim", build = "python3 -m coq deps" },
-  { "ms-jpq/coq.artifacts" },
-  { "ms-jpq/coq.thirdparty" },
-
   -- LSP
   {
     "williamboman/mason.nvim",
