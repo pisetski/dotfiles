@@ -2,7 +2,6 @@
   "alpha-nvim": { "branch": "main", "commit": "dafa11a6218c2296df044e00f88d9187222ba6b0" },
   "auto-dark-mode.nvim": { "branch": "master", "commit": "a02ff9ee4630dd8e81dc097b486b7c7f468b9db7" },
   "coq.artifacts": { "branch": "artifacts", "commit": "82e29fb9443f41573483fa83e39490d7a6324c8c" },
-  "coq.thirdparty": { "branch": "3p", "commit": "83b1b7b9545b94f20df42b4ef224de576e628aaf" },
   "coq_nvim": { "branch": "coq", "commit": "45137deb2a34a8b1482fa0f49927e171223a9173" },
   "diffview.nvim": { "branch": "main", "commit": "932d10de327bccdedee439d9d55f4d857caa334e" },
   "eslint.nvim": { "branch": "main", "commit": "158f2289907d377018752fcfe0d61b746dc11767" },
