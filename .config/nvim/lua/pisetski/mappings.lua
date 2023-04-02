@@ -110,7 +110,6 @@ function mappings:mapHlslens()
   map('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
   map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
   map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], silentnoremap)
-
 end
 
 function mappings:mapCOQ()

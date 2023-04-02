@@ -10,7 +10,7 @@ return {
     { '<leader>E', '<cmd>NvimTreeFindFile<cr>', desc = "NvimTreeFindFile" },
     { '<leader>e', '<cmd>NvimTreeFindFileToggle<cr>', desc = "NvimTreeFindFileToggle" },
   },
-  config = {
+  opts = {
     sort_by = 'case_sensitive',
     open_on_setup = false,
     view = {
