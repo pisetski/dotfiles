@@ -2,10 +2,6 @@ return {
   { "terrortylor/nvim-comment" },
   { "tpope/vim-surround" },
   {
-    "ggandor/leap.nvim",
-    dependencies = { "tpope/vim-repeat" }
-  },
-  {
     "ibhagwan/fzf-lua",
     dependencies = { "kyazdani42/nvim-web-devicons" }
   },
