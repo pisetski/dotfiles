@@ -40,8 +40,8 @@ return {
       )
       vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, bufopts)
 
-      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, silentnoremap)
-      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, silentnoremap)
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
     end
 
     local lspconfig = require('lspconfig')
@@ -64,15 +64,14 @@ return {
     local lua_settings = {
       Lua = {
         diagnostics = {
-          globals = { 'vim' }, -- Get the language server to recognize the `vim` global
+          globals = { 'vim' }
         },
         workspace = {
-          -- Make the server aware of Neovim runtime files
           library = {
-            [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-            [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-          },
-        },
+            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+          }
+        }
       }
     }
 
@@ -93,7 +92,7 @@ return {
         }
       }
 
-      if lsp == "sumneko_lua" then
+      if lsp == "lua_ls" then
         config.settings = lua_settings
       end
 
