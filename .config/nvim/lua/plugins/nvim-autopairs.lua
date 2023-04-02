@@ -7,7 +7,6 @@ return {
     npairs.setup({
       check_ts = true,
       enable_check_bracket_line = true,
-      disable_filetype = { "TelescopePrompt" },
       map_bs = false,
       map_cr = false,
     })
