@@ -38,8 +38,6 @@ return {
   { "ms-jpq/coq.thirdparty" },
 
   -- LSP
-  { "jose-elias-alvarez/null-ls.nvim" },
-  { "MunifTanjim/eslint.nvim" },
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate"
