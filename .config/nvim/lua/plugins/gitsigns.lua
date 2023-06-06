@@ -10,7 +10,7 @@ return {
     },
     signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`
     numhl                        = true, -- toggle with `:gitsigns toggle_numhl`
-    linehl                       = true, -- toggle with `:gitsigns toggle_linehl`
+    linehl                       = false, -- toggle with `:gitsigns toggle_linehl`
     word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
     watch_gitdir                 = {
       interval = 2000,
