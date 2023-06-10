@@ -110,6 +110,12 @@ return {
           end
           return nil
         end
+        config.init_options = {
+          ["language_server_psalm.enabled"] = true,
+          ["symfony.enabled"] = true,
+          ["language_server_php_cs_fixer.enabled"] = true,
+          ["phpunit.enabled"] = true
+        }
       end
 
       lspconfig[lsp].setup(require('coq').lsp_ensure_capabilities(config))
