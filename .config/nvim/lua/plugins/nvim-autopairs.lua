@@ -21,7 +21,7 @@ return {
           return npairs.esc('<c-e>') .. npairs.autopairs_cr()
         end
       else
-        return npairs.autopairs_cr()
+        return npairs.esc('<Tab>')
       end
     end
     remap('i', '<Tab>', 'v:lua.MUtils.Tab()', { expr = true, noremap = true })
