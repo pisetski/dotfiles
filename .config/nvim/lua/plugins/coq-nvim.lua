@@ -65,7 +65,5 @@ return {
 
     map('i', '<Tab>', 'pumvisible() ? (complete_info().selected == -1 ? "\\<C-e><Tab>" : "\\<C-y>") : "\\<Tab>"',
       { expr = true })
-    map('i', '<CR>', 'pumvisible() ? "\\<C-e><CR>" : "\\<CR>"',
-      { expr = true, noremap = true })
   end
 }
