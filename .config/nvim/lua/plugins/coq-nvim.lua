@@ -57,6 +57,10 @@ return {
         pre_select = true,
         recommended = false,
         jump_to_mark = "<C-x>",
+      },
+      limits = {
+        completion_auto_timeout = 0.8,
+        completion_manual_timeout = 1
       }
     }
 
