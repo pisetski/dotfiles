@@ -32,8 +32,8 @@ map('i', 'jk', '<esc>')
 map('i', '<S-Tab>', '<C-d>')
 
 -- Close windows quicker
-map('n', '§', '<C-w>q')
-map('n', '±', ':tabclose<CR>')
+map('n', 'q', '<C-w>q')
+map('n', 'Q', ':tabclose<CR>')
 
 -- Quick-save the current buffer
 map('n', '<C-S>', '<C-c>:update<cr>')
