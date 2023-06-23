@@ -1,5 +1,6 @@
 return {
   "ggandor/leap.nvim",
+  lazy = false,
   keys = {
     { "s", desc = "Leap forward" },
     { "S", desc = "Leap backward" }
@@ -14,7 +15,7 @@ return {
   end,
   config = function()
     local leap = require('leap')
-    leap.set_default_keymaps()
-    leap.setup({})
+    leap.add_default_mappings()
   end
 }
+
