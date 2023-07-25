@@ -1,6 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
+  version = "*",
   dependencies = {
     { "nvim-treesitter/nvim-treesitter-refactor" },
     { "p00f/nvim-ts-rainbow" },
