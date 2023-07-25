@@ -8,7 +8,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
   },
   config = function()
-    local servers = { "lua_ls", "tsserver", "bashls", "cssls", "gopls", "groovyls", "yamlls", "phpactor" }
+    local servers = { "lua_ls", "tsserver", "bashls", "cssls", "gopls", "yamlls", "phpactor", "eslint" }
 
     require("mason").setup()
     require("mason-lspconfig").setup({
@@ -79,8 +79,11 @@ return {
     for _, lsp in ipairs(servers) do
       local config = {
         on_attach = function(client, bufnr)
-          if lsp == "tsserver" then
-            client.server_capabilities.document_formatting = false
+          if lsp == "eslint" then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = bufnr,
+              command = "EslintFixAll",
+            })
           end
 
           on_attach(client, bufnr, lsp)
