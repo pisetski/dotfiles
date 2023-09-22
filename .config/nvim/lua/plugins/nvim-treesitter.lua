@@ -4,7 +4,6 @@ return {
   version = "*",
   dependencies = {
     { "nvim-treesitter/nvim-treesitter-refactor" },
-    { "p00f/nvim-ts-rainbow" },
     { "JoosepAlviste/nvim-ts-context-commentstring" },
   },
   config = function()
