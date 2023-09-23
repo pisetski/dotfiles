@@ -7,8 +7,8 @@ return {
     "NvimTreeFocus"
   },
   keys = {
-    { '<leader>E', '<cmd>NvimTreeFindFile<cr>',       desc = "NvimTreeFindFile" },
-    { '<leader>e', '<cmd>NvimTreeFindFileToggle<cr>', desc = "NvimTreeFindFileToggle" },
+    { '<Space>E', '<cmd>NvimTreeFindFile<cr>',       desc = "NvimTreeFindFile" },
+    { '<Space>e', '<cmd>NvimTreeFindFileToggle<cr>', desc = "NvimTreeFindFileToggle" },
   },
   config = function()
     local function on_attach(bufnr)
