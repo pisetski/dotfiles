@@ -3,6 +3,7 @@ return {
   build = ":TSUpdate",
   version = "*",
   dependencies = {
+    { "windwp/nvim-ts-autotag" },
     { "nvim-treesitter/nvim-treesitter-refactor" },
     { "JoosepAlviste/nvim-ts-context-commentstring" },
   },
