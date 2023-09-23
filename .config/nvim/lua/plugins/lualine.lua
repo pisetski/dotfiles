@@ -21,7 +21,7 @@ return {
           path = 1,
         },
       },
-      lualine_x = { 'filetype' },
+      lualine_x = { 'filetype', 'progress' },
       lualine_y = {},
       lualine_z = {}
     },
