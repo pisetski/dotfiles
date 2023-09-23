@@ -1,5 +1,6 @@
 return {
   "ibhagwan/fzf-lua",
+  build = "./install --bin",
   dependencies = { "kyazdani42/nvim-web-devicons" },
   config = function()
     local map = require('pisetski.mappings')
@@ -43,7 +44,8 @@ return {
       end
     end
 
-    fzf.setup {
+    fzf.setup({
+      "skim",
       winopts = {
         preview = { default = 'bat_native' }
       },
@@ -92,9 +94,9 @@ return {
         actions  = { ['default'] = _G.my_action },
       },
       grep = {
-        filter = "rg -v '\\.(yaml|lock|csv)'",
+        filter = "rg -v '\\.(lock|csv)'",
         actions = { ['default'] = _G.my_action }
       },
-    }
+    })
   end
 }
