@@ -10,18 +10,10 @@ return {
       globalstatus = false,
     },
     sections = {
-      lualine_a = { 'mode' },
-      lualine_b = {
-        'branch', 'diff',
-        {
-          "diagnostics",
-          sources = { "nvim_diagnostic" },
-          colored = true,
-          update_in_insert = false,
-          always_visible = false,
-        }
-      },
+      lualine_a = {},
+      lualine_b = {},
       lualine_c = {
+        'branch',
         {
           'filename',
           file_status = true,
@@ -29,10 +21,10 @@ return {
         },
       },
       lualine_x = { 'filetype' },
-      lualine_y = { 'progress' },
-      lualine_z = { 'location' }
+      lualine_y = {},
+      lualine_z = {}
     },
     tabline = {},
-    extensions = { "trouble" }
+    extensions = {}
   }
 }

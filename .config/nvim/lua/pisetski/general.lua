@@ -39,6 +39,7 @@ o.autowrite = true -- Make No write since last change stfu
 o.listchars = 'tab:>-,trail:·,extends:>,precedes:<' -- How to represent non-printable characters.
 o.list = true -- turn the above on
 o.formatoptions = o.formatoptions .. 'j' -- Behave more reasonable when merging lines with J
+o.cmdheight = 0
 
 vim.api.nvim_create_autocmd(
   { 'bufread', 'bufnewfile' },
