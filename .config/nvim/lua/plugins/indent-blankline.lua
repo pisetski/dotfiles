@@ -1,7 +1,5 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  opts = {
-    show_current_context = false,
-    enabled = true,
-  }
+  tag = "v2.20.8",
+  opts = { }
 }
