@@ -46,7 +46,15 @@ size = 14
 
 [font.normal]
 family = "FiraCode Nerd Font Mono"
-style = "Regular"
+style = "Retina"
+
+[font.bold]
+family = "FiraCode Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "FiraCode Nerd Font Mono"
+style = "Italic"
 
 [[keyboard.bindings]]
 chars = "\u001Bf"
