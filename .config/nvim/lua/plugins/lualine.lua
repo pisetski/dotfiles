@@ -8,7 +8,7 @@ return {
       disabled_filetypes = { "NvimTree" },
       always_divide_middle = true,
       globalstatus = false,
-      component_separators = { left = '', right = ''},
+      component_separators = { left = '', right = '' },
     },
     sections = {
       lualine_a = {},
@@ -21,7 +21,7 @@ return {
           path = 1,
         },
       },
-      lualine_x = { 'filetype', 'progress' },
+      lualine_x = { 'diagnostics', 'filetype', 'progress' },
       lualine_y = {},
       lualine_z = {}
     },
