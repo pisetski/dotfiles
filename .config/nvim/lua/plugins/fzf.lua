@@ -6,7 +6,17 @@ return {
     local map = require('pisetski.mappings')
     local fzf = require('fzf-lua')
 
-    map('n', '<c-P>', "<cmd>lua require('fzf-lua').files()<CR>")
+    vim.keymap.set("n", "<C-P>", function()
+      local bufname = vim.fn.expand("%")
+
+      -- Do not open fzf if Harpoon menu is open
+      if string.find(bufname, "harpoon") then
+        vim.api.nvim_input('<Up>')
+        return
+      end
+
+      require('fzf-lua').files()
+    end)
     map('n', '<c-G>', "<cmd>lua require('fzf-lua').live_grep_native()<CR>")
     map('n', '<leader>fj', "<cmd>lua require('fzf-lua').jumps()<CR>")
     map('n', '<leader>fb', "<cmd>lua require('fzf-lua').buffers()<CR>")
