@@ -5,31 +5,36 @@ return {
   init = function()
     local map = require('pisetski.mappings')
     local kind_icons = {
-      Text = '',
-      Method = '',
-      Function = '',
-      Constructor = '',
-      Field = '',
-      Variable = '',
-      Class = 'ﴯ',
-      Interface = '',
-      Module = '',
-      Property = 'ﰠ',
-      Unit = '',
-      Value = '',
-      Enum = '',
-      Keyword = '',
-      Snippet = '',
-      Color = '',
-      File = '',
-      Reference = '',
-      Folder = '',
-      EnumMember = '',
-      Constant = '',
-      Struct = '',
-      Event = '',
-      Operator = '',
-      TypeParameter = ''
+      Boolean = "",
+      Character = "󱌯",
+      Class = "",
+      Color = "",
+      Constant = "",
+      Constructor = "",
+      Enum = "",
+      EnumMember = "",
+      Event = "",
+      Field = "",
+      File = "󰈔",
+      Folder = "",
+      Function = "󰊕",
+      Interface = "",
+      Keyword = "",
+      Method = "",
+      Module = "󰕳",
+      Number = "",
+      Operator = "Ψ",
+      Parameter = "󰘦",
+      Property = "",
+      Reference = "",
+      Snippet = "",
+      String = "󰅳",
+      Struct = "",
+      Text = "",
+      TypeParameter = "",
+      Unit = "",
+      Value = "",
+      Variable = "󰫧",
     }
 
     vim.g.coq_settings = {
@@ -37,6 +42,9 @@ return {
         tmux = {
           enabled = false,
         },
+        lsp = {
+          always_on_top = {},
+        }
       },
       auto_start = 'shut-up',
       display = {
@@ -58,10 +66,6 @@ return {
         recommended = false,
         jump_to_mark = "<C-x>",
       },
-      limits = {
-        completion_auto_timeout = 0.8,
-        completion_manual_timeout = 1
-      }
     }
 
     map('i', '<Esc>', 'pumvisible() ? "\\<C-e><Esc>" : "\\<Esc>"', { expr = true })
