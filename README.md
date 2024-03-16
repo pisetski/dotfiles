@@ -10,7 +10,7 @@
 brew install neovim sk fzf rg lazygit tmux
 ```
 7. Install [tpm](https://github.com/tmux-plugins/tpm)
-8. Symlink `zsh` files and `.config` folder:
+8. Symlink:
 ```
 ln -s ~/projects/dotfiles/ ~/
 ```
