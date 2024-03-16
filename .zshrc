@@ -6,7 +6,7 @@ export BAT_THEME="Enki-Tokyo-Night"
 
 ZSH_THEME="refined"
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-z)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting z)
 source $ZSH/oh-my-zsh.sh
 
 alias v="nvim"
