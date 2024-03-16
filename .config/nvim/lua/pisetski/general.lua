@@ -1,6 +1,7 @@
 local o = vim.o
 local g = vim.g
 
+o.termguicolors = true
 o.showmatch = true -- show matching
 o.ignorecase = true -- case insensitive
 o.mouse = 'v' -- middle-click paste with
