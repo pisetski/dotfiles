@@ -21,6 +21,9 @@ return {
 
       vim.api.nvim_input('<C-c>')
     end)
+    vim.keymap.set("n", "<Esc>", function()
+      vim.api.nvim_input('<Esc>')
+    end)
 
     -- Toggle previous & next buffers stored within Harpoon list
     vim.keymap.set("n", "<C-]>", function() harpoon:list():prev() end)
