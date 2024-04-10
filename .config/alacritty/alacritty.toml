@@ -40,6 +40,9 @@ foreground = "0xc0caf5"
 [cursor]
 blink_interval = 500
 
+[mouse]
+hide_when_typing = true
+
 [cursor.style]
 blinking = "Always"
 shape = "Block"
