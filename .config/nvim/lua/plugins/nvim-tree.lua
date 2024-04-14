@@ -20,6 +20,10 @@ return {
         return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
       end
 
+      api.events.subscribe(api.events.Event.FileCreated, function(file)
+        vim.cmd("edit " .. file.fname)
+      end)
+
       api.config.mappings.default_on_attach(bufnr)
 
       vim.keymap.del('n', 's', { buffer = bufnr })
