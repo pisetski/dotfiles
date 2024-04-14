@@ -114,3 +114,4 @@ mods = "Alt"
 
 [window]
 dynamic_padding = true
+startup_mode = "Fullscreen"
