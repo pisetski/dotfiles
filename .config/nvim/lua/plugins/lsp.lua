@@ -15,15 +15,8 @@ return {
       ensure_installed = servers
     })
 
-    local function mapLSP(_, bufnr, lsp)
+    local function mapLSP(_, bufnr)
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
-
-      if lsp == "phpactor" then
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-      else
-        vim.keymap.set('n', 'gd', '<cmd>Trouble lsp_definitions<cr>', bufopts)
-      end
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
       vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
@@ -45,8 +38,8 @@ return {
     end
 
     local lspconfig = require('lspconfig')
-    local on_attach = function(client, bufnr, lsp)
-      mapLSP(client, bufnr, lsp)
+    local on_attach = function(client, bufnr)
+      mapLSP(client, bufnr)
 
       vim.api.nvim_create_autocmd("CursorHold", {
         callback = function()
