@@ -1,5 +1,6 @@
 return {
   "windwp/nvim-autopairs",
+  event = "InsertEnter",
   config = function()
     local npairs = require('nvim-autopairs')
     local remap = vim.api.nvim_set_keymap
@@ -15,7 +16,7 @@ return {
 
     MUtils.CR = function()
       if vim.fn.pumvisible() ~= 0 then
-          return npairs.esc('<c-e>') .. npairs.autopairs_cr()
+        return npairs.esc('<c-e>') .. npairs.autopairs_cr()
       else
         return npairs.autopairs_cr()
       end

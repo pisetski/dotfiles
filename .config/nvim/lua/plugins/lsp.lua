@@ -68,18 +68,27 @@ return {
       }
     }
 
-
+    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
     for _, lsp in ipairs(servers) do
       local config = {
         on_attach = function(client, bufnr)
-          if lsp == "eslint" then
+          if lsp == "eslint" or lsp == "tsserver" then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = bufnr,
               command = "EslintFixAll",
             })
+          elseif client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              group = augroup,
+              buffer = bufnr,
+              callback = function()
+                vim.lsp.buf.format()
+              end,
+            })
           end
 
-          on_attach(client, bufnr, lsp)
+          on_attach(client, bufnr)
         end,
         settings = {},
         flags = {
