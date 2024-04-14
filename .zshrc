@@ -23,3 +23,5 @@ alias ta="t a -t"
 alias tl="t ls"
 alias tn="t new -t"
 alias tk="t kill-server"
+alias p="pnpm"
+alias air='~/go/bin/air'
