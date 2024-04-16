@@ -1,5 +1,5 @@
 [env]
-term = "xterm-256color"
+term = "alacritty"
 
 [bell.command]
 args = ["-e", "beep"]
