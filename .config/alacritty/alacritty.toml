@@ -51,20 +51,20 @@ shape = "Block"
 size = 15
 
 [font.normal]
-family = "MonoLisa Nerd Font Mono"
+family = "MonoLisaNerdFontCompleteMono Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "MonoLisa Nerd Font Mono"
+family = "MonoLisaNerdFontCompleteMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "MonoLisa Nerd Font Mono"
+family = "MonoLisaNerdFontCompleteMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "MonoLisa Nerd Font Mono"
-style = "Regular Italic"
+family = "MonoLisaNerdFontCompleteMono Nerd Font"
+style = "Italic"
 
 [[keyboard.bindings]]
 chars = "\u001Bf"
