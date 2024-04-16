@@ -48,19 +48,23 @@ blinking = "Always"
 shape = "Block"
 
 [font]
-size = 16
+size = 15
 
 [font.normal]
-family = "FiraCode Nerd Font Mono"
-style = "Retina"
+family = "MonoLisa Nerd Font Mono"
+style = "Regular"
 
 [font.bold]
-family = "FiraCode Nerd Font Mono"
+family = "MonoLisa Nerd Font Mono"
 style = "Bold"
 
+[font.bold_italic]
+family = "MonoLisa Nerd Font Mono"
+style = "Bold Italic"
+
 [font.italic]
-family = "FiraCode Nerd Font Mono"
-style = "Italic"
+family = "MonoLisa Nerd Font Mono"
+style = "Regular Italic"
 
 [[keyboard.bindings]]
 chars = "\u001Bf"
