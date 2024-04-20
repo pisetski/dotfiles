@@ -1,7 +1,6 @@
 return {
   "ibhagwan/fzf-lua",
-  build = "./install --bin",
-  dependencies = { "kyazdani42/nvim-web-devicons" },
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local map = require('pisetski.mappings')
     local fzf = require('fzf-lua')
