@@ -48,22 +48,22 @@ blinking = "Always"
 shape = "Block"
 
 [font]
-size = 15
+size = 16
 
 [font.normal]
-family = "MonoLisaNerdFontCompleteMono Nerd Font"
+family = "MapleMono Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "MonoLisaNerdFontCompleteMono Nerd Font"
+family = "MapleMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "MonoLisaNerdFontCompleteMono Nerd Font"
+family = "MapleMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "MonoLisaNerdFontCompleteMono Nerd Font"
+family = "MapleMono Nerd Font"
 style = "Italic"
 
 [[keyboard.bindings]]
