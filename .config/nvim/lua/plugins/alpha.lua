@@ -17,11 +17,10 @@ return {
     }
 
     dashboard.section.buttons.val = {
-      dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
+      dashboard.button("r", "  Recent files", ":FzfLua oldfiles<CR>"),
       dashboard.button("p", "  Find file", "<CR>:FzfLua files<CR>"),
       dashboard.button("e", "  Explore", ":ene<CR>:NvimTreeFocus<CR>"),
-      dashboard.button("r", "  Recent files", ":FzfLua oldfiles<CR>"),
-      dashboard.button("u", "  Update plugins and parsers", ":Lazy sync<CR> :TSUpdate<CR>"),
+      dashboard.button("u", "  Update dependencies", ":Lazy sync<CR> :TSUpdate<CR> :MasonUpdate<CR>"),
       dashboard.button("q", "󰅘  Quit", ":qa<CR>"),
     }
     vim.api.nvim_create_autocmd("User", {
