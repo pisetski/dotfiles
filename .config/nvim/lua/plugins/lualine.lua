@@ -20,8 +20,19 @@ return {
           file_status = true,
           path = 1,
         },
+        {
+          'diagnostics',
+          sources = { 'nvim_lsp' },
+        },
       },
-      lualine_x = { 'diagnostics', 'filetype', 'progress' },
+      lualine_x = {
+        {
+          'diagnostics',
+          sources = { 'nvim_workspace_diagnostic' },
+        },
+        'filetype',
+        'progress'
+      },
       lualine_y = {},
       lualine_z = {}
     },
