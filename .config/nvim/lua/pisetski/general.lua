@@ -4,6 +4,9 @@ local g = vim.g
 o.termguicolors = true
 o.showmatch = true          -- show matching
 o.ignorecase = true         -- case insensitive
+o.tabstop = 2               -- number of columns occupied by a tab
+o.softtabstop = 2           -- see multiple spaces as tabstops so <BS> does the right thing
+o.shiftwidth = 2            -- width for autoindents
 o.mouse = 'v'               -- middle-click paste with
 o.hlsearch = true           -- highlight search
 o.incsearch = true          -- incremental search
@@ -73,9 +76,7 @@ for _, plugin in ipairs(builtins) do
   g['loaded_' .. plugin] = 1
 end
 
-vim.cmd('filetype plugin on')
 vim.cmd('set noshowmode')
-vim.cmd('colorscheme github_dark')
 
 vim.api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
 -- Skip backwards compatibility routines and speed up loading.

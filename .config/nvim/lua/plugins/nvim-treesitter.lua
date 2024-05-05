@@ -9,8 +9,25 @@ return {
   config = function()
     require('nvim-treesitter.configs').setup({
       -- A list of parser names, or 'all'
-      ensure_installed = { 'css', 'lua', 'dockerfile', 'dot', 'html', 'javascript', 'json', 'make', 'markdown', 'regex',
-        'tsx', 'typescript', 'yaml', 'gitignore', 'bash', 'go', 'php' },
+      ensure_installed = {
+        'css',
+        'lua',
+        'dockerfile',
+        'dot',
+        'html',
+        'javascript',
+        'json',
+        'make',
+        'markdown',
+        'regex',
+        'tsx',
+        'typescript',
+        'yaml',
+        'gitignore',
+        'bash',
+        'go',
+        'php',
+      },
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = false,
       -- Automatically install missing parsers when entering buffer
@@ -33,7 +50,7 @@ return {
         additional_vim_regex_highlighting = false,
       },
       indent = {
-        enable = true
+        enable = false
       },
       autotag = {
         enable = true,
