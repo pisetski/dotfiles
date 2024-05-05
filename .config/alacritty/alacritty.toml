@@ -37,10 +37,6 @@ white = "0xb1bac4"
 background = "0x30363d"
 foreground = "0xe6edf3"
 
-[colors.cursor]
-text = "0x30363d"
-cursor = "0xe6edf3"
-
 [cursor]
 blink_interval = 500
 
