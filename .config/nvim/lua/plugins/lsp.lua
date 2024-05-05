@@ -6,9 +6,10 @@ return {
       build = ":MasonUpdate"
     },
     "williamboman/mason-lspconfig.nvim",
+    "pmizio/typescript-tools.nvim",
   },
   config = function()
-    local servers = { "lua_ls", "tsserver", "bashls", "cssls", "gopls", "yamlls", "phpactor", "eslint" }
+    local servers = { "lua_ls", "bashls", "cssls", "gopls", "yamlls", "phpactor", "eslint" }
 
     require("mason").setup()
     require("mason-lspconfig").setup({
@@ -38,7 +39,12 @@ return {
     end
 
     local lspconfig = require('lspconfig')
-    local on_attach = function(client, bufnr)
+    lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+      on_attach = function(client)
+        client.server_capabilities.semanticTokensProvider = nil
+      end
+    })
+    local on_attach_custom = function(client, bufnr)
       mapLSP(client, bufnr)
 
       vim.api.nvim_create_autocmd("CursorHold", {
@@ -53,6 +59,34 @@ return {
         end
       })
     end
+
+    require("typescript-tools").setup({
+      on_attach = function(client, bufnr)
+        on_attach_custom(client, bufnr)
+      end,
+      settings = {
+        complete_function_calls = true,
+        jsx_close_tag = {
+          enable = false,
+          filetypes = { "javascriptreact", "typescriptreact" },
+        },
+        expose_as_code_action = { "add_missing_imports" },
+        tsserver_file_preferences = {
+          includeCompletionsForModuleExports = true,
+          includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all'
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
+        },
+        tsserver_plugins = {
+          "@styled/typescript-styled-plugin",
+        },
+      }
+    })
 
     local lua_settings = {
       Lua = {
@@ -72,7 +106,7 @@ return {
     for _, lsp in ipairs(servers) do
       local config = {
         on_attach = function(client, bufnr)
-          if lsp == "eslint" or lsp == "tsserver" then
+          if lsp == "eslint" then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = bufnr,
               command = "EslintFixAll",
@@ -88,7 +122,7 @@ return {
             })
           end
 
-          on_attach(client, bufnr)
+          on_attach_custom(client, bufnr)
         end,
         settings = {},
         flags = {
