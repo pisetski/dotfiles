@@ -2,9 +2,15 @@ export ZSH="$HOME/.oh-my-zsh"
 export TERM=xterm-256color
 export EDITOR=nvim
 export VISUAL="$EDITOR"
-export BAT_THEME="Enki-Tokyo-Night"
 
-ZSH_THEME="refined"
+# Custom theme https://github.com/reobin/typewritten
+export ZSH_THEME=""
+export TYPEWRITTEN_SYMBOL="❯"
+export TYPEWRITTEN_COLOR_MAPPINGS="primary:white;secondary:yellow;accent:black;foreground:default"
+export TYPEWRITTEN_DISABLE_RETURN_CODE="true"
+export TYPEWRITTEN_CURSOR="beam"
+autoload -U promptinit; promptinit
+prompt typewritten
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting z)
 source $ZSH/oh-my-zsh.sh

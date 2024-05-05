@@ -9,14 +9,26 @@ return {
     "pmizio/typescript-tools.nvim",
   },
   config = function()
-    local servers = { "lua_ls", "bashls", "cssls", "gopls", "yamlls", "phpactor", "eslint" }
+    local servers = {
+      "lua_ls",
+      "bashls",
+      "cssls",
+      "gopls",
+      "yamlls",
+      "phpactor",
+      "eslint",
+      "jsonls",
+      "marksman",
+    }
 
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = servers
+      ensure_installed = servers,
+      automatic_installation = true,
     })
 
-    local function mapLSP(_, bufnr)
+
+    local function set_mappings(_, bufnr)
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -32,20 +44,13 @@ return {
         end,
         bufopts
       )
-      vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, bufopts)
-
+      vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
     end
 
-    local lspconfig = require('lspconfig')
-    lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
-      on_attach = function(client)
-        client.server_capabilities.semanticTokensProvider = nil
-      end
-    })
     local on_attach_custom = function(client, bufnr)
-      mapLSP(client, bufnr)
+      set_mappings(client, bufnr)
 
       vim.api.nvim_create_autocmd("CursorHold", {
         callback = function()
@@ -102,6 +107,8 @@ return {
       }
     }
 
+    local lspconfig = require('lspconfig')
+
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
     for _, lsp in ipairs(servers) do
       local config = {
@@ -133,10 +140,6 @@ return {
 
       if lsp == "lua_ls" then
         config.settings = lua_settings
-      end
-
-      if lsp == "tsserver" then
-        config.root_dir = require('lspconfig.util').find_git_ancestor
       end
 
       if lsp == "phpactor" then

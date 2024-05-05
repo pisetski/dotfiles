@@ -7,9 +7,6 @@ o.ignorecase = true         -- case insensitive
 o.mouse = 'v'               -- middle-click paste with
 o.hlsearch = true           -- highlight search
 o.incsearch = true          -- incremental search
-o.tabstop = 2               -- number of columns occupied by a tab
-o.softtabstop = 2           -- see multiple spaces as tabstops so <BS> does the right thing
-o.shiftwidth = 2            -- width for autoindents
 o.autoindent = false        -- indent a new line the same amount as the line just typed
 o.scrolloff = 8             -- Number of lines from vertical edge to start scroll
 o.sidescrolloff = 15        -- Number of lines from horizontal edge to start scroll
@@ -78,7 +75,7 @@ end
 
 vim.cmd('filetype plugin on')
 vim.cmd('set noshowmode')
-vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme github_dark')
 
 vim.api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
 -- Skip backwards compatibility routines and speed up loading.

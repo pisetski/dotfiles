@@ -60,12 +60,20 @@ return {
         ghost_text = {
           enabled = false,
         },
+        mark_applied_notify = false,
+        preview = {
+          border = "solid"
+        }
       },
       keymap = {
         pre_select = true,
         recommended = false,
         jump_to_mark = "<C-x>",
       },
+      limits = {
+        completion_auto_timeout = 0.66,
+        completion_manual_timeout = 1
+      }
     }
 
     map('i', '<Esc>', 'pumvisible() ? "\\<C-e><Esc>" : "\\<Esc>"', { expr = true })
