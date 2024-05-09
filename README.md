@@ -1,5 +1,5 @@
 # Quickstart
-1. Download [Maple font](https://github.com/subframe7536/maple-font), patch it using [Font-patcher](https://github.com/ryanoasis/nerd-fonts#font-patcher) and install
+1. Download [Cascadia NF](https://github.com/microsoft/cascadia-code/releases)
 2. Install [Alacritty](https://github.com/alacritty/alacritty)
 3. Install [Oh My Zsh](https://ohmyz.sh/#install) and deps
    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
