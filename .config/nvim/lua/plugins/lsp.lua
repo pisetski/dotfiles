@@ -19,6 +19,7 @@ return {
       "eslint",
       "jsonls",
       "marksman",
+      "tsserver"
     }
 
     require("mason").setup()
@@ -65,34 +66,6 @@ return {
       })
     end
 
-    require("typescript-tools").setup({
-      on_attach = function(client, bufnr)
-        on_attach_custom(client, bufnr)
-      end,
-      settings = {
-        complete_function_calls = true,
-        jsx_close_tag = {
-          enable = false,
-          filetypes = { "javascriptreact", "typescriptreact" },
-        },
-        expose_as_code_action = { "add_missing_imports" },
-        tsserver_file_preferences = {
-          includeCompletionsForModuleExports = true,
-          includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all'
-          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-          includeInlayVariableTypeHints = true,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
-        },
-        tsserver_plugins = {
-          "@styled/typescript-styled-plugin",
-        },
-      }
-    })
-
     local lua_settings = {
       Lua = {
         diagnostics = {
@@ -113,7 +86,7 @@ return {
     for _, lsp in ipairs(servers) do
       local config = {
         on_attach = function(client, bufnr)
-          if lsp == "eslint" then
+          if lsp == "eslint" or lsp == "tsserver" then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = bufnr,
               command = "EslintFixAll",
