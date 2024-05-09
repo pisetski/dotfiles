@@ -48,19 +48,19 @@ blinking = "Always"
 shape = "Block"
 
 [font]
-size = 16
+size = 17
 
 [font.normal]
-family = "MapleMono Nerd Font"
-style = "Regular"
+family = "Cascadia Mono NF"
+style = "SemiLight"
 
 [font.bold]
-family = "MapleMono Nerd Font"
-style = "Bold"
+family = "Cascadia Mono NF"
+style = "SemiBold"
 
 [font.bold_italic]
-family = "MapleMono Nerd Font"
-style = "Bold Italic"
+family = "Cascadia Mono NF"
+style = "SemiBold Italic"
 
 [font.italic]
 family = "MapleMono Nerd Font"
