@@ -40,7 +40,6 @@ return {
 			local rhs = function()
 				-- Get the file system entry under the cursor
 				local fs_entry = MiniFiles.get_fs_entry()
-				print(fs_entry.path)
 				if fs_entry and fs_entry.fs_type == 'file' then
 					MiniFiles.close()
 					-- Open the file in a new tab
