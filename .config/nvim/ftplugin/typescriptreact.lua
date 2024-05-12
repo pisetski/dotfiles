@@ -13,8 +13,6 @@ vim.keymap.set('i', '/', function()
 
     return already_have_space and '/>' or ' />'
   end
-  print("test", node:type())
-
 
   return '/'
 end, { expr = true, buffer = true })
