@@ -19,7 +19,7 @@ return {
     dashboard.section.buttons.val = {
       dashboard.button("r", "  Recent files", ":FzfLua oldfiles<CR>"),
       dashboard.button("p", "  Find file", "<CR>:FzfLua files<CR>"),
-      dashboard.button("e", "  Explore", ":ene<CR>:NvimTreeFocus<CR>"),
+      dashboard.button("e", "  Explore", ":ene<CR>:lua MiniFiles.open(vim.api.nvim_buf_get_name(0), false)<cr><CR>"),
       dashboard.button("g", "  Lazygit", ":LazyGit<CR>"),
       dashboard.button("u", "  Update dependencies", ":Lazy sync<CR> :TSUpdate<CR> :MasonUpdate<CR>"),
       dashboard.button("q", "󰅘  Quit", ":qa<CR>"),
