@@ -44,7 +44,6 @@ return {
         end,
         bufopts
       )
-      vim.keymap.set('n', 'gd', vim.lsp.buf.implementation, bufopts)
       vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)

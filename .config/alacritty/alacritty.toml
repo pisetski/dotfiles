@@ -52,19 +52,19 @@ size = 17
 
 [font.normal]
 family = "Cascadia Mono NF"
-style = "SemiLight"
+style = "Light"
 
 [font.bold]
 family = "Cascadia Mono NF"
-style = "SemiBold"
+style = "SemiLight"
 
 [font.bold_italic]
 family = "Cascadia Mono NF"
-style = "SemiBold Italic"
+style = "SemiLight Italic"
 
 [font.italic]
-family = "MapleMono Nerd Font"
-style = "Italic"
+family = "Cascadia Mono NF"
+style = "Light Italic"
 
 [[keyboard.bindings]]
 chars = "\u001Bf"
