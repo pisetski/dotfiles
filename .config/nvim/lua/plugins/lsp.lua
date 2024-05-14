@@ -28,7 +28,6 @@ return {
       automatic_installation = true,
     })
 
-
     local function set_mappings(_, bufnr)
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
@@ -45,6 +44,7 @@ return {
         end,
         bufopts
       )
+      vim.keymap.set('n', 'gd', vim.lsp.buf.implementation, bufopts)
       vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
@@ -86,12 +86,15 @@ return {
     for _, lsp in ipairs(servers) do
       local config = {
         on_attach = function(client, bufnr)
-          if lsp == "eslint" or lsp == "tsserver" then
+          if lsp == "eslint" then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = bufnr,
               command = "EslintFixAll",
             })
-          elseif client.supports_method("textDocument/formatting") then
+            return
+          end
+
+          if lsp ~= "tsserver" and client.supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
               group = augroup,
