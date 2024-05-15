@@ -16,11 +16,15 @@ return {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {
-          'branch',
+          {
+            'branch',
+            icon = "󰘬",
+          },
           {
             'filename',
             file_status = true,
             path = 1,
+            icon = ""
           },
           {
             'diagnostics',
