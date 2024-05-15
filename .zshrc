@@ -3,6 +3,9 @@ export TERM=xterm-256color
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 
+# Install day and storm themes https://github.com/folke/tokyonight.nvim/issues/23#issuecomment-1636639722
+export BAT_THEME="tokyonight_storm"
+
 # Custom theme https://github.com/reobin/typewritten
 export ZSH_THEME=""
 export TYPEWRITTEN_SYMBOL="❯"
