@@ -21,10 +21,15 @@ return {
             icon = "󰘬",
           },
           {
+            'filetype',
+            icon_only = true,
+            padding = { left = 1, right = 0 }
+          },
+          {
             'filename',
             file_status = true,
             path = 1,
-            icon = ""
+            padding = { left = 0, right = 1 }
           },
           {
             'diagnostics',
@@ -36,7 +41,6 @@ return {
             'diagnostics',
             sources = { 'nvim_workspace_diagnostic' },
           },
-          'filetype',
           'progress'
         },
         lualine_y = {},
