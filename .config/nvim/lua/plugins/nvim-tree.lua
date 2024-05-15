@@ -8,7 +8,6 @@ return {
   cmd = {
     "NvimTreeFocus"
   },
-  enabled = false,
   keys = {
     { '<Space>E', '<cmd>NvimTreeFindFile<cr>',       desc = "NvimTreeFindFile" },
     { '<Space>e', '<cmd>NvimTreeFindFileToggle<cr>', desc = "NvimTreeFindFileToggle" },
