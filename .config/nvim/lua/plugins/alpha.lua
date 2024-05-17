@@ -28,13 +28,7 @@ return {
       pattern = "LazyVimStarted",
       callback = function()
         local v = vim.version()
-        local dev = ""
-        if v.prerelease == "dev" then
-          dev = "-dev+" .. v.build
-        else
-          dev = ""
-        end
-        local version = v.major .. "." .. v.minor .. "." .. v.patch .. dev
+        local version = v.major .. "." .. v.minor .. "." .. v.patch
         local stats = require("lazy").stats()
         local plugins_count = stats.loaded .. "/" .. stats.count
         local ms = math.floor(stats.startuptime + 0.5)
