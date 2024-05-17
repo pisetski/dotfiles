@@ -62,7 +62,8 @@ return {
         },
         mark_applied_notify = false,
         preview = {
-          border = "solid"
+          border = "solid",
+          positions = { north = 4, south = 2, west = 3, east = 1 },
         }
       },
       keymap = {
