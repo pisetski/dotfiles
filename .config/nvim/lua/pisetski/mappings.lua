@@ -11,7 +11,7 @@ map('n', 'n', 'nzz')
 map('n', 'N', 'Nzz')
 
 -- Reset highlighting after search
-map('n', '<CR>', ':noh<CR><CR>', { noremap = true })
+map('n', '<CR>', ':noh<CR><CR>', silentnoremap)
 
 -- Resize with arrows
 map('n', '<A-Up>', ':resize -2<CR>')
