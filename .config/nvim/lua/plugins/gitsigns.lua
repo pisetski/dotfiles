@@ -8,8 +8,8 @@ return {
       topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
       changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
     },
-    signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`
-    numhl                        = true, -- toggle with `:gitsigns toggle_numhl`
+    signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`
+    numhl                        = true,  -- toggle with `:gitsigns toggle_numhl`
     linehl                       = false, -- toggle with `:gitsigns toggle_linehl`
     word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
     watch_gitdir                 = {
