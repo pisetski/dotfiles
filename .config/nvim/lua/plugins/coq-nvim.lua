@@ -63,13 +63,20 @@ return {
         mark_applied_notify = false,
         preview = {
           border = "solid"
-        }
+        },
+      },
+      limits = {
+        completion_auto_timeout = 0.3,
+        completion_manual_timeout = 1,
       },
       keymap = {
         pre_select = true,
         recommended = false,
-        jump_to_mark = '<C-m>',
+        jump_to_mark = '<C-x>',
       },
+      match = {
+        max_results = 9
+      }
     }
 
     map('i', '<Esc>', 'pumvisible() ? "\\<C-e><Esc>" : "\\<Esc>"', { expr = true })

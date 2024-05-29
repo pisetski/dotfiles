@@ -62,20 +62,6 @@ return {
       })
     end
 
-    local lua_settings = {
-      Lua = {
-        diagnostics = {
-          globals = { 'vim' }
-        },
-        workspace = {
-          library = {
-            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-          }
-        }
-      }
-    }
-
     local lspconfig = require('lspconfig')
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -111,7 +97,19 @@ return {
       }
 
       if lsp == "lua_ls" then
-        config.settings = lua_settings
+        config.settings = {
+          Lua = {
+            diagnostics = {
+              globals = { 'vim' }
+            },
+            workspace = {
+              library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+              }
+            }
+          }
+        }
       end
 
       if lsp == "phpactor" then
