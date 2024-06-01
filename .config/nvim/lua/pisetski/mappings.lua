@@ -57,8 +57,8 @@ map('n', '<leader>O',
   silentnoremap)
 
 -- Move text up and down
-map('n', '<A-j>', '<Esc>:m .+1<CR>==gi')
-map('n', '<A-k>', '<Esc>:m .-2<CR>==gi')
+map('n', '<A-j>', '<Esc>:m .+1<CR>==')
+map('n', '<A-k>', '<Esc>:m .-2<CR>==')
 map('v', '<A-j>', ':m .+1<CR>==')
 map('v', '<A-k>', ':m .-2<CR>==')
 map('x', '<A-j>', ":move '>+1<CR>gv-gv")
