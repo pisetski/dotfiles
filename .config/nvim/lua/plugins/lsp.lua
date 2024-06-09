@@ -19,7 +19,8 @@ return {
       "eslint",
       "jsonls",
       "marksman",
-      "tsserver"
+      "tsserver",
+      "typos_lsp"
     }
 
     require("mason").setup()
