@@ -29,6 +29,10 @@ return {
       automatic_installation = true,
     })
 
+    -- Prevent LSP from overwriting the syntax highlighting
+    vim.highlight.priorities.semantic_tokens = 95
+
+
     local function set_mappings(_, bufnr)
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
