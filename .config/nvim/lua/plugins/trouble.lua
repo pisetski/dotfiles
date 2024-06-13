@@ -1,17 +1,42 @@
 return {
   "folke/trouble.nvim",
-  dependencies = "kyazdani42/nvim-web-devicons",
-  config = function()
-    local map = require('pisetski.mappings')
-
-    map('n', '<space>w', '<cmd>Trouble workspace_diagnostics<cr>')
-    map('n', '<space>d', '<cmd>Trouble document_diagnostics<cr>')
-    map('n', 'gr', '<cmd>Trouble lsp_references<cr>')
-    map('n', 'gd', '<cmd>Trouble lsp_definitions<cr>')
-    map('n', '<space>D', '<cmd>Trouble lsp_type_definitions<cr>')
-
-    return {
-      auto_jump = { "lsp_definitions", "lsp_references", "lsp_implementations", "lsp_type_definitions" },
+  opts = {
+    warn_no_results = false,
+    auto_refresh = false,
+    modes = {
+      lsp_references = {
+        params = {
+          include_declaration = true,
+        },
+      },
     }
-  end
+  },
+  cmd = "Trouble",
+  keys = {
+    {
+      "<space>w",
+      "<cmd>Trouble diagnostics toggle focus=true auto_refresh=true auto_close=true<cr>",
+      desc = "Diagnostics (Trouble)",
+    },
+    {
+      "<leader>cs",
+      "<cmd>Trouble symbols toggle focus=false<cr>",
+      desc = "Symbols (Trouble)",
+    },
+    {
+      "gr",
+      "<cmd>Trouble lsp_references focus=true auto_jump=false win.position=bottom<cr>",
+      desc = "LSP References",
+    },
+    {
+      "gd",
+      "<cmd>Trouble lsp_definitions focus=true auto_jump=true win.position=bottom<cr>",
+      desc = "LSP Definitions",
+    },
+    {
+      "<leader>xL",
+      "<cmd>Trouble loclist toggle<cr>",
+      desc = "Location List (Trouble)",
+    },
+  },
 }
