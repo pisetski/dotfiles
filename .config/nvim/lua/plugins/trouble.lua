@@ -9,6 +9,10 @@ return {
           include_declaration = true,
         },
       },
+    },
+    keys = {
+      j = "next",
+      k = "prev",
     }
   },
   cmd = "Trouble",
@@ -31,7 +35,7 @@ return {
     {
       "gd",
       "<cmd>Trouble lsp_definitions focus=true auto_jump=true win.position=bottom<cr>",
-      desc = "LSP Definitions",
+      desc = "LSP Definitions (tsserver Implementations)",
     },
     {
       "<leader>xL",

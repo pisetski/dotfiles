@@ -32,7 +32,6 @@ return {
     -- Prevent LSP from overwriting the syntax highlighting
     vim.highlight.priorities.semantic_tokens = 95
 
-
     local function set_mappings(_, bufnr)
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
@@ -73,6 +72,11 @@ return {
     for _, lsp in ipairs(servers) do
       local config = {
         on_attach = function(client, bufnr)
+          if lsp == "tsserver" then
+            local map = require('pisetski.mappings')
+            map('n', 'gd', "<cmd>Trouble lsp_implementations focus=true auto_jump=true win.position=bottom<cr>")
+          end
+
           if lsp == "eslint" then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = bufnr,
