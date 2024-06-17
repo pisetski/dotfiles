@@ -23,8 +23,8 @@ return {
       desc = "Diagnostics (Trouble)",
     },
     {
-      "<leader>cs",
-      "<cmd>Trouble symbols toggle focus=false<cr>",
+      "<space>s",
+      "<cmd>Trouble symbols toggle focus=true auto_refresh=true win.position=bottom<cr>",
       desc = "Symbols (Trouble)",
     },
     {
@@ -36,11 +36,6 @@ return {
       "gd",
       "<cmd>Trouble lsp_definitions focus=true auto_jump=true win.position=bottom<cr>",
       desc = "LSP Definitions (tsserver Implementations)",
-    },
-    {
-      "<leader>xL",
-      "<cmd>Trouble loclist toggle<cr>",
-      desc = "Location List (Trouble)",
     },
   },
 }
