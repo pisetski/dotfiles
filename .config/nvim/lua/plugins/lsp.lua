@@ -72,11 +72,6 @@ return {
     for _, lsp in ipairs(servers) do
       local config = {
         on_attach = function(client, bufnr)
-          if lsp == "tsserver" then
-            local map = require('pisetski.mappings')
-            map('n', 'gd', "<cmd>Trouble lsp_implementations focus=true auto_jump=true win.position=bottom<cr>")
-          end
-
           if lsp == "eslint" then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = bufnr,

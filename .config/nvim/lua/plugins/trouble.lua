@@ -35,7 +35,7 @@ return {
     {
       "gd",
       "<cmd>Trouble lsp_definitions focus=true auto_jump=true win.position=bottom<cr>",
-      desc = "LSP Definitions (tsserver Implementations)",
+      desc = "LSP Definitions",
     },
   },
 }

@@ -12,7 +12,7 @@ export TYPEWRITTEN_SYMBOL="❯"
 export TYPEWRITTEN_COLOR_MAPPINGS="primary:white;secondary:yellow;accent:cyan;foreground:default"
 export TYPEWRITTEN_DISABLE_RETURN_CODE="true"
 export TYPEWRITTEN_CURSOR="beam"
-export TYPEWRITTEN_PROMPT_LAYOUT="singleline"
+export TYPEWRITTEN_PROMPT_LAYOUT="pure"
 export TYPEWRITTEN_ARROW_SYMBOL="➔"
 autoload -U promptinit; promptinit
 prompt typewritten
