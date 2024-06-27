@@ -71,4 +71,8 @@ map('v', '>', '>gv')
 -- Copy current file filename and relative path
 map('n', '<leader>yf', ':let @+=@%<CR> :echo "Path copied:" expand("%")<CR>')
 
+-- Predictive line movement
+map('n', 'j', 'gj')
+map('n', 'k', 'gk')
+
 return map
