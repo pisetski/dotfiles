@@ -47,7 +47,7 @@ return {
         -- this sets the quickfix list, you may or may not need it for 'trouble.nvim'
         vim.fn.setqflist(qf_list)
         -- call the command to open the 'trouble.nvim' interface
-        vim.cmd("Trouble qflist toggle focus=true")
+        vim.cmd("Trouble qflist toggle focus=true auto_close=true")
       else
         fzf.actions.file_edit(selected, opts)
       end
