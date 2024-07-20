@@ -52,9 +52,6 @@ return {
       indent = {
         enable = false
       },
-      autotag = {
-        enable = true,
-      },
       refactor = {
         highlight_definitions = {
           enable = true,
@@ -70,6 +67,14 @@ return {
           scope_incremental = false,
           node_decremental = '<C-k>',
         },
+      },
+    })
+
+    require('nvim-ts-autotag').setup({
+      opts = {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = false
       },
     })
   end
