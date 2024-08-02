@@ -37,5 +37,10 @@ return {
       "<cmd>Trouble lsp_definitions focus=true auto_jump=true win.position=bottom<cr>",
       desc = "LSP Definitions",
     },
+    {
+      "gD",
+      "<cmd>Trouble lsp_type_definitions focus=true auto_jump=true win.position=bottom<cr>",
+      desc = "LSP Definitions",
+    },
   },
 }
