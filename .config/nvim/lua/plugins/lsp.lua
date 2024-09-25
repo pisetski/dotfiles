@@ -19,7 +19,7 @@ return {
       "eslint",
       "jsonls",
       "marksman",
-      "tsserver",
+      "ts_ls",
       "typos_lsp"
     }
 
@@ -42,7 +42,7 @@ return {
         function()
           vim.lsp.buf.format {
             async = true,
-            filter = function(client) return client.name ~= "tsserver" end
+            filter = function(client) return client.name ~= "ts_ls" end
           }
         end,
         bufopts
@@ -80,7 +80,7 @@ return {
             return
           end
 
-          if lsp ~= "tsserver" and client.supports_method("textDocument/formatting") then
+          if lsp ~= "ts_ls" and client.supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
               group = augroup,
