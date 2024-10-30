@@ -5,6 +5,7 @@ return {
     local alpha = require('alpha')
     local dashboard = require('alpha.themes.dashboard')
 
+
     dashboard.section.header.val = {
       [[                                                    ]],
       [[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ]],
@@ -47,6 +48,7 @@ return {
     })
 
 
+    vim.b.minitrailspace_disable = true
     dashboard.config.opts.noautocmd = true
     alpha.setup(dashboard.config)
   end
