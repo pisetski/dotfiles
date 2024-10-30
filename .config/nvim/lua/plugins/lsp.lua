@@ -134,7 +134,7 @@ return {
         }
       end
 
-      lspconfig[lsp].setup(require('coq').lsp_ensure_capabilities(config))
+      lspconfig[lsp].setup(config)
     end
   end
 }

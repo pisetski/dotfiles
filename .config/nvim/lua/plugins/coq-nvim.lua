@@ -2,6 +2,7 @@ return {
   "ms-jpq/coq_nvim",
   branch = "coq",
   lazy = false,
+  enabled = false,
   init = function()
     local map = require('pisetski.mappings')
     local kind_icons = {

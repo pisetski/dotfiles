@@ -1,4 +1,5 @@
 return {
   "ms-jpq/coq.artifacts",
-  branch = "artifacts"
+  branch = "artifacts",
+  enabled = false,
 }
