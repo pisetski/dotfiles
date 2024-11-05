@@ -73,6 +73,8 @@ map('n', '<leader>yf', ':let @+=@%<CR> :echo "Path copied:" expand("%")<CR>')
 
 -- Predictive line movement
 map('n', 'j', 'gj')
+map('v', 'j', 'gj')
 map('n', 'k', 'gk')
+map('v', 'k', 'gk')
 
 return map
