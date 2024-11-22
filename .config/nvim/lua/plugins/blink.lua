@@ -18,7 +18,9 @@ return {
     -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
     -- see the "default configuration" section below for full documentation on how to define
     -- your own keymap. when defining your own, no keybinds will be assigned automatically.
-    keymap = 'super-tab',
+    keymap = {
+      preset = "super-tab",
+    },
 
     -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
     -- adjusts spacing to ensure icons are aligned
