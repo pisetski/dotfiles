@@ -134,6 +134,7 @@ return {
         }
       end
 
+      config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
       lspconfig[lsp].setup(config)
     end
   end
