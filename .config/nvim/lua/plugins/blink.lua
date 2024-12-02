@@ -22,25 +22,25 @@ return {
       preset = "super-tab",
     },
 
+    appearance = {
+      nerd_font_variant = 'mono',
+    },
     -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
     -- adjusts spacing to ensure icons are aligned
-    nerd_font_variant = 'mono',
 
-    windows = {
-      autocomplete = {
-        -- Controls how the completion items are rendered on the popup window
-        -- 'simple' will render the item's kind icon the left alongside the label
-        -- 'reversed' will render the label on the left and the kind icon + name on the right
-        -- 'minimal' will render the label on the left and the kind name on the right
-        -- 'function(blink.cmp.CompletionRenderContext): blink.cmp.Component[]' for custom rendering
-        draw = 'reversed'
+    signature = { enabled = true },
+
+    sources = {
+      completion = {
+        enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
       },
     },
 
-    -- experimental auto-brackets support
-    -- accept = { auto_brackets = { enabled = true } }
-
-    -- experimental signature help support
-    trigger = { signature_help = { enabled = true } }
-  }
+    completion = {
+      draw = {
+        columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 } },
+      },
+    }
+  },
+  opts_extend = { "sources.completion.enabled_providers" },
 }
