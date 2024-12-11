@@ -54,7 +54,6 @@ return {
     end
 
     fzf.setup({
-      "skim",
       winopts = {
         preview = { default = 'bat_native' }
       },

@@ -7,7 +7,7 @@
 5. Install [node](https://nodejs.org/en/download)
 6. Install deps via brew:
 ```
-brew install neovim sk fzf rg lazygit tmux
+brew install neovim fzf rg lazygit tmux
 ```
 7. Install [tpm](https://github.com/tmux-plugins/tpm)
 8. Symlink:
