@@ -20,7 +20,8 @@ return {
       "jsonls",
       "marksman",
       "ts_ls",
-      "typos_lsp"
+      "typos_lsp",
+      "biome"
     }
 
     require("mason").setup()
