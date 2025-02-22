@@ -35,6 +35,11 @@ return {
     -- elsewhere in your config, without redefining it, via `opts_extend`
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
+      providers = {
+        lsp = {
+          max_items = 25,
+        },
+      }
     },
 
     -- experimental auto-brackets support
