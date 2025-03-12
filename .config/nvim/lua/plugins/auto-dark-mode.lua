@@ -5,7 +5,7 @@ return {
     set_dark_mode = function()
       vim.api.nvim_set_option_value("background", "dark", {})
       vim.cmd("colorscheme tokyonight")
-      vim.env.BAT_THEME = "tokyonight_storm"
+      vim.env.BAT_THEME = "tokyonight_night"
     end,
     set_light_mode = function()
       vim.api.nvim_set_option_value("background", "light", {})
