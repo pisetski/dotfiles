@@ -54,6 +54,17 @@ return {
     end
 
     fzf.setup({
+      fzf_opts = {
+        ['--history'] = vim.fn.stdpath("data") .. '/fzf-lua-history',
+      },
+      keymap = {
+        fzf = {
+          ["up"] = "prev-history",
+          ["down"] = "next-history",
+          ["ctrl-p"] = "up",
+          ["ctrl-n"] = "down",
+        },
+      },
       winopts = {
         preview = { default = 'bat_native' }
       },
