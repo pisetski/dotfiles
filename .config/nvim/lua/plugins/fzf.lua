@@ -26,6 +26,7 @@ return {
     map('n', '<leader>fw', "<cmd>lua require('fzf-lua').grep_cword()<CR>")
     map('n', '<leader>fW', "<cmd>lua require('fzf-lua').grep_cWORD()<CR>")
     map('n', '<leader>fs', "<cmd>lua require('fzf-lua').git_status()<CR>")
+    map('n', '<leader>ff', "<cmd>lua require('fzf-lua').resume()<CR>")
 
     -- Pass custom cwd to grep
     map('n', '<leader>fd', ":FzfLua live_grep_native cwd=./", { noremap = true })
