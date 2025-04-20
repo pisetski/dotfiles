@@ -11,7 +11,7 @@ ln -s ./projects/dotfiles/ ~
 5. Install [node](https://nodejs.org/en/download)
 6. Install deps via brew:
 ```
-brew install neovim fzf rg lazygit tmux
+brew install neovim fzf rg lazygit tmux bat
 ```
 7. Install [typewritten](https://github.com/reobin/typewritten)
 9. Install [tpm](https://github.com/tmux-plugins/tpm)
