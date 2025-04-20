@@ -20,10 +20,10 @@ map('n', '<A-Left>', ':vertical resize -2<CR>')
 map('n', '<A-Right>', ':vertical resize +2<CR>')
 
 -- Better window navigation
-map('n', '<C-J>', '<C-W><C-J>')
-map('n', '<C-K>', '<C-W><C-K>')
-map('n', '<C-L>', '<C-W><C-L>')
-map('n', '<C-H>', '<C-W><C-H>')
+map('n', '<C-j>', '<C-W><C-J>')
+map('n', '<C-k>', '<C-W><C-K>')
+map('n', '<C-l>', '<C-W><C-L>')
+map('n', '<C-h>', '<C-W><C-H>')
 
 -- Easy access to normal mode from insert mode
 map('i', 'jk', '<esc>')
