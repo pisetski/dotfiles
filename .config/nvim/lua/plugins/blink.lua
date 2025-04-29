@@ -46,9 +46,6 @@ return {
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
-
-    fuzzy = { implementation = "lua" },
-
   },
   opts_extend = { "sources.default" },
 }
