@@ -11,6 +11,8 @@ return {
   -- If you use nix, you can build from source using latest nightly rust with:
   -- build = 'nix run .#build-plugin',
 
+  -- Install prebuilt binaries for rust fuzzy implementation: https://cmp.saghen.dev/configuration/fuzzy#prebuilt-binaries-default-on-a-release-tag
+
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
