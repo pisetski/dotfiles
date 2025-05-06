@@ -81,3 +81,5 @@ vim.cmd('set noshowmode')
 vim.api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
 -- Skip backwards compatibility routines and speed up loading.
 vim.g.skip_ts_context_commentstring_module = true
+
+vim.diagnostic.config({ virtual_text = true })
