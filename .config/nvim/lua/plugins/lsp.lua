@@ -5,7 +5,6 @@ return {
       "williamboman/mason.nvim",
       build = ":MasonUpdate"
     },
-    "pmizio/typescript-tools.nvim",
   },
   config = function()
     local servers = {
