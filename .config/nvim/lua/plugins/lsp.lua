@@ -54,28 +54,47 @@ return {
     })
 
     local augroup = vim.api.nvim_create_augroup('lsp', { clear = true })
+    local format_augroup = vim.api.nvim_create_augroup('lsp_format', { clear = true })
+    local format_handlers = {}
+
     vim.api.nvim_create_autocmd('LspAttach', {
       group = augroup,
       callback = function(args)
+        local bufnr = args.buf
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
         if client.name == "eslint" then
+          if format_handlers[bufnr] then
+            vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
+          end
+
           vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = args.buf,
+            group = format_augroup,
+            buffer = bufnr,
             command = "LspEslintFixAll",
           })
+
+          format_handlers[bufnr] = "eslint"
           return
         end
 
-        if not client.name == "ts_ls" and client:supports_method('textDocument/formatting') then
+        if not format_handlers[bufnr] and client:supports_method('textDocument/formatting') then
           vim.api.nvim_create_autocmd('BufWritePre', {
-            group = augroup,
-            buffer = args.buf,
+            group = format_augroup,
+            buffer = bufnr,
             callback = function()
-              vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+              vim.lsp.buf.format({ bufnr = bufnr, id = client.id, timeout_ms = 1000 })
             end,
           })
+          format_handlers[bufnr] = client.name
         end
+      end,
+    })
+
+    vim.api.nvim_create_autocmd('BufDelete', {
+      group = augroup,
+      callback = function(args)
+        format_handlers[args.buf] = nil
       end,
     })
 
