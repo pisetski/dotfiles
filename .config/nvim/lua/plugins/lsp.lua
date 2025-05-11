@@ -28,87 +28,6 @@ return {
     -- Prevent LSP from overwriting the syntax highlighting
     vim.highlight.priorities.semantic_tokens = 95
 
-    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-    for _, lsp in ipairs(servers) do
-      local config = {
-        on_attach = function(client, bufnr)
-          if lsp == "ts_ls" then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              buffer = bufnr,
-              command = "LspEslintFixAll",
-            })
-          end
-
-          if lsp ~= "ts_ls" and client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              group = augroup,
-              buffer = bufnr,
-              callback = function()
-                vim.lsp.buf.format()
-              end,
-            })
-          end
-        end,
-        flags = {
-          allow_incremental_sync = true,
-          debounce_text_changes = 150
-        }
-      }
-
-      if lsp == "eslint" then
-        config.on_attach = nil
-      end
-
-      if lsp == "lua_ls" then
-        config.settings = {
-          Lua = {
-            diagnostics = {
-              globals = { 'vim' }
-            },
-            workspace = {
-              library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-              }
-            }
-          }
-        }
-      end
-
-      if lsp == "phpactor" then
-        config.root_dir = function(startPath)
-          local rp = (require 'lspconfig.util').root_pattern
-          for _, pattern in pairs({ "index.php", "composer.json" })
-          do
-            local found = rp({ pattern })(startPath)
-            if (found and found ~= '') then return found end
-          end
-          return nil
-        end
-        config.init_options = {
-          ["language_server_psalm.enabled"] = true,
-          ["symfony.enabled"] = true,
-          ["language_server_php_cs_fixer.enabled"] = true,
-          ["phpunit.enabled"] = true
-        }
-      end
-
-      vim.lsp.config(lsp, config)
-    end
-
-    vim.api.nvim_create_autocmd("CursorHold", {
-      callback = function()
-        vim.diagnostic.open_float(nil, {
-          focusable = false,
-          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-          source = 'always',
-          prefix = ' ',
-          scope = 'cursor',
-        })
-      end
-    })
     vim.keymap.set('n', ',', vim.lsp.buf.code_action, { noremap = true, silent = true, })
     vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, { noremap = true, silent = true, })
     vim.keymap.set(
@@ -122,6 +41,78 @@ return {
       end,
       { noremap = true, silent = true, }
     )
+
+    vim.api.nvim_create_autocmd("CursorHold", {
+      callback = function()
+        vim.diagnostic.open_float(nil, {
+          focusable = false,
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          source = 'always',
+          prefix = ' ',
+          scope = 'cursor',
+        })
+      end
+    })
+
+    local augroup = vim.api.nvim_create_augroup('lsp', { clear = true })
+    vim.api.nvim_create_autocmd('LspAttach', {
+      group = augroup,
+      callback = function(args)
+        local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+
+        if client.name == "eslint" then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = args.buf,
+            command = "LspEslintFixAll",
+          })
+          return
+        end
+
+        if not client.name == "ts_ls" and client:supports_method('textDocument/formatting') then
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            group = augroup,
+            buffer = args.buf,
+            callback = function()
+              vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+            end,
+          })
+        end
+      end,
+    })
+
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' }
+          },
+          workspace = {
+            library = {
+              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+              [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+            }
+          }
+        }
+      }
+    })
+
+    vim.lsp.config("phpactor", {
+      root_dir = function(startPath)
+        local rp = (require 'lspconfig.util').root_pattern
+        for _, pattern in pairs({ "index.php", "composer.json" })
+        do
+          local found = rp({ pattern })(startPath)
+          if (found and found ~= '') then return found end
+        end
+        return nil
+      end,
+      init_options = {
+        ["language_server_psalm.enabled"] = true,
+        ["symfony.enabled"] = true,
+        ["language_server_php_cs_fixer.enabled"] = true,
+        ["phpunit.enabled"] = true
+      }
+    })
 
     vim.lsp.enable(servers)
   end
