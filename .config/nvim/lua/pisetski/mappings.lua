@@ -36,9 +36,9 @@ map('n', 'q', '<C-w>q')
 map('n', 'Q', ':tabclose<CR>')
 
 -- Quick-save the current buffer
-map('n', '<C-S>', '<C-c>:update<cr>')
-map('i', '<C-S>', '<C-c>:update<cr>')
-map('v', '<C-S>', '<C-c>:update<cr>')
+map('n', '<C-S>', '<C-c>:update<cr>', { noremap = true })
+map('i', '<C-S>', '<C-c>:update<cr>', { noremap = true })
+map('v', '<C-S>', '<C-c>:update<cr>', { noremap = true })
 
 -- Copy into blackhole register, e.g., "_ciw
 map('n', '<leader>b', '"_')
