@@ -5,7 +5,6 @@ return {
       "williamboman/mason.nvim",
       build = ":MasonUpdate"
     },
-    "williamboman/mason-lspconfig.nvim",
     "pmizio/typescript-tools.nvim",
   },
   config = function()
@@ -25,10 +24,6 @@ return {
     }
 
     require("mason").setup()
-    require("mason-lspconfig").setup({
-      ensure_installed = servers,
-      automatic_installation = true,
-    })
 
     -- Prevent LSP from overwriting the syntax highlighting
     vim.highlight.priorities.semantic_tokens = 95
@@ -67,18 +62,16 @@ return {
       })
     end
 
-    local lspconfig = require('lspconfig')
-
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
     for _, lsp in ipairs(servers) do
       local config = {
         on_attach = function(client, bufnr)
-          if lsp == "eslint" then
+          if lsp == "ts_ls" then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = bufnr,
-              command = "EslintFixAll",
+              command = "LspEslintFixAll",
             })
-            return
           end
 
           if lsp ~= "ts_ls" and client.supports_method("textDocument/formatting") then
@@ -100,6 +93,10 @@ return {
           debounce_text_changes = 150
         }
       }
+
+      if lsp == "eslint" then
+        config.on_attach = nil
+      end
 
       if lsp == "lua_ls" then
         config.settings = {
@@ -135,8 +132,8 @@ return {
         }
       end
 
-      config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-      lspconfig[lsp].setup(config)
+      vim.lsp.enable(lsp)
+      vim.lsp.config(lsp, config)
     end
   end
 }
