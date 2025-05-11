@@ -28,40 +28,6 @@ return {
     -- Prevent LSP from overwriting the syntax highlighting
     vim.highlight.priorities.semantic_tokens = 95
 
-    local function set_mappings(_, bufnr)
-      local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
-      vim.keymap.set('n', ',', vim.lsp.buf.code_action, bufopts)
-      vim.keymap.set(
-        'n',
-        '<space>f',
-        function()
-          vim.lsp.buf.format {
-            async = true,
-            filter = function(client) return client.name ~= "ts_ls" end
-          }
-        end,
-        bufopts
-      )
-      vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
-    end
-
-    local on_attach_custom = function(client, bufnr)
-      set_mappings(client, bufnr)
-
-      vim.api.nvim_create_autocmd("CursorHold", {
-        callback = function()
-          vim.diagnostic.open_float(nil, {
-            focusable = false,
-            close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-            source = 'always',
-            prefix = ' ',
-            scope = 'cursor',
-          })
-        end
-      })
-    end
-
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
     for _, lsp in ipairs(servers) do
@@ -84,10 +50,7 @@ return {
               end,
             })
           end
-
-          on_attach_custom(client, bufnr)
         end,
-        settings = {},
         flags = {
           allow_incremental_sync = true,
           debounce_text_changes = 150
@@ -132,8 +95,34 @@ return {
         }
       end
 
-      vim.lsp.enable(lsp)
       vim.lsp.config(lsp, config)
     end
+
+    vim.api.nvim_create_autocmd("CursorHold", {
+      callback = function()
+        vim.diagnostic.open_float(nil, {
+          focusable = false,
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          source = 'always',
+          prefix = ' ',
+          scope = 'cursor',
+        })
+      end
+    })
+    vim.keymap.set('n', ',', vim.lsp.buf.code_action, { noremap = true, silent = true, })
+    vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, { noremap = true, silent = true, })
+    vim.keymap.set(
+      'n',
+      '<space>f',
+      function()
+        vim.lsp.buf.format {
+          async = true,
+          filter = function(client) return client.name ~= "ts_ls" end
+        }
+      end,
+      { noremap = true, silent = true, }
+    )
+
+    vim.lsp.enable(servers)
   end
 }
