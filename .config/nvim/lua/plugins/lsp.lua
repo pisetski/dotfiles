@@ -63,18 +63,7 @@ return {
         local bufnr = args.buf
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
-        if client.name == "eslint" then
-          if format_handlers[bufnr] then
-            vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
-          end
-
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            group = format_augroup,
-            buffer = bufnr,
-            command = "LspEslintFixAll",
-          })
-
-          format_handlers[bufnr] = "eslint"
+        if not client.name == "eslint" then
           return
         end
 
@@ -112,6 +101,19 @@ return {
           }
         }
       }
+    })
+
+    local eslint_base_on_attach = vim.lsp.config.eslint.on_attach
+    vim.lsp.config("eslint", {
+      on_attach = function(client, bufnr)
+        if not eslint_base_on_attach then return end
+
+        eslint_base_on_attach(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          command = "LspEslintFixAll",
+        })
+      end,
     })
 
     vim.lsp.config("phpactor", {
