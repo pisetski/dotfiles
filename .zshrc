@@ -17,7 +17,7 @@ export TYPEWRITTEN_ARROW_SYMBOL="➔"
 autoload -U promptinit; promptinit
 prompt typewritten
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting z)
+plugins=(git z)
 source $ZSH/oh-my-zsh.sh
 
 alias v="nvim"
@@ -41,4 +41,4 @@ alias air='~/go/bin/air'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
