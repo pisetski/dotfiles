@@ -19,6 +19,10 @@ brew install --cask alacritty
 echo "🔤 Installing fonts..."
 brew install --cask font-cascadia-code-nf
 
+# Build bat theme
+echo "🦇 Building bat themes..."
+bat cache --build
+
 # Install Oh My Zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     echo "🐚 Installing Oh My Zsh..."
