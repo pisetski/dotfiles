@@ -12,7 +12,7 @@ fi
 
 # Install packages via Homebrew
 echo "📦 Installing packages..."
-brew install node@22 neovim fzf rg lazygit tmux bat zsh-syntax-highlighting typewritten zsh-autosuggestions
+brew install node@22 neovim fzf rg lazygit tmux bat zsh-syntax-highlighting typewritten zsh-autosuggestions gh
 brew install --cask alacritty
 
 # Install fonts via Homebrew
