@@ -48,10 +48,23 @@ create_symlink() {
     local target="$2"
     local filename="$(basename "$source")"
 
-    # If target already exists and is not a symlink, back it up
-    if [[ -e "$target" && ! -L "$target" ]]; then
-        echo "Backing up existing $filename to ${filename}.backup"
-        mv "$target" "${target}.backup"
+    # If target already exists
+    if [[ -e "$target" || -L "$target" ]]; then
+        # If it's already the correct symlink, skip
+        if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then
+            echo "✓ $filename already correctly linked"
+            return
+        fi
+
+        # If it's a broken symlink or wrong symlink, remove it
+        if [[ -L "$target" ]]; then
+            echo "Removing broken/incorrect symlink: $filename"
+            rm "$target"
+        # If it's a real file/directory, back it up
+        else
+            echo "Backing up existing $filename to ${filename}.backup"
+            mv "$target" "${target}.backup"
+        fi
     fi
 
     # Create the symlink
@@ -78,20 +91,31 @@ for file in "$DOTFILES_DIR"/.*; do
         continue
     fi
 
-    # Create symlink
-    create_symlink "$file" "$HOME/$filename"
-done
-
-# Handle non-dotfiles that should be symlinked (optional)
-# Add any non-dotfiles you want to link here
-for file in "README.md"; do
-    if [[ -f "$DOTFILES_DIR/$file" ]]; then
-        create_symlink "$DOTFILES_DIR/$file" "$HOME/$file"
+    # Only process top-level dotfiles/directories, avoid recursion
+    if [[ "$file" == "$DOTFILES_DIR/$filename" ]]; then
+        create_symlink "$file" "$HOME/$filename"
     fi
 done
 
 echo ""
 echo "✅ Setup complete!"
+
+# Offer to clean up old backup files
+backup_files=(~/*.backup)
+if [[ -e "${backup_files[0]}" ]]; then
+   echo ""
+   echo "🧹 Found backup files from previous installations:"
+   ls -la ~/*.backup 2>/dev/null || true
+   echo ""
+   read -p "Would you like to remove these backup files? (y/n): " -n 1 -r
+   echo
+   if [[ $REPLY =~ ^[Yy]$ ]]; then
+       rm -f ~/*.backup
+       echo "✅ Backup files cleaned up!"
+   else
+       echo "📁 Backup files kept (you can remove them manually later)"
+   fi
+fi
 
 # Source the new .zshrc if it exists and we're in a zsh session
 if [[ -f "$HOME/.zshrc" ]]; then
