@@ -23,6 +23,11 @@ brew install --cask font-cascadia-code-nf
 echo "🦇 Building bat themes..."
 bat cache --build
 
+# Incrase repeat rate on OS X
+echo "🏎️ Increasing key repeat rate... Log out and back in for changes to take effect."
+defaults write -g InitialKeyRepeat -float 10.0 # normal minimum is 15 (225 ms)
+defaults write -g KeyRepeat -float 1.0 # normal minimum is 2 (30 ms)
+
 # Install Oh My Zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     echo "🐚 Installing Oh My Zsh..."
