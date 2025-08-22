@@ -1,0 +1,4 @@
+git:
+  commitPrefix:
+    - pattern: "^\\w+\\/([a-zA-Z]+-\\d+).*"
+      replace: "$1 "
