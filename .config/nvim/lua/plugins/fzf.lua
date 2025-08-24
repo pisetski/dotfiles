@@ -14,7 +14,7 @@ return {
         return
       end
 
-      require('fzf-lua').combine({ pickers = "oldfiles;files", winopts = { title = "Files" } })
+      require('fzf-lua').files()
     end)
     map('n', '<c-G>', "<cmd>lua require('fzf-lua').live_grep_native()<CR>")
     map('n', '<leader>fj', "<cmd>lua require('fzf-lua').jumps()<CR>")

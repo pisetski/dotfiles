@@ -18,8 +18,8 @@ return {
     }
 
     dashboard.section.buttons.val = {
-      dashboard.button("p", "  Find file",
-        "<CR>:lua require('fzf-lua').combine({ pickers = 'oldfiles;files', winopts = { title = 'Files' } })<CR>"),
+      dashboard.button("r", "  Recent files", ":FzfLua oldfiles<CR>"),
+      dashboard.button("p", "  Find file", "<CR>:FzfLua files<CR>"),
       dashboard.button("e", "  Explore", ":ene<CR>:NvimTreeFocus<CR>"),
       dashboard.button("g", "  Lazygit", ":LazyGit<CR>"),
       dashboard.button("u", "  Update dependencies", ":Lazy sync<CR> :TSUpdate<CR> :MasonUpdate<CR>"),
