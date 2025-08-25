@@ -45,3 +45,27 @@ export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH=~/.npm-global/bin:$PATH
+
+# Bell on long command completion
+autoload -U add-zsh-hook
+
+# Configuration
+_start_time=0
+_bell_threshold=10  # Ring bell for commands taking longer than 10 seconds
+
+# Function called before command execution
+preexec_bell() {
+    _start_time=$SECONDS
+}
+
+# Function called after command completion (before next prompt)
+precmd_bell() {
+    if (( _start_time > 0 && SECONDS - _start_time > _bell_threshold )); then
+        echo -e '\a'  # Send bell character
+    fi
+    _start_time=0
+}
+
+# Register the hooks
+add-zsh-hook preexec preexec_bell
+add-zsh-hook precmd precmd_bell
