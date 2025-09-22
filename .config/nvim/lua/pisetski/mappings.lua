@@ -77,15 +77,4 @@ map('v', 'j', 'gj')
 map('n', 'k', 'gk')
 map('v', 'k', 'gk')
 
-
--- Cut to black hole register
-map('n', 'd', '"_d')
-map('v', 'd', '"_d')
-map('n', 'D', '"_d')
-map('v', 'D', '"_d')
-map('n', 'c', '"_c')
-map('v', 'c', '"_c')
-map('n', 'C', '"_c')
-map('v', 'C', '"_c')
-
 return map
