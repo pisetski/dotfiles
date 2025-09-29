@@ -77,6 +77,11 @@ create_symlink() {
     echo "✓ Linked $filename"
 }
 
+# Symlink .claude/agents directory specifically
+echo "🔗 Symlinking Claude agents..."
+mkdir -p "$HOME/.claude"
+create_symlink "$DOTFILES_DIR/.claude/agents" "$HOME/.claude/agents"
+
 # Process all dotfiles (files starting with .)
 for file in "$DOTFILES_DIR"/.*; do
     # Skip if not a file or directory
@@ -93,6 +98,11 @@ for file in "$DOTFILES_DIR"/.*; do
 
     # Skip .git directory
     if [[ "$filename" == ".git" ]]; then
+        continue
+    fi
+
+    # Skip .claude directory (handled separately above)
+    if [[ "$filename" == ".claude" ]]; then
         continue
     fi
 
