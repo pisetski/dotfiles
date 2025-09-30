@@ -3,6 +3,9 @@ export TERM=xterm-256color
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 
+export TMPDIR="$HOME/.cache/tmp"
+mkdir -p "$HOME/.cache/tmp"
+
 # Install day and night themes https://github.com/folke/tokyonight.nvim/issues/23#issuecomment-1636639722
 export BAT_THEME="tokyonight_night"
 
