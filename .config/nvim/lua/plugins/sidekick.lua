@@ -8,7 +8,7 @@ return {
         enabled = true,
       },
     },
-    nes = { enabled = true },
+    nes = { enabled = false },
   },
   keys = {
     {
