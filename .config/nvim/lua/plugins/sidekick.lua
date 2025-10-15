@@ -2,12 +2,13 @@ return {
   "folke/sidekick.nvim",
   opts = {
     cli = {
-    -- Sidekick configuration
+      -- Sidekick configuration
       mux = {
         backend = "tmux",
         enabled = true,
       },
     },
+    nes = { enabled = true },
   },
   keys = {
     {
