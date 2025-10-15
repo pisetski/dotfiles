@@ -2,7 +2,7 @@ return {
   'saghen/blink.cmp',
   lazy = false, -- lazy loading handled internally
   -- optional: provides snippets for the snippet source
-  dependencies = 'rafamadriz/friendly-snippets',
+  dependencies = { "rafamadriz/friendly-snippets", "folke/sidekick.nvim" },
 
   -- use a release tag to download pre-built binaries
   version = 'v1.*',
@@ -22,6 +22,15 @@ return {
     -- your own keymap. when defining your own, no keybinds will be assigned automatically.
     keymap = {
       preset = "super-tab",
+      keymap = {
+        ["<Tab>"] = {
+          "snippet_forward",
+          function() -- sidekick next edit suggestion
+            return require("sidekick").nes_jump_or_apply()
+          end,
+          "fallback",
+        },
+      },
     },
 
     appearance = {
