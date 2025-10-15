@@ -72,3 +72,12 @@ precmd_bell() {
 # Register the hooks
 add-zsh-hook preexec preexec_bell
 add-zsh-hook precmd precmd_bell
+
+
+# bun completions
+[ -s "/Users/pisetski/.bun/_bun" ] && source "/Users/pisetski/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
