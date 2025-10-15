@@ -5,6 +5,7 @@ return {
       "williamboman/mason.nvim",
       build = ":MasonUpdate"
     },
+    "mason-org/mason-lspconfig.nvim",
   },
   config = function()
     local servers = {
@@ -19,10 +20,15 @@ return {
       "marksman",
       "ts_ls",
       "typos_lsp",
-      "biome"
+      "biome",
+      "copilot"
     }
 
     require("mason").setup()
+    require("mason-lspconfig").setup({
+      ensure_installed = servers,
+      automatic_enable = false,
+    })
 
     -- Prevent LSP from overwriting the syntax highlighting
     vim.highlight.priorities.semantic_tokens = 95
