@@ -1,14 +1,13 @@
 return {
   "folke/sidekick.nvim",
   opts = {
-    -- add any options here
     cli = {
+    -- Sidekick configuration
       mux = {
         backend = "tmux",
         enabled = true,
       },
     },
-    nes = { enabled = true },
   },
   keys = {
     {
