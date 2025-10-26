@@ -21,7 +21,6 @@ return {
       "ts_ls",
       "typos_lsp",
       "biome",
-      "copilot"
     }
 
     require("mason").setup()
