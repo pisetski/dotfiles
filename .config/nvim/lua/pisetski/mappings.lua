@@ -69,14 +69,14 @@ map('v', '<', '<gv')
 map('v', '>', '>gv')
 
 -- Copy current file filename and relative path
-vim.keymap.set('n', '<leader>Y', function()
+vim.keymap.set('n', '<space>Y', function()
   local filepath = vim.fn.expand('%')
   vim.fn.setreg('+', filepath)
   vim.notify('Copied: ' .. filepath, vim.log.levels.INFO)
 end, { noremap = true, silent = true, desc = 'Copy file path' })
 
 -- Copy file path with line number (format: path/to/file:line)
-vim.keymap.set('n', '<leader>y', function()
+vim.keymap.set('n', '<space>y', function()
   local filepath = vim.fn.expand('%')
   local line = vim.fn.line('.')
   local result = filepath .. ':' .. line
