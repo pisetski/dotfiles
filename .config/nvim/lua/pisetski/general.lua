@@ -29,7 +29,6 @@ o.signcolumn = 'yes'
 o.autoread = true  -- Automatically read file when edited outside of vim
 o.timeoutlen = 400 -- Time to wait in milliseconds between hitting the first key of a multi-key mapping
 o.ttimeoutlen = 0  -- Ensure that there's no delay between esc-ing and the next command executing
-o.termguicolors = true
 o.backup = false
 o.writebackup = false
 o.swapfile = false

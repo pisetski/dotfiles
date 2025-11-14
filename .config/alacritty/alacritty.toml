@@ -81,11 +81,6 @@ key = "B"
 mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "\u001Bb"
-key = "B"
-mods = "Alt"
-
-[[keyboard.bindings]]
 chars = "\u001Bd"
 key = "D"
 mods = "Alt"
