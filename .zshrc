@@ -43,10 +43,54 @@ alias air='~/go/bin/air'
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Lazy load nvm for faster shell startup
+# This creates placeholder functions that load nvm on first use
+nvm() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  nvm "$@"
+}
+
+node() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  node "$@"
+}
+
+npm() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  npm "$@"
+}
+
+npx() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  npx "$@"
+}
+
+# Add node to PATH if nvm default is set (without loading nvm)
+if [ -d "$NVM_DIR/versions/node" ]; then
+  NODE_VERSION=$(ls -1 "$NVM_DIR/versions/node" | tail -1)
+  export PATH="$NVM_DIR/versions/node/$NODE_VERSION/bin:$PATH"
+fi
+
+# Cache brew prefix for faster loading (typically /opt/homebrew on Apple Silicon, /usr/local on Intel)
+if [[ -d "/opt/homebrew" ]]; then
+  BREW_PREFIX="/opt/homebrew"
+elif [[ -d "/usr/local/Homebrew" ]]; then
+  BREW_PREFIX="/usr/local"
+else
+  BREW_PREFIX="$(brew --prefix)"
+fi
+
+source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 export PATH=~/.npm-global/bin:$PATH
 
 # Bell on long command completion
@@ -75,7 +119,7 @@ add-zsh-hook precmd precmd_bell
 
 
 # bun completions
-[ -s "/Users/pisetski/.bun/_bun" ] && source "/Users/pisetski/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
