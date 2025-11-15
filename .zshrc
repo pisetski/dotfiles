@@ -39,7 +39,7 @@ alias tn="t new -t"
 alias tk="t kill-server"
 alias p="pnpm"
 alias gp="git pull"
-alias air='~/go/bin/air'
+alias air='$HOME/go/bin/air'
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export NVM_DIR="$HOME/.nvm"
@@ -125,3 +125,7 @@ add-zsh-hook precmd precmd_bell
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
