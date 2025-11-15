@@ -7,11 +7,9 @@ o.ignorecase = true         -- case insensitive
 o.tabstop = 2               -- number of columns occupied by a tab
 o.softtabstop = 2           -- see multiple spaces as tabstops so <BS> does the right thing
 o.shiftwidth = 2            -- width for autoindents
-o.mouse = 'v'               -- middle-click paste with
 o.hlsearch = true           -- highlight search
 o.incsearch = true          -- incremental search
 o.autoindent = false        -- indent a new line the same amount as the line just typed
-o.scrolloff = 8             -- Number of lines from vertical edge to start scroll
 o.sidescrolloff = 15        -- Number of lines from horizontal edge to start scroll
 o.sidescroll = 6            -- Number of columns to scroll at a time
 o.number = true             -- add line numbers
@@ -24,7 +22,7 @@ o.updatetime = 300
 o.smarttab = true
 o.si = true
 o.magic = true
-o.scrolloff = 5
+o.scrolloff = 8
 o.signcolumn = 'yes'
 o.autoread = true  -- Automatically read file when edited outside of vim
 o.timeoutlen = 400 -- Time to wait in milliseconds between hitting the first key of a multi-key mapping
@@ -42,7 +40,7 @@ o.cmdheight = 0
 
 vim.api.nvim_create_autocmd(
   { 'bufread', 'bufnewfile' },
-  { pattern = { '*.jenkinsfile', '*.jenkinsfile', 'jenkinsfile', 'jenkinsfile' }, command = 'setf groovy' }
+  { pattern = { '*.jenkinsfile', 'jenkinsfile' }, command = 'setf groovy' }
 )
 vim.api.nvim_create_autocmd(
   { 'bufread', 'bufnewfile' },

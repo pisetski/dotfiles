@@ -1,6 +1,6 @@
 local silentnoremap = { noremap = true, silent = true }
 local map = function(mode, keymap, action, opts)
-  vim.api.nvim_set_keymap(mode, keymap, action, opts or silentnoremap)
+  vim.keymap.set(mode, keymap, action, opts or silentnoremap)
 end
 
 -- Make 0 take me to the first non-blank character of the line
@@ -36,9 +36,9 @@ map('n', 'q', '<C-w>q')
 map('n', 'Q', ':tabclose<CR>')
 
 -- Quick-save the current buffer
-map('n', '<C-S>', '<C-c>:update<cr>', { noremap = true })
-map('i', '<C-S>', '<C-c>:update<cr>', { noremap = true })
-map('v', '<C-S>', '<C-c>:update<cr>', { noremap = true })
+map('n', '<C-S>', '<C-c>:update<cr>')
+map('i', '<C-S>', '<C-c>:update<cr>')
+map('v', '<C-S>', '<C-c>:update<cr>')
 
 -- Copy into blackhole register, e.g., "_ciw
 map('n', '<leader>b', '"_')
