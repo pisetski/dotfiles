@@ -32,6 +32,9 @@ return {
     -- Prevent LSP from overwriting the syntax highlighting
     vim.highlight.priorities.semantic_tokens = 95
 
+    -- Enable inlay hints globally
+    vim.lsp.inlay_hint.enable(true)
+
     vim.keymap.set('n', ',', vim.lsp.buf.code_action, { noremap = true, silent = true, })
     vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, { noremap = true, silent = true, })
     vim.keymap.set(

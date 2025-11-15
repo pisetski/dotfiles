@@ -40,6 +40,7 @@ alias tk="t kill-server"
 alias p="pnpm"
 alias gp="git pull"
 alias air='$HOME/go/bin/air'
+alias oc='opencode'
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export NVM_DIR="$HOME/.nvm"
