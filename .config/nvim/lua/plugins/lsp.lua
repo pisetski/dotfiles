@@ -12,7 +12,6 @@ return {
       "lua_ls",
       "bashls",
       "cssls",
-      "gopls",
       "yamlls",
       "phpactor",
       "eslint",
@@ -21,6 +20,7 @@ return {
       "ts_ls",
       "typos_lsp",
       "biome",
+      "intelephense"
     }
 
     require("mason").setup()
