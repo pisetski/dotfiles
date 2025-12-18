@@ -120,6 +120,11 @@ chars = "\u001Ba"
 key = "A"
 mods = "Alt"
 
+[[keyboard.bindings]]
+chars = "\u001Bt"
+key = "T"
+mods = "Alt"
+
 [window]
 dynamic_padding = true
 startup_mode = "Fullscreen"
