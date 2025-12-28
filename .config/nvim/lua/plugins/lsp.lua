@@ -20,7 +20,8 @@ return {
       "ts_ls",
       "typos_lsp",
       "biome",
-      "intelephense"
+      "intelephense",
+      "ltex_plus",
     }
 
     require("mason").setup()
@@ -105,6 +106,19 @@ return {
         ["symfony.enabled"] = true,
         ["language_server_php_cs_fixer.enabled"] = true,
         ["phpunit.enabled"] = true
+      }
+    })
+
+    vim.lsp.config("ltex_plus", {
+      settings = {
+        ltex = {
+          checkFrequency = "save",
+          completionEnabled = false,
+          additionalRules = {
+            enablePickyRules = true,
+          },
+          enabled = { "markdown", "html" },
+        }
       }
     })
 
