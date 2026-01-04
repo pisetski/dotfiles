@@ -13,7 +13,6 @@ return {
       "bashls",
       "cssls",
       "yamlls",
-      "phpactor",
       "eslint",
       "jsonls",
       "marksman",
@@ -89,24 +88,6 @@ return {
           command = "LspEslintFixAll",
         })
       end,
-    })
-
-    vim.lsp.config("phpactor", {
-      root_dir = function(startPath)
-        local rp = (require 'lspconfig.util').root_pattern
-        for _, pattern in pairs({ "index.php", "composer.json" })
-        do
-          local found = rp({ pattern })(startPath)
-          if (found and found ~= '') then return found end
-        end
-        return nil
-      end,
-      init_options = {
-        ["language_server_psalm.enabled"] = true,
-        ["symfony.enabled"] = true,
-        ["language_server_php_cs_fixer.enabled"] = true,
-        ["phpunit.enabled"] = true
-      }
     })
 
     vim.lsp.config("ltex_plus", {
