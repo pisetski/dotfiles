@@ -8,4 +8,4 @@ else
 fi
 
 # Added by `rbenv init` on Tue Nov 11 19:53:57 CET 2025
-eval "$(rbenv init - --no-rehash zsh)"
+# eval "$(rbenv init - --no-rehash zsh)"
