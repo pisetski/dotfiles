@@ -43,7 +43,7 @@ alias air='$HOME/go/bin/air'
 alias oc='opencode'
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.config/nvm"
 
 # Lazy load nvm for faster shell startup
 # This creates placeholder functions that load nvm on first use
