@@ -21,9 +21,15 @@ brew install --cask font-cascadia-code-nf
 
 # Build bat theme
 echo "🦇 Building bat themes..."
+mkdir -p "$(bat --config-dir)/themes"
+cd "$(bat --config-dir)/themes"
+# Replace _night in the lines below with _day, _moon, or _storm if needed.
+curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
+curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme
 bat cache --build
+cd -
 
-# Incrase repeat rate on OS X
+# Increase repeat rate on OS X
 echo "🏎️ Increasing key repeat rate... Log out and back in for changes to take effect."
 defaults write -g InitialKeyRepeat -float 10.0 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -float 1.0 # normal minimum is 2 (30 ms)
