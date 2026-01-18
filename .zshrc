@@ -94,13 +94,8 @@ source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 export PATH=~/.npm-global/bin:$PATH
 
-# Bell on long command completion
-autoload -U add-zsh-hook
-
 # Configuration
 _start_time=0
-_bell_threshold=10  # Ring bell for commands taking longer than 10 seconds
-
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
