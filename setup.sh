@@ -15,10 +15,6 @@ echo "📦 Installing packages..."
 brew install node@22 neovim fzf rg lazygit tmux bat zsh-syntax-highlighting typewritten zsh-autosuggestions gh
 brew install --cask alacritty
 
-# Install fonts via Homebrew
-echo "🔤 Installing fonts..."
-brew install --cask font-cascadia-code-nf
-
 # Build bat theme
 echo "🦇 Building bat themes..."
 mkdir -p "$(bat --config-dir)/themes"
