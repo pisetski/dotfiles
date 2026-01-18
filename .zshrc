@@ -101,23 +101,6 @@ autoload -U add-zsh-hook
 _start_time=0
 _bell_threshold=10  # Ring bell for commands taking longer than 10 seconds
 
-# Function called before command execution
-preexec_bell() {
-    _start_time=$SECONDS
-}
-
-# Function called after command completion (before next prompt)
-precmd_bell() {
-    if (( _start_time > 0 && SECONDS - _start_time > _bell_threshold )); then
-        echo -e '\a'  # Send bell character
-    fi
-    _start_time=0
-}
-
-# Register the hooks
-add-zsh-hook preexec preexec_bell
-add-zsh-hook precmd precmd_bell
-
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
