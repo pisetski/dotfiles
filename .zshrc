@@ -41,6 +41,8 @@ alias p="pnpm"
 alias gp="git pull"
 alias air='$HOME/go/bin/air'
 alias oc='opencode'
+alias python='python3'
+alias pip='pip3'
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export NVM_DIR="$HOME/.config/nvm"

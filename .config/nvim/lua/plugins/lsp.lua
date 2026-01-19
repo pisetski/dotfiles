@@ -21,6 +21,7 @@ return {
       "biome",
       "intelephense",
       "ltex_plus",
+      "pylsp"
     }
 
     require("mason").setup()
