@@ -1,5 +1,4 @@
 {
-  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline-command.sh"
@@ -9,5 +8,6 @@
     "feature-dev@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
     "php-lsp@claude-plugins-official": true
-  }
+  },
+  "model": "opus"
 }
