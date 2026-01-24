@@ -84,6 +84,7 @@ create_symlink() {
 echo "🔗 Symlinking Claude configuration..."
 mkdir -p "$HOME/.claude"
 create_symlink "$DOTFILES_DIR/.claude/agents" "$HOME/.claude/agents"
+create_symlink "$DOTFILES_DIR/.claude/skills" "$HOME/.claude/skills"
 create_symlink "$DOTFILES_DIR/.claude/settings.json" "$HOME/.claude/settings.json"
 create_symlink "$DOTFILES_DIR/.claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 
