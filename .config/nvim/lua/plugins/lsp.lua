@@ -104,6 +104,18 @@ return {
       }
     })
 
+    vim.lsp.config("pylsp", {
+      settings = {
+        pylsp = {
+          plugins = {
+            pycodestyle = {
+              maxLineLength = 100
+            }
+          }
+        }
+      }
+    })
+
     vim.lsp.enable(servers)
   end
 }
