@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+zstyle ':omz:update' mode auto
 export TERM=xterm-256color
 export EDITOR=nvim
 export VISUAL="$EDITOR"
