@@ -23,7 +23,8 @@ return {
       'gitignore',
       'bash',
       'go',
-      'php'
+      'php',
+      'php_only'
     }
 
     local alreadyInstalled = require('nvim-treesitter.config').get_installed()
