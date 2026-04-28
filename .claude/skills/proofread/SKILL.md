@@ -28,7 +28,7 @@ Analyze text across four dimensions: grammar, structure, composition, clarity.
 [Ambiguity, complexity, missing context]
 
 ### Revised Version
-[Only if requested or text is short]
+[Only if requested or text is short. Output as plain text — no blockquotes (`>`), no code fences, no list markers, no other markdown wrappers. The user copies this directly, so any leading characters become noise they must strip by hand.]
 ```
 
 ## Guidelines
@@ -38,3 +38,4 @@ Analyze text across four dimensions: grammar, structure, composition, clarity.
 - Group similar errors in long texts
 - Distinguish errors (must fix) from suggestions (could improve)
 - Scale feedback depth to text length
+- Never wrap the Revised Version in blockquote (`>`) markdown — Claude Code renders `>` as a `▎` gutter character that the user has to manually delete after copying
