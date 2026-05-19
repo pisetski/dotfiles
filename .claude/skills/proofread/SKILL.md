@@ -1,6 +1,7 @@
 ---
 name: proofread
 description: Analyze text for grammar, structure, composition, and clarity. Use when user invokes `/proofread` command, asks to proofread, review, edit, or improve their writing, or requests feedback on text quality. Provides structured analysis with actionable corrections and suggestions.
+model: haiku
 ---
 
 # Proofread
