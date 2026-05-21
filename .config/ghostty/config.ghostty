@@ -1,7 +1,5 @@
 font-size = 16
 
-cursor-style = bar
-
 macos-option-as-alt = true
 
 theme = dark:TokyoNight Storm,light:TokyoNight Day
