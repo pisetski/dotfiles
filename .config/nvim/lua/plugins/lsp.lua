@@ -21,7 +21,9 @@ return {
       "biome",
       "intelephense",
       "ltex_plus",
-      "pylsp"
+      "pylsp",
+      "rust_analyzer"
+
     }
 
     require("mason").setup()
