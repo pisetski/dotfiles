@@ -1,0 +1,21 @@
+{
+  "providers": {
+    "lmstudio": {
+      "baseUrl": "http://host.docker.internal:1234/v1",
+      "api": "openai-completions",
+      "apiKey": "lm-studio",
+      "models": [
+        {
+          "id": "google/gemma-4-12b-qat"
+        },
+        {
+          "id": "google/gemma-4-26b-a4b-qat"
+        },
+        {
+          "id": "google/gemma-4-e4b"
+        }
+      ]
+    }
+  }
+}
+
