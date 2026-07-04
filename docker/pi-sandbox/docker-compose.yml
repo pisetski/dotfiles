@@ -1,0 +1,21 @@
+volumes:
+  pi-agent-home:
+    name: "pi-agent-home"
+
+services:
+  pi-installer:
+    build: .
+    image: pi-sandbox
+    volumes:
+      - pi-agent-home:/root/.pi/agent
+    entrypoint: ["pi"]
+    command:
+      - install
+      - "npm:@hypabolic/pi-hypa"
+    profiles: ["tools"]
+
+  pi-sandbox:
+    build: .
+    image: pi-sandbox
+    volumes:
+      - pi-agent-home:/root/.pi/agent

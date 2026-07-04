@@ -111,3 +111,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# Pi
+export PATH="$HOME/projects/dotfiles/.config/nvm/versions/node/v25.2.1/bin:$PATH"
+alias pi-sandbox="$HOME/projects/dotfiles/docker/pi-sandbox/run.sh"

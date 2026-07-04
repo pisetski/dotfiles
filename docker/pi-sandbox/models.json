@@ -15,7 +15,16 @@
           "id": "google/gemma-4-e4b"
         }
       ]
+    },
+    "llama-cpp": {
+      "baseUrl": "http://host.docker.internal:8080/v1",
+      "api": "openai-completions",
+      "apiKey": "llama",
+      "models": [
+        {
+          "id": "unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL"
+        }
+      ]
     }
   }
 }
-

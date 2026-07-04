@@ -4,7 +4,7 @@ set -euo pipefail
 TARGET_DIR=$(pwd)
 
 cd "$(dirname "$0")"
-docker build -t pi-sandbox -f Dockerfile.pi .
+docker build -t pi-sandbox -f Dockerfile .
 docker run --rm -it \
   -v "$TARGET_DIR:/workspace" \
   -v pi-agent-home:/root/.pi/agent \
