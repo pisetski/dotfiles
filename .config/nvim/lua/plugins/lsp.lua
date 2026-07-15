@@ -16,7 +16,7 @@ return {
       "eslint",
       "jsonls",
       "marksman",
-      "ts_ls",
+      "tsgo",
       "typos_lsp",
       "biome",
       "intelephense",
@@ -46,7 +46,7 @@ return {
       function()
         vim.lsp.buf.format {
           async = true,
-          filter = function(client) return client.name ~= "ts_ls" end
+          filter = function(client) return client.name ~= "tsgo" end
         }
       end,
       { noremap = true, silent = true, }
