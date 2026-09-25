@@ -1,4 +1,7 @@
 git:
+  pagers:
+    - pager: delta --dark --paging=never --line-numbers
+    - externalDiffCommand: difft --color=always --display=inline
   commitPrefix:
     - pattern: "^\\w+\\/([a-zA-Z]+-\\d+).*"
       replace: "$1 "
