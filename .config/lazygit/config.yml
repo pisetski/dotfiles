@@ -1,7 +1,8 @@
 git:
-  pagers:
-    - pager: delta --dark --paging=never --line-numbers
-    - externalDiffCommand: difft --color=always --display=inline
+  diffRenderers:
+    - command: delta --dark --paging=never --line-numbers
+    - command: difft --color=always --display=inline
+      type: extDiff
   commitPrefix:
     - pattern: "^\\w+\\/([a-zA-Z]+-\\d+).*"
       replace: "$1 "
