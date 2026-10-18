@@ -2,6 +2,7 @@
 .config/github-copilot
 .config/git
 .config/nvm
+.config/gh/hosts.yml
 
 .claude/settings.local.json
 .claude/skills/synced/
@@ -10,3 +11,4 @@
 .claude/projects/
 .claude/todos/
 .claude/*.jsonl
+.config/homebrew/*.lock
