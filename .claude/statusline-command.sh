@@ -46,6 +46,34 @@ if [ -n "$used_pct" ]; then
   context_info=$(printf " ${color}[%s%%]\033[0m" "$used_int")
 fi
 
+# Usage limits: dim by default, colored with reset time only when nearing the limit
+usage_limit() {
+  local window=$1 prefix=$2 reset_format=$3
+  local pct resets_at
+  pct=$(echo "$input" | jq -r ".rate_limits.$window.used_percentage // empty")
+  resets_at=$(echo "$input" | jq -r ".rate_limits.$window.resets_at // empty")
+  [ -z "$pct" ] && return
+
+  local pct_int color
+  pct_int=$(printf "%.0f" "$pct")
+  if [ "$pct_int" -lt 70 ]; then
+    color="\033[2m"   # Dim
+  elif [ "$pct_int" -lt 90 ]; then
+    color="\033[33m"  # Yellow
+  else
+    color="\033[31m"  # Red
+  fi
+
+  printf " ${color}%s%s%%" "$prefix" "$pct_int"
+  if [ "$pct_int" -ge 70 ] && [ -n "$resets_at" ]; then
+    printf " ↻%s" "$(date -r "${resets_at%.*}" "+$reset_format")"
+  fi
+  printf "\033[0m"
+}
+
+session_info=$(usage_limit five_hour "" "%H:%M")
+weekly_info=$(usage_limit seven_day "w" "%a")
+
 # Print status line with colors
-# Cyan for directory name, Yellow for git info, White for arrow, color-coded for context usage
-printf "\033[36m%s\033[0m\033[33m%s\033[0m%s \033[37m➔\033[0m" "$(basename "$cwd")" "$git_info" "$context_info"
+# Cyan for directory name, Yellow for git info, color-coded context and usage limits, White for arrow
+printf "\033[36m%s\033[0m\033[33m%s\033[0m%s%s%s \033[37m➔\033[0m" "$(basename "$cwd")" "$git_info" "$context_info" "$session_info" "$weekly_info"
