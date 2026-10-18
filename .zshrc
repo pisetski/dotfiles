@@ -42,6 +42,8 @@ alias p="pnpm"
 alias gp="git pull"
 alias air='$HOME/go/bin/air'
 alias oc='opencode'
+alias cc='claude'
+alias wm='workmux'
 alias python='python3'
 alias pip='pip3'
 
