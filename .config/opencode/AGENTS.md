@@ -1,0 +1,1 @@
+/Users/pisetski/projects/dotfiles/agents/AGENTS.md

@@ -88,6 +88,12 @@ create_symlink "$DOTFILES_DIR/.claude/skills" "$HOME/.claude/skills"
 create_symlink "$DOTFILES_DIR/.claude/settings.json" "$HOME/.claude/settings.json"
 create_symlink "$DOTFILES_DIR/.claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 
+# Symlink shared AGENTS.md to Claude Code and OpenCode
+echo "🔗 Symlinking AGENTS.md..."
+mkdir -p "$HOME/.config/opencode"
+create_symlink "$DOTFILES_DIR/agents/AGENTS.md" "$HOME/.claude/CLAUDE.md"
+create_symlink "$DOTFILES_DIR/agents/AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
+
 # Process all dotfiles (files starting with .)
 for file in "$DOTFILES_DIR"/.*; do
     # Skip if not a file or directory
