@@ -2,3 +2,11 @@
 .config/github-copilot
 .config/git
 .config/nvm
+
+.claude/settings.local.json
+.claude/skills/synced/
+.claude/skills/.claude/
+.claude/plugins/
+.claude/projects/
+.claude/todos/
+.claude/*.jsonl
