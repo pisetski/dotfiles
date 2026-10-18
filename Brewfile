@@ -1,0 +1,18 @@
+tap "cormacrelf/tap"
+
+brew "node@22"
+brew "neovim"
+brew "fzf"
+brew "ripgrep"
+brew "lazygit"
+brew "tmux"
+brew "bat"
+brew "gh"
+brew "git-delta"
+brew "difftastic"
+brew "zsh-syntax-highlighting"
+brew "zsh-autosuggestions"
+brew "typewritten"
+brew "cormacrelf/tap/dark-notify"
+
+cask "ghostty"

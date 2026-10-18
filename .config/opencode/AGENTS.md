@@ -1,1 +1,1 @@
-/Users/pisetski/projects/dotfiles/agents/AGENTS.md
+../../agents/AGENTS.md

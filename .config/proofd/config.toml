@@ -1,0 +1,4 @@
+provider = "claude"
+model = "claude-haiku-5-5"
+
+max_input_chars = 2000

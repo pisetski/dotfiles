@@ -45,77 +45,36 @@ alias oc='opencode'
 alias python='python3'
 alias pip='pip3'
 
+export DOTFILES="${${(%):-%x}:A:h}"
 export XDG_CONFIG_HOME="$HOME/.config"
-export NVM_DIR="$HOME/.config/nvm"
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+export BUN_INSTALL="$HOME/.bun"
 
-# Lazy load nvm for faster shell startup
-# This creates placeholder functions that load nvm on first use
-nvm() {
+latest_node_bin=("$NVM_DIR"/versions/node/*/bin(N[-1]))
+path=(
+  "$HOME/.local/bin"
+  "$HOME/.opencode/bin"
+  "$BUN_INSTALL/bin"
+  "$HOME/.npm-global/bin"
+  $latest_node_bin
+  $path
+  "$HOME/.lmstudio/bin"
+)
+
+load_nvm() {
   unset -f nvm node npm npx
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-  nvm "$@"
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 }
 
-node() {
-  unset -f nvm node npm npx
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-  node "$@"
-}
+for command_name in nvm node npm npx; do
+  eval "$command_name() { load_nvm; $command_name \"\$@\"; }"
+done
 
-npm() {
-  unset -f nvm node npm npx
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-  npm "$@"
-}
+alias pi-sandbox="$DOTFILES/docker/pi-sandbox/run.sh"
 
-npx() {
-  unset -f nvm node npm npx
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-  npx "$@"
-}
-
-# Add node to PATH if nvm default is set (without loading nvm)
-if [ -d "$NVM_DIR/versions/node" ]; then
-  NODE_VERSION=$(ls -1 "$NVM_DIR/versions/node" | tail -1)
-  export PATH="$NVM_DIR/versions/node/$NODE_VERSION/bin:$PATH"
-fi
-
-# Cache brew prefix for faster loading (typically /opt/homebrew on Apple Silicon, /usr/local on Intel)
-if [[ -d "/opt/homebrew" ]]; then
-  BREW_PREFIX="/opt/homebrew"
-elif [[ -d "/usr/local/Homebrew" ]]; then
-  BREW_PREFIX="/usr/local"
-else
-  BREW_PREFIX="$(brew --prefix)"
-fi
-
+BREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
 source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-export PATH=~/.npm-global/bin:$PATH
 
-# Configuration
-_start_time=0
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH
-export PATH="$HOME/.local/bin:$PATH"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:$HOME/.lmstudio/bin"
-# End of LM Studio CLI section
-
-# Pi
-export PATH="$HOME/projects/dotfiles/.config/nvm/versions/node/v25.2.1/bin:$PATH"
-alias pi-sandbox="$HOME/projects/dotfiles/docker/pi-sandbox/run.sh"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"

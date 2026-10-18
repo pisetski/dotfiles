@@ -1,153 +1,52 @@
 #!/bin/bash
+set -euo pipefail
 
-set -e  # Exit on any error
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "🚀 Setting up your development environment..."
+links=(
+  ".config:.config"
+  ".editorconfig:.editorconfig"
+  ".gitignore:.gitignore"
+  ".tmux.conf:.tmux.conf"
+  ".zprofile:.zprofile"
+  ".zshrc:.zshrc"
+  ".claude/agents:.claude/agents"
+  ".claude/skills:.claude/skills"
+  ".claude/settings.json:.claude/settings.json"
+  ".claude/statusline-command.sh:.claude/statusline-command.sh"
+  "agents/AGENTS.md:.claude/CLAUDE.md"
+)
 
-# Check if Homebrew is installed
-if ! command -v brew &> /dev/null; then
-    echo "📦 Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+link() {
+  local source="$DOTFILES_DIR/$1"
+  local target="$HOME/$2"
 
-# Install packages via Homebrew
-echo "📦 Installing packages..."
-brew install node@22 neovim fzf rg lazygit tmux bat zsh-syntax-highlighting typewritten zsh-autosuggestions gh git-delta difftastic
-brew install cormacrelf/tap/dark-notify
-brew install --cask alacritty
+  if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then
+    echo "✓ $2"
+    return
+  fi
 
-# Build bat theme
-echo "🦇 Building bat themes..."
-mkdir -p "$(bat --config-dir)/themes"
-cd "$(bat --config-dir)/themes"
-# Replace _night in the lines below with _day, _moon, or _storm if needed.
-curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
-curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme
-bat cache --build
-cd -
-
-# Increase repeat rate on OS X
-echo "🏎️ Increasing key repeat rate... Log out and back in for changes to take effect."
-defaults write -g InitialKeyRepeat -float 10.0 # normal minimum is 15 (225 ms)
-defaults write -g KeyRepeat -float 1.0 # normal minimum is 2 (30 ms)
-
-# Install Oh My Zsh
-if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-    echo "🐚 Installing Oh My Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-fi
-
-# Install TPM (Tmux Plugin Manager)
-if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
-    echo "🔌 Installing TPM..."
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
-
-# Symlink dotfiles
-echo "🔗 Symlinking dotfiles..."
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DOTFILES_DIR="$SCRIPT_DIR"
-
-echo "Installing dotfiles from: $DOTFILES_DIR"
-
-# Function to create symlink with backup
-create_symlink() {
-    local source="$1"
-    local target="$2"
-    local filename="$(basename "$source")"
-
-    # If target already exists
-    if [[ -e "$target" || -L "$target" ]]; then
-        # If it's already the correct symlink, skip
-        if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then
-            echo "✓ $filename already correctly linked"
-            return
-        fi
-
-        # If it's a broken symlink or wrong symlink, remove it
-        if [[ -L "$target" ]]; then
-            echo "Removing broken/incorrect symlink: $filename"
-            rm "$target"
-        # If it's a real file/directory, back it up
-        else
-            echo "Backing up existing $filename to ${filename}.backup"
-            mv "$target" "${target}.backup"
-        fi
-    fi
-
-    # Create the symlink
-    ln -sf "$source" "$target"
-    echo "✓ Linked $filename"
+  mkdir -p "$(dirname "$target")"
+  if [[ -e "$target" || -L "$target" ]]; then
+    mv "$target" "${target}.backup"
+  fi
+  ln -s "$source" "$target"
+  echo "→ $2"
 }
 
-# Symlink .claude directory contents
-echo "🔗 Symlinking Claude configuration..."
-mkdir -p "$HOME/.claude"
-create_symlink "$DOTFILES_DIR/.claude/agents" "$HOME/.claude/agents"
-create_symlink "$DOTFILES_DIR/.claude/skills" "$HOME/.claude/skills"
-create_symlink "$DOTFILES_DIR/.claude/settings.json" "$HOME/.claude/settings.json"
-create_symlink "$DOTFILES_DIR/.claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+command -v brew &> /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew bundle --file="$DOTFILES_DIR/Brewfile"
 
-# Symlink shared AGENTS.md to Claude Code and OpenCode
-echo "🔗 Symlinking AGENTS.md..."
-mkdir -p "$HOME/.config/opencode"
-create_symlink "$DOTFILES_DIR/agents/AGENTS.md" "$HOME/.claude/CLAUDE.md"
-create_symlink "$DOTFILES_DIR/agents/AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
+[[ -d "$HOME/.oh-my-zsh" ]] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+[[ -d "$HOME/.tmux/plugins/tpm" ]] || git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 
-# Process all dotfiles (files starting with .)
-for file in "$DOTFILES_DIR"/.*; do
-    # Skip if not a file or directory
-    if [[ ! -e "$file" ]]; then
-        continue
-    fi
-
-    filename="$(basename "$file")"
-
-    # Skip . and .. directories
-    if [[ "$filename" == "." || "$filename" == ".." ]]; then
-        continue
-    fi
-
-    # Skip .git directory
-    if [[ "$filename" == ".git" ]]; then
-        continue
-    fi
-
-    # Skip .claude directory (handled separately above)
-    if [[ "$filename" == ".claude" ]]; then
-        continue
-    fi
-
-    # Only process top-level dotfiles/directories, avoid recursion
-    if [[ "$file" == "$DOTFILES_DIR/$filename" ]]; then
-        create_symlink "$file" "$HOME/$filename"
-    fi
+for entry in "${links[@]}"; do
+  link "${entry%%:*}" "${entry#*:}"
 done
 
-echo ""
-echo "✅ Setup complete!"
+bat cache --build
 
-# Offer to clean up old backup files
-backup_files=(~/*.backup)
-if [[ -e "${backup_files[0]}" ]]; then
-   echo ""
-   echo "🧹 Found backup files from previous installations:"
-   ls -la ~/*.backup 2>/dev/null || true
-   echo ""
-   read -p "Would you like to remove these backup files? (y/n): " -n 1 -r
-   echo
-   if [[ $REPLY =~ ^[Yy]$ ]]; then
-       rm -f ~/*.backup
-       echo "✅ Backup files cleaned up!"
-   else
-       echo "📁 Backup files kept (you can remove them manually later)"
-   fi
-fi
+defaults write -g InitialKeyRepeat -float 10.0
+defaults write -g KeyRepeat -float 1.0
 
-# Source the new .zshrc if it exists and we're in a zsh session
-if [[ -f "$HOME/.zshrc" ]]; then
-    echo "🔄 Reloading shell configuration..."
-    exec zsh -l
-else
-    echo "📋 Please restart your terminal to apply changes"
-fi
+echo "Done. Restart your shell, and log out and back in for key repeat changes."
