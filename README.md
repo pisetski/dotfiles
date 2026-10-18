@@ -1,4 +1,8 @@
-# Quickstart
-1. Clone this repository
-2. Run: `./setup.sh`
-3. Run `tmux` and press `prefix + I` to install plugins
+macOS. Symlinked into `$HOME`; existing files are kept as `*.backup`.
+
+```sh
+git clone https://github.com/pisetski/dotfiles.git
+cd dotfiles && ./setup.sh
+```
+
+Then open `tmux` and press `prefix + I` to install plugins.

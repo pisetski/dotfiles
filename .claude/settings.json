@@ -1,5 +1,5 @@
 {
-  "model": "sonnet",
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline-command.sh"
@@ -9,7 +9,13 @@
     "feature-dev@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
     "php-lsp@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
   },
   "tui": "fullscreen",
   "theme": "auto"
