@@ -14,6 +14,8 @@ return {
       "cssls",
       "yamlls",
       "eslint",
+      "oxlint",
+      "oxfmt",
       "jsonls",
       "marksman",
       "tsgo",
@@ -89,6 +91,22 @@ return {
           buffer = bufnr,
           command = "LspEslintFixAll",
         })
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      callback = function(args)
+        local oxlint = vim.lsp.get_clients({ bufnr = args.buf, name = "oxlint" })[1]
+        if oxlint then
+          oxlint:request_sync("workspace/executeCommand", {
+            command = "oxc.fixAll",
+            arguments = { { uri = vim.uri_from_bufnr(args.buf) } },
+          }, 3000, args.buf)
+        end
+
+        if #vim.lsp.get_clients({ bufnr = args.buf, name = "oxfmt" }) > 0 then
+          vim.lsp.buf.format({ bufnr = args.buf, name = "oxfmt" })
+        end
       end,
     })
 
