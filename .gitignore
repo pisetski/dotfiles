@@ -5,8 +5,8 @@
 .config/gh/hosts.yml
 
 .claude/settings.local.json
-.claude/skills/synced/
-.claude/skills/.claude/
+.claude/skills/*
+!.claude/skills/proofread/
 .claude/plugins/
 .claude/projects/
 .claude/todos/
