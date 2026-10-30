@@ -12,3 +12,10 @@
 .claude/todos/
 .claude/*.jsonl
 .config/homebrew/*.lock
+.config/intelephense/
+.config/1Password/
+.config/.jira/
+.config/opencode/package-lock.json
+.config/opencode/node_modules/
+.config/opencode/plugins/workmux-status.ts
+.config/opencode/skills/
