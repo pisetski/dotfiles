@@ -1,0 +1,23 @@
+# workmux global configuration
+# Settings here apply to all projects. Project-specific .workmux.yaml overrides these.
+# See: https://workmux.raine.dev/guide/configuration
+
+# nerdfont: true
+# agent: claude
+# merge_strategy: rebase
+# merge_keep: true
+#
+# panes:
+#   - command: <agent>
+#     focus: true
+#   - split: horizontal
+#
+# sandbox:
+#   host_commands: ["just", "cargo"]
+
+files:
+  symlink:
+    - "<global>" # Include global symlinks (node_modules)
+    - .env
+    - .npmrc
+    - .pnpm-store # Add project-specific symlink
