@@ -5,18 +5,158 @@
     "command": "~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
+    "code-review@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "feature-dev@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
     "php-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true
   },
   "modelSettings": {
     "claude-opus-5-5": {
       "effortLevel": "high"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "high"
     }
   },
   "tui": "fullscreen",
-  "theme": "auto"
+  "theme": "auto",
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://127.0.0.1:8787/w/claude",
+    "_CLAUDE_CODE_ASSUME_FIRST_PARTY_BASE_URL": "1",
+    "ENABLE_TOOL_SEARCH": "auto"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/pavel.pisetski/.caveman/bin/caveman-proxy' native-hook claude --adapter '/Users/pavel.pisetski/.npm-global/lib/node_modules/@caveman-ai/cli/dist/native-hook-fast.js' --node '/usr/local/bin/node'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/pavel.pisetski/.caveman/bin/caveman-proxy' native-hook claude --adapter '/Users/pavel.pisetski/.npm-global/lib/node_modules/@caveman-ai/cli/dist/native-hook-fast.js' --node '/usr/local/bin/node'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/pavel.pisetski/.caveman/bin/caveman-proxy' native-hook claude --adapter '/Users/pavel.pisetski/.npm-global/lib/node_modules/@caveman-ai/cli/dist/native-hook-fast.js' --node '/usr/local/bin/node'",
+            "timeout": 30
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/usr/local/bin/node' '/Users/pavel.pisetski/.npm-global/bin/caveman' shrink-hook",
+            "timeout": 30
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/pavel.pisetski/.local/share/caveman-blocks/bin/caveman-blocks hook --harness claude",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/pavel.pisetski/.caveman/bin/caveman-proxy' native-hook claude --adapter '/Users/pavel.pisetski/.npm-global/lib/node_modules/@caveman-ai/cli/dist/native-hook-fast.js' --node '/usr/local/bin/node'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/pavel.pisetski/.caveman/bin/caveman-proxy' native-hook claude --adapter '/Users/pavel.pisetski/.npm-global/lib/node_modules/@caveman-ai/cli/dist/native-hook-fast.js' --node '/usr/local/bin/node'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/pavel.pisetski/.caveman/bin/caveman-proxy' native-hook claude --adapter '/Users/pavel.pisetski/.npm-global/lib/node_modules/@caveman-ai/cli/dist/native-hook-fast.js' --node '/usr/local/bin/node'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/pavel.pisetski/.caveman/bin/caveman-proxy' native-hook claude --adapter '/Users/pavel.pisetski/.npm-global/lib/node_modules/@caveman-ai/cli/dist/native-hook-fast.js' --node '/usr/local/bin/node'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/pavel.pisetski/.caveman/bin/caveman-proxy' native-hook claude --adapter '/Users/pavel.pisetski/.npm-global/lib/node_modules/@caveman-ai/cli/dist/native-hook-fast.js' --node '/usr/local/bin/node'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/pavel.pisetski/.caveman/bin/caveman-proxy' native-hook claude --adapter '/Users/pavel.pisetski/.npm-global/lib/node_modules/@caveman-ai/cli/dist/native-hook-fast.js' --node '/usr/local/bin/node'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/pavel.pisetski/.caveman/bin/caveman-proxy' native-hook claude --adapter '/Users/pavel.pisetski/.npm-global/lib/node_modules/@caveman-ai/cli/dist/native-hook-fast.js' --node '/usr/local/bin/node'",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
 }
