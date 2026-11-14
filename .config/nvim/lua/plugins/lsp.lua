@@ -19,10 +19,9 @@ return {
       "jsonls",
       "marksman",
       "tsgo",
-      "typos_lsp",
+      "harper_ls",
       "biome",
       "intelephense",
-      "ltex_plus",
       "pylsp",
       "rust_analyzer"
 
@@ -108,19 +107,6 @@ return {
           vim.lsp.buf.format({ bufnr = args.buf, name = "oxfmt" })
         end
       end,
-    })
-
-    vim.lsp.config("ltex_plus", {
-      settings = {
-        ltex = {
-          checkFrequency = "save",
-          completionEnabled = false,
-          additionalRules = {
-            enablePickyRules = true,
-          },
-          enabled = { "markdown", "html" },
-        }
-      }
     })
 
     vim.lsp.config("pylsp", {
