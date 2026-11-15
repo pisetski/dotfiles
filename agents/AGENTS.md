@@ -1,5 +1,9 @@
 # Global Rules
 
+## Requests
+
+- Ask before acting only when an ambiguity would change the result and the code or context can't resolve it; otherwise state the assumption and proceed.
+
 ## Code
 
 - Comments are a smell: express intent through names, and comment only edge cases code can't convey.
