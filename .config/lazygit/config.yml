@@ -1,3 +1,5 @@
+promptToReturnFromSubprocess: false
+
 git:
   diffRenderers:
     - command: delta --dark --paging=never --line-numbers

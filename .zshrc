@@ -46,6 +46,7 @@ alias cc='claude'
 alias wm='workmux'
 alias python='python3'
 alias pip='pip3'
+alias lg='lazygit'
 
 export DOTFILES="${${(%):-%x}:A:h}"
 export XDG_CONFIG_HOME="$HOME/.config"
