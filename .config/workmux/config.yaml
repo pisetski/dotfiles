@@ -3,6 +3,7 @@
 # See: https://workmux.raine.dev/guide/configuration
 
 # nerdfont: true
+status_format: false
 # agent: claude
 # merge_strategy: rebase
 # merge_keep: true
