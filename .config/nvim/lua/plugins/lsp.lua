@@ -18,12 +18,13 @@ return {
       "oxfmt",
       "jsonls",
       "marksman",
-      "tsc",
+      "tsgo",
       "harper_ls",
       "biome",
       "intelephense",
       "pylsp",
       "rust_analyzer"
+
     }
 
     require("mason").setup()
@@ -45,7 +46,7 @@ return {
       function()
         vim.lsp.buf.format {
           async = true,
-          filter = function(client) return client.name ~= "tsc" end
+          filter = function(client) return client.name ~= "tsgo" end
         }
       end,
       { noremap = true, silent = true, }
